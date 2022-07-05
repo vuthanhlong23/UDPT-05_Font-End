@@ -1,0 +1,9 @@
+:root{
+    --primary-color: #117182;
+    --secondary-color: #42afc2; 
+    --text-color: #165f6c;
+}
+
+.header, .container {
+    width: 100%;
+}

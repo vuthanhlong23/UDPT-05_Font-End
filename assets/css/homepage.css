@@ -1,0 +1,132 @@
+.app {
+    height: 100vh;
+}
+
+.row {
+    margin: 0 !important;
+}
+.col-3, .col-9 {
+    padding: 0 !important;
+}
+
+.homepage__header-left {
+    background-color: var(--primary-color);
+    height: 50px;
+}
+
+.homepage__header-right {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    height: 50px;
+}
+
+.HRM__logo {
+    font-size: 2rem;
+    color: white;
+    padding-left: 30px;
+    height: 50px !important;
+}
+
+.HRM__logo:hover {
+    color: white !important;
+}
+
+.HRM__logo-text:hover {
+    color: white !important;
+}
+
+.HRM__role-user-login {
+    color: black;
+    font-weight: 500;
+    height: 50px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 40px;
+}
+
+.HRM__login--redirect, .HRM__logout--redirect {
+    padding-right: 40px;
+    color: black;
+    font-weight: 500;
+    text-decoration: none;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepage__container-left {
+    box-shadow: 0 2px 10px #ccc;
+    height: calc(100vh - 50px);
+}
+
+.homepage__container-right {
+
+}
+
+.HRM__funtions-list {
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    padding-top: 20px;
+    position: relative;
+}
+
+.HRM__funtions-list:before {
+    content : "";
+    position: absolute;
+    width: 80%;
+    border-bottom: 1px solid #ccc;
+    bottom: -10px;
+    
+
+}
+
+
+.HRM__functions-name {
+   
+}
+
+.HRM__functions-name-items {
+    display: flex;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding-left: 20px;
+    padding-top: 16px;
+    cursor: pointer;
+    color: var(--text-color);
+    position: relative;
+}
+
+.HRM__functions-name-items:hover {
+    color: var(--secondary-color);
+}
+
+
+.HRM__functions-name-items__logo {
+    font-size: 1.4rem;
+    width: 30px;
+}
+
+.HRM__functions-name-items__name {
+    position:absolute;
+    left: 60px;
+}
+
+.HRM__introduction {
+    font-size: 1.2rem;
+    padding: 20px 40px;
+    color: var(--text-color);
+
+}
+
+
+
+.HRM__functions-name-items__companyActivity, .HRM__functions-name-items__personalInfo, .HRM__functions-name-items__manageEmployee {
+    padding-bottom: 16px;
+}

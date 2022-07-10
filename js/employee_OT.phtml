@@ -1,0 +1,71 @@
+<script>
+    
+// document.querySelector('.HRM__introduction').innerHTML = 'test';
+
+
+
+function TDate() {
+    var UserDate = document.querySelector(".requestOT__formInput-date").value;
+    var ToDate = new Date();
+
+    if (new Date(UserDate).getTime() < ToDate.getTime()) {
+          alert("Ngày làm thêm giờ phải lớn hơn hoặc bằng ngày hiện tại!!!");
+          document.querySelector(".requestOT__formInput-date").value = "";
+          return false;
+    }
+    return true;
+}
+
+function HourExpected() {
+    var NumHour = document.querySelector(".requestOT__formInput-hour").value;
+    if (NumHour<= 0) {
+        alert("Số giờ làm phải lớn hơn 0!!!");
+        document.querySelector(".requestOT__formInput-hour").value = "";
+        return false;
+    }
+    return true;
+}
+
+function submitRequestOT() {
+    var dateOT = document.querySelector(".requestOT__formInput-date").value;
+    if (dateOT=="") {
+        alert("Ngày làm thêm không được bỏ trống!!!");
+    }
+    var NumHour = document.querySelector(".requestOT__formInput-hour").value;
+    if (NumHour=="") {
+        alert("Số giờ làm thêm không được bỏ trống!!!");
+    }
+    var reasonOT = document.querySelector(".requestOT__formInput-reasonOT").value;
+    if (reasonOT=="") {
+        alert("Lý do không được bỏ trống!!!");
+    }
+
+}
+
+
+var requestOTStatusName = document.querySelectorAll(".requestOT__formItemsStatusName");
+requestOTStatusName.forEach(index => {
+    var requestOTStatusNameValue = index.innerText;
+    if (requestOTStatusNameValue == "Đang chờ duyệt") {
+        index.style.cssText += 'background-color: grey;'
+    }
+    else if (requestOTStatusNameValue == "Chấp thuận") {
+        index.style.cssText += 'background-color: green;'
+    }
+    else {  
+        index.style.cssText += 'background-color: red;'
+    }
+})
+
+
+var requestOTRejectReason = document.querySelectorAll(".requestOT__formItemsRejectReason");
+for(var i=0;i<requestOTRejectReason.length;i++){
+    var requestOTStatusNameValue = requestOTStatusName[i].innerText;
+    if(requestOTStatusNameValue == "Chấp thuận" || requestOTStatusNameValue == "Đang chờ duyệt" ){
+        requestOTRejectReason[i].style.display = "none";
+    }
+}
+
+
+</script>
+

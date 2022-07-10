@@ -1,7 +1,7 @@
 <?php
 class EmployeeHomeController {
     public function index(){
-        $VIEW = "./view/home.phtml";
+        $VIEW = "./view/employee_OT.phtml";
         require("./template/employee_template.phtml");
     }
 }

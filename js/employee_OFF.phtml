@@ -1,0 +1,66 @@
+<script>
+
+function TDate() {
+    var UserDate = document.querySelector(".requestOFF__formInput-date").value;
+    var ToDate = new Date();
+
+    if (new Date(UserDate).getTime() < ToDate.getTime()) {
+          alert("Ngày nghỉ phải lớn hơn hoặc bằng ngày hiện tại!!!");
+          document.querySelector(".requestOFF__formInput-date").value = "";
+          return false;
+    }
+    return true;
+}
+
+function DayOffExpected() {
+    var dayOff = document.querySelector(".requestOFF__formInput-dayoff").value;
+    if (dayOff<= 0) {
+        alert("Số ngày nghỉ lớn hơn 0!!!");
+        document.querySelector(".requestOFF__formInput-dayoff").value = "";
+        return false;
+    }
+    return true;
+}
+
+function submitRequestOFF() {
+    var dateOff = document.querySelector(".requestOFF__formInput-date").value;
+    if (dateOff=="") {
+        alert("Ngày xin nghỉ không được bỏ trống!!!");
+    }
+    var dayOff = document.querySelector(".requestOFF__formInput-dayoff").value;
+    if (dayOff=="") {
+        alert("Số ngày nghỉ không được bỏ trống!!!");
+    }
+    var reasonOFF = document.querySelector(".requestOFF__formInput-reasonoff").value;
+    if (reasonOFF=="") {
+        alert("Lý do không được bỏ trống!!!");
+    }
+}
+
+
+var requestOFFStatusName = document.querySelectorAll(".requestOFF__formItemsStatusName");
+requestOFFStatusName.forEach(index => {
+    var requestOFFStatusNameValue = index.innerText;
+    if (requestOFFStatusNameValue == "Đang chờ duyệt") {
+        index.style.cssText += 'background-color: grey;'
+    }
+    else if (requestOFFStatusNameValue == "Chấp thuận") {
+        index.style.cssText += 'background-color: green;'
+    }
+    else {  
+        index.style.cssText += 'background-color: red;'
+    }
+})
+
+
+
+var requestOFFRejectReason = document.querySelectorAll(".requestOFF__formItemsRejectReason");
+for(var i=0;i<requestOFFRejectReason.length;i++){
+    var requestOFFStatusNameValue = requestOFFStatusName[i].innerText;
+    if(requestOFFStatusNameValue == "Chấp thuận" || requestOFFStatusNameValue == "Đang chờ duyệt" ){
+        requestOFFRejectReason[i].style.display = "none";
+    }
+}
+
+</script>
+

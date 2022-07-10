@@ -62,13 +62,20 @@
     border: 1px solid black;
     border-radius: 6px;
     /* background-color: #198754; */
-    background-color: grey;
+    /* background-color: grey; */
     padding: 14px 4px;
     color: white;
+    display: flex;
+    justify-content: center;
+    width: 130px;
 }
 
 .requestOT__formItemsStatus {
     display: flex;
     justify-content: center;
     align-self: center;
+}
+
+.requestOT__formItems--margin {
+    margin-bottom: 20px;
 }

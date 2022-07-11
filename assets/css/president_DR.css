@@ -1,0 +1,78 @@
+.President_DR {
+    position: relative;
+}
+
+.President_DR__functionName {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+    padding-top: 20px;
+    /* border-bottom: 2px solid var(--text-color); */
+}   
+
+.President_DR__formName {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0 !important;
+    margin-bottom: 18px !important;
+}
+
+.President_DR__formItems {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    background: #F0F0F0;
+    padding: 20px !important;
+    border-right: 2px outset #fff;
+    overflow: auto;
+}
+
+.President_DR__formItems--header{
+    width: 425px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px outset #fff;
+
+}
+
+.President_DR_All-btn {
+    position: relative;
+    padding: 5px 1px;
+    color: var(--text-color);
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.President_DR__formItems--table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px !important;
+}
+
+.President_DR__formItems--header--td{
+    font-weight: 660;
+}
+
+.President_DR__formItems--header--tr{
+    border-bottom: 1.5px outset #fff
+}
+
+.President_DR__formItems--body--tr:hover{
+    background: grey;
+
+}
+
+
+.President_DR__formItems--body--a{
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
+
+.President_DR__formItems--body--td{
+    padding: 9px 2px;
+    border-bottom: 1.5px outset #fff
+}
+

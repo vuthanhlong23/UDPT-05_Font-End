@@ -1,0 +1,132 @@
+.president_formDR {
+    position: relative;
+}
+
+.president_formDR__functionName {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+    padding-top: 20px;
+    /* border-bottom: 2px solid var(--text-color); */
+}   
+
+.president_formDR__form {
+    position: absolute;
+    width: 100%;
+    max-width: 820px;
+    min-height: 500px;
+    background-color: #F0F0F0;
+    border-radius: 8px;
+    left: 184px;
+}
+
+.president_formDR__form--info {
+    border-radius: 8px;
+    padding: 22px 25px !important;
+    overflow: hidden;
+    position: relative;
+    border-right: 3px solid #fff;
+}
+
+.president_formDR__form--contact {
+    padding: 22px 25px !important;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.president_formDR__formReasonName {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.president_formDR__formInput {
+    width: 100%;
+    margin: 10px 0;
+    min-height: 150px;
+    border-radius: 2px;
+    resize: none;
+}
+
+.president_formDR_btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.president_formDR_submit-btn {
+    margin-left: 70px !important;
+    position: relative;
+    height: 45px;
+}
+
+.president_formDR_cancel-btn {
+    margin-right: 70px !important;
+    width: 100px;
+    height: 45px;
+    position: relative;
+}
+
+.president_formDR__formTitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-right: 55px;
+}
+
+.president_formDR__formStatus {
+    width: 190px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.president_formDR__formStatus--name {
+    font-size: 1rem;
+    font-weight: 400;
+    color: black;
+}
+
+.president_formDR__formStatus--status {
+    margin-left: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.president_formDR__formRequestSuggest {
+    border-bottom: 1px outset #fff;
+    margin-top: 10px;
+}
+
+.president_formDR__formRequestSuggest--name{
+    font-size: 1rem;
+    font-weight: 550;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+.president_formDR__formRequestInfo--items {
+    width: 340px;
+    text-decoration: none;
+    padding-top: 16px;
+    color: var(--text-color);
+}
+
+
+.president_formDR__formRequestInfo--items__logo {
+    font-size: 1.3rem;
+    font-weight: 500;
+    width: 30px;
+    left: 130px !important;
+}
+
+
+.president_formDR__formRequestInfo--items--info1 {
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.president_formDR__formRequestInfo--items--info2 {
+    font-weight: 500;
+    font-size: 1rem;
+}

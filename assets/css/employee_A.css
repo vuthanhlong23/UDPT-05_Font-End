@@ -1,0 +1,71 @@
+.requestA {
+    position: relative;
+}
+
+.requestA__functionName {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+    padding-top: 20px;
+    /* border-bottom: 2px solid var(--text-color); */
+}
+
+.requestA_formName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1150px !important;
+}
+
+.requestA__formName--status {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 24px !important;
+}
+
+.requestA-info__search {
+    width: 500px;
+    height: 40px;
+    padding-left: 20px;
+   
+}
+
+.requestA-info_search_form {
+    font-size: 1.6rem;
+    border-radius: 16px;
+    border: 1px solid var(--black-color);
+}
+
+.requestA-info_search__icon {
+    width: 30px;
+    font-size: 1.8rem;
+}
+
+.requestA-info_search__btn {
+    border-radius: 17px;
+    background-color: var(--primary-color) !important;
+}
+
+.requestA__formItems--status {
+    border: 2px solid var(--text-color);
+}
+
+.requestA_submit-btn {
+    margin: 20px !important;
+    position: relative;
+    height: 52px;
+}
+
+.requestA__formItems--status {
+    width: 1150px !important;
+    min-height: 85px !important;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin-bottom: 16px !important;
+    margin-left: 14px !important;
+}
+
+.requestA__formItemsName, .requestA__formItemsDescription, .requestA__formItemsDeadline {
+    display: flex;
+}
+

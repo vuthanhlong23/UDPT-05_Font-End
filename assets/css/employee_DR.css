@@ -1,0 +1,83 @@
+.requestDR {
+    position: relative;
+}
+
+.requestDR__functionName {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+    padding-top: 20px;
+    /* border-bottom: 2px solid var(--text-color); */
+}
+
+
+.requestDR__form, .requestDR__form--status {
+    border: 2px solid var(--text-color);
+}
+
+.requestDR__formName, .requestDR__formName--status {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.requestDR__formItem {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.requestDR__formItemName {
+    font-size: 1rem;
+    font-weight: 600;
+
+}
+
+.requestDR__formInput {
+    width: 340px !important;
+    resize: horizontal;
+    position: absolute;
+    left: 180px;
+    
+}
+
+.requestDR_submit-btn {
+    margin: 20px !important;
+    position: relative;
+    left: 155px;
+    bottom: 5px;
+}
+
+.requestDR_cancel-btn {
+    margin: 20px !important;
+    width: 106px;
+    position: relative;
+    left: 145px;
+    bottom: 5px;
+}
+
+.requestDR__formItems--status {
+
+    border: 2px solid black;
+    border-radius: 4px;
+    margin-bottom: 16px !important;
+}
+
+.requestDR__formItemsName, .requestDR__formItemsNote, .requestDR__formItemsReason {
+    display: flex;
+}
+
+.requestDR__formItemsStatusName {
+    border: 1px solid black;
+    border-radius: 6px;
+    /* background-color: #198754; */
+    background-color: grey;
+    padding: 14px 4px;
+    color: white;
+}
+
+.requestDR__formItemsStatus {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}

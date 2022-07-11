@@ -1,0 +1,97 @@
+.ApprovalITManager {
+    position: relative;
+}
+
+.ApprovalITManager__functionName {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+    padding-top: 20px;
+    /* border-bottom: 2px solid var(--text-color); */
+}   
+
+.ApprovalITManager__formName {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0 !important;
+    margin-bottom: 18px !important;
+}
+
+.ApprovalITManager__formItems {
+    position: relative;
+    width: 100%;
+}
+
+.ApprovalITManager__formItems--list, .ApprovalITManager__formDevices--list {
+    position: relative;
+    min-height: 320px;
+    background: #F0F0F0;
+    padding: 20px !important;
+    border-right: 2px outset #fff;
+    overflow: auto;
+}
+
+.ApprovalITManager__formItems--header{
+    width: 430px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px outset #fff;
+}
+
+.ApprovalITManager__formDevices--header{
+    width: 335px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px outset #fff;
+}
+
+.ApprovalITManager_All-btn {
+    position: relative;
+    padding: 5px 1px;
+    color: var(--text-color);
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.ApprovalITManager__formItems--table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.ApprovalITManager__formDevices--table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+.ApprovalITManager__formItems--header--td, .ApprovalITManager__formDevices--header--td {
+    font-weight: 660;
+}
+
+.ApprovalITManager__formItems--header--tr, .ApprovalITManager__formDevices--header--tr {
+    border-bottom: 1.5px outset #fff
+}
+
+.ApprovalITManager__formItems--body--tr:hover, .ApprovalITManager__formDevices--body--tr:hover {
+    background: grey;
+}
+
+
+.ApprovalITManager__formItems--body--a, .ApprovalITManager__formDevices--body--a {
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
+
+.ApprovalITManager__formItems--body--td, .ApprovalITManager__formDevices--body--td {
+    padding: 9px 2px;
+    border-bottom: 1.5px outset #fff
+}
+
+.ApprovalITManager__formDevices--body--td:last-child {
+    text-align: right;
+}

@@ -152,6 +152,7 @@
 }
 .update--infor__btn{
     font-weight: bold;
+    background-color: var(--secondary-color) !important;
 }
 
 .information__container-right__content{

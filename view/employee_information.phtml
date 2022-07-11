@@ -71,145 +71,149 @@
         </div>
         <div class="col-9 information__container-right">
             <div class="row" style="padding-bottom: 10px;">
-                <div class="information__container-right__title">
-                    <div class="row information__container-right__title-element">
-                        <div class="col-8 information__container-right__title-left">
-                            <div class="information__container-right__title-left-element">
-                                <span class="information__container-right__title-left-element__name">Thông tin chính</span>
-                            </div>
-                            <div class="information__container-right__title-left-element">
-                                <span class="information__container-right__title-left-element__description">Các thông tin cá nhân quan trọng</span>
-                            </div>
-                        </div>
-                        <div class="col-4 information__container-right__title-right">
-                            <div id="btn-update" class="update--infor">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="information__container-right__content">
-                    <div class="row" style="padding-bottom: 10px;">
-                        <div class="information__container-right__content-list">
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Mã nhân viên</span>
+                <form class="row">
+                    <div class="information__container-right__title">
+                        <div class="row information__container-right__title-element">
+                            <div class="col-8 information__container-right__title-left">
+                                <div class="information__container-right__title-left-element">
+                                    <span class="information__container-right__title-left-element__name">Thông tin chính</span>
                                 </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-value">NV0001<span>
+                                <div class="information__container-right__title-left-element">
+                                    <span class="information__container-right__title-left-element__description">Các thông tin cá nhân quan trọng</span>
                                 </div>
                             </div>
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Họ</span>
-                                </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <input type="text" id="employee_firstname" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);" value="Nguyễn Quang"></input>
-                                </div>
-                            </div>
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Tên</span>
-                                </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <input type="text" id="employee_lastname" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);" value="Pháp"></input>
-                                </div>
-                            </div>
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Tình trạng việc làm</span>
-                                </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-value">Active</span>
+                            <div class="col-4 information__container-right__title-right">
+                                <div id="btn-update" class="update--infor">
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="padding-bottom: 10px;">
-                        <div class="information__container-right__content-list">
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Phòng ban</span>
+                    <div class="information__container-right__content">
+                        <div class="row" style="padding-bottom: 10px;">
+                            <div class="information__container-right__content-list">
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Mã nhân viên</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-value">NV0001<span>
+                                    </div>
                                 </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <select id="employee_department" class="information__container-right__content-list-field__element-value">
-                                        <option value="1" selected>Phòng IT</option>
-                                        <option value="2">Kế toán</option>
-                                    </select>
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Họ</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <input type="text" id="employee_firstname" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);" value="Nguyễn Quang"></input>
+                                    </div>
+                                </div>
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Tên</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <input type="text" id="employee_lastname" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);" value="Pháp"></input>
+                                    </div>
+                                </div>
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Tình trạng việc làm</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-value">Active</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Chức vụ</span>
+                        </div>
+                        <div class="row" style="padding-bottom: 10px;">
+                            <div class="information__container-right__content-list">
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Phòng ban</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <select id="employee_department" class="information__container-right__content-list-field__element-value">
+                                            <option value="1" selected>Phòng IT</option>
+                                            <option value="2">Kế toán</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <select id="employee_position" class="information__container-right__content-list-field__element-value">
-                                        <option value="nhanvien" selected>Nhân viên</option>
-                                        <option value="truongphong">Trưởng Phòng</option>
-                                    </select>
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Chức vụ</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <select id="employee_position" class="information__container-right__content-list-field__element-value">
+                                            <option value="nhanvien" selected>Nhân viên</option>
+                                            <option value="truongphong">Trưởng Phòng</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Ngày sinh</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <input type="date" id="employee_dayOfBirth" class="information__container-right__content-list-field__element-value" value=""></input>
+                                    </div>
+                                </div>
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Giới tính</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <select class="information__container-right__content-list-field__element-value">
+                                            <option value="nam" selected>Nam</option>
+                                            <option value="nu">Nữ</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Ngày sinh</span>
+                        </div>
+                        <div class="row" style="padding-bottom: 10px;border-bottom: 5px solid var(--angle-color);">
+                            <div class="information__container-right__content-list">
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Email</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <input type="text" id="employee_email" class="information__container-right__content-list-field__element-value" value="phaphtt@gmail" onchange="checkInvalidValue(id);"></input>
+                                    </div>
                                 </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <input type="date" id="employee_dayOfBirth" class="information__container-right__content-list-field__element-value" value=""></input>
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Số điện thoại</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <input type="text" id="employee_phone" class="information__container-right__content-list-field__element-value" value="0368047874" onchange="checkInvalidValue(id);"></input>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Giới tính</span>
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Địa chỉ</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <input type="text" id="employee_address" class="information__container-right__content-list-field__element-value" value="Aasda" onchange="checkInvalidValue(id);"></input>
+                                    </div>
                                 </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <select class="information__container-right__content-list-field__element-value">
-                                        <option value="nam" selected>Nam</option>
-                                        <option value="nu">Nữ</option>
-                                    </select>
+                                <div class="information__container-right__content-list-field">
+                                    <div class="information__container-right__content-list-field__element">
+                                        <span class="information__container-right__content-list-field__element-label">Tình trạng hôn nhân</span>
+                                    </div>
+                                    <div class="information__container-right__content-list-field__element">
+                                        <select class="information__container-right__content-list-field__element-value">
+                                            <option value="docthan" selected>Độc thân</option>
+                                            <option value="dakethon">Đã kết hôn</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="padding-bottom: 10px;border-bottom: 5px solid var(--angle-color);">
-                        <div class="information__container-right__content-list">
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Email</span>
-                                </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <input type="text" id="employee_email" class="information__container-right__content-list-field__element-value" value="phaphtt@gmail" onchange="checkInvalidValue(id);"></input>
-                                </div>
-                            </div>
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Số điện thoại</span>
-                                </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <input type="text" id="employee_phone" class="information__container-right__content-list-field__element-value" value="0368047874" onchange="checkInvalidValue(id);"></input>
-                                </div>
-                            </div>
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Địa chỉ</span>
-                                </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <input type="text" id="employee_address" class="information__container-right__content-list-field__element-value" value="Aasda" onchange="checkInvalidValue(id);"></input>
-                                </div>
-                            </div>
-                            <div class="information__container-right__content-list-field">
-                                <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-label">Tình trạng hôn nhân</span>
-                                </div>
-                                <div class="information__container-right__content-list-field__element">
-                                    <select class="information__container-right__content-list-field__element-value">
-                                        <option value="docthan" selected>Độc thân</option>
-                                        <option value="dakethon">Đã kết hôn</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                <form>
+                
             </div>
 
             <div class="row">

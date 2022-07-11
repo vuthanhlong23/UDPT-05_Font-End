@@ -1,0 +1,17 @@
+<script>
+    function checkInvalidValue(fieldId) {
+        var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/?]+/;
+        var value = document.getElementById(fieldId).value;
+        if(format.test(value)){
+            var oldvalue = document.getElementById(fieldId).defaultValue;
+            document.querySelector("#"+fieldId).value = oldvalue;
+            alert("Nhập không hợp lệ");
+        }
+        else{
+            var btn = document.getElementById("btn-update");
+            if(btn.value == null){
+                document.getElementById("btn-update").innerHTML = "<input type='button' class='btn update--infor__btn' value='Cập nhật'/>"
+            }
+        }
+    }
+</script>

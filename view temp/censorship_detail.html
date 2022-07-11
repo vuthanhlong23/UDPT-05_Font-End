@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/homepage.css">
+    <link rel="stylesheet" href="../assets/css/censorship_detail.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>censorship</title>
+</head>
+<body>
+    <div class="app">
+        <header class="HRM__header">
+            <div class="row">
+                <div class="col-2 homepage__header-left">
+                    <a href="#" class="HRM__logo">
+                        <i class="fa-solid fa-dove HRM__logo-text"> H R M</i>
+                    </a>
+                </div>
+                <div class="col-10 homepage__header-right">
+                    <p class="HRM__role-user-login">Vai trò: Giám đốc</p>
+                    <a class="HRM__login--redirect" href="#">Đăng nhập</a>
+                    <!-- <p class="HRM__logout--redirect">Đăng xuất</p> -->
+                </div>
+            </div>
+        </header>
+    
+        <div class="HRM__container">
+            <div class="row">
+                <div class="col-2 homepage__container-left">
+                    <p class="HRM__funtions-list">Danh sách chức năng</p>
+                    
+                    <div class="HRM__functions-name">
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-envelope"></i>
+                            <p class="HRM__functions-name-items__name">Kiểm duyệt</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-arrow-right-to-bracket"></i>
+                            <p class="HRM__functions-name-items__name">Check In</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-arrow-right-to-bracket"></i>
+                            <p class="HRM__functions-name-items__name">Check Out</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-clock"></i>
+                            <p class="HRM__functions-name-items__name">Xin làm thêm giờ</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-bed-pulse"></i>
+                            <p class="HRM__functions-name-items__name">Xin nghỉ phép</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-house"></i>
+                            <p class="HRM__functions-name-items__name">Xin làm ở nhà</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-id-card"></i>
+                            <p class="HRM__functions-name-items__name">Quản lý profile</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-computer"></i>
+                            <p class="HRM__functions-name-items__name">Yêu cầu thiết bị</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-calendar-days"></i>
+                            <p class="HRM__functions-name-items__name">Hoạt động của công ty</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-10 homepage__container-right">
+                    <div class="censorship__header">
+                        <div class="row">
+                            <div class="censorship__header_nav">
+                                <a class="censorship__header-nav-item">
+                                    <i class="censorship__header-nav-item-icon fa-solid fa-angle-right"></i>
+                                    <p class="censorship__header-nav-item-name">Kiểm duyệt</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="censorship__container">
+                        <div class="row">
+                            <div class="censorship__container-title">
+                                <div class="censorship__container-title-first">
+                                    <div class="censorship__container-title-first__name">
+                                        <spa>Danh sách để xuất</spa>
+                                    </div>
+                                    <div class="censorship__container-title-first__filter">
+                                        <label>Loại đề xuất:</label>
+                                        <select class="censorship__container-title-first__filter-list">
+                                            <option value="all">Tất cả</option>
+                                            <option value="all">Yêu cầu nghỉ phép</option>
+                                            <option value="all">Yêu cầu OT</option>
+                                            <option value="all">Yêu cầu checkout bù</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="censorship__container-title-nav">
+                                    <div class="censorship__container-title-nav-content-link">
+                                        <a class="censorship__container-title-nav-content-link-value">TẤT CẢ</a>
+                                    </div>
+                                    <div class="censorship__container-title-nav-content-link">
+                                        <a class="censorship__container-title-nav-content-link-value">ĐANG CHỜ DUYỆT</a>
+                                    </div>
+                                    <div class="censorship__container-title-nav-content-link">
+                                        <a class="censorship__container-title-nav-content-link-value">ĐÃ PHÊ DUYỆT</a>
+                                    </div>
+                                    <div class="censorship__container-title-nav-content-link">
+                                        <a class="censorship__container-title-nav-content-link-value">ĐÃ TỪ CHỐI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="censorship__container-content">
+                                <div class="censorship__container-content-request-list">
+                                    <div class="censorship__container-content-request-list-item" style="background-color: var(--secondary-color);">
+                                        <a class="censorship__container-content-request-list-item-element">
+                                            <div class="censorship__container-content-request-list-item-element__title">
+                                                <span class="censorship__container-content-request-list-item-element__title-name" style="color: var(--white-color);">Yêu cầu nghỉ phép ngày 20/05</span>
+                                            </div>
+                                            <div class="censorship__container-content-request-list-item-element__description">
+                                                <span class="censorship__container-content-request-list-item-element__description-name" style="color: var(--white-color);">Nhân viên a, asda</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="censorship__container-content-request-list-item">
+                                        <a class="censorship__container-content-request-list-item-element">
+                                            <div class="censorship__container-content-request-list-item-element__title">
+                                                <span class="censorship__container-content-request-list-item-element__title-name">Yêu cầu nghỉ phép ngày 20/05</span>
+                                            </div>
+                                            <div class="censorship__container-content-request-list-item-element__description">
+                                                <span class="censorship__container-content-request-list-item-element__description-name">Nhân viên a, asda</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="censorship__container-content-request-list-item">
+                                        <a class="censorship__container-content-request-list-item-element">
+                                            <div class="censorship__container-content-request-list-item-element__title">
+                                                <span class="censorship__container-content-request-list-item-element__title-name">Yêu cầu nghỉ phép ngày 20/05</span>
+                                            </div>
+                                            <div class="censorship__container-content-request-list-item-element__description">
+                                                <span class="censorship__container-content-request-list-item-element__description-name">Nhân viên a, asda</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="censorship__container-content-request-list-item">
+                                        <a class="censorship__container-content-request-list-item-element">
+                                            <div class="censorship__container-content-request-list-item-element__title">
+                                                <span class="censorship__container-content-request-list-item-element__title-name">Yêu cầu nghỉ phép ngày 20/05</span>
+                                            </div>
+                                            <div class="censorship__container-content-request-list-item-element__description">
+                                                <span class="censorship__container-content-request-list-item-element__description-name">Nhân viên a, asda</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="censorship__container-content-request-list-item">
+                                        <a class="censorship__container-content-request-list-item-element">
+                                            <div class="censorship__container-content-request-list-item-element__title">
+                                                <span class="censorship__container-content-request-list-item-element__title-name">Yêu cầu nghỉ phép ngày 20/05</span>
+                                            </div>
+                                            <div class="censorship__container-content-request-list-item-element__description">
+                                                <span class="censorship__container-content-request-list-item-element__description-name">Nhân viên a, asda</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="censorship__container-content-request-detail">
+                                    <div class="censorship__container-content-request-detail-title">
+                                        <div class="censorship__container-content-request-detail-title-name">
+                                            <span>Yêu cầu nghỉ phép</span>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-title-status">
+                                            <span>Trạng thái: </span>
+                                            <span style="color: var(--secondary-color);">Đang chờ duyệt</span>
+                                        </div>
+                                    </div>
+                                    <div class="censorship__container-content-request-detail-btn">
+                                        <div class="censorship__container-content-request-detail-btn-list">
+                                            <div class="censorship__container-content-request-detail-btn-list-item">
+                                                <div class="censorship__container-content-request-detail-btn-list-item-element">
+                                                    <input type="button" class="censorship__container-content-request-detail-btn-list-item-element__agree" value="Chấp thuận">
+                                                </div>
+                                            </div>
+                                            <div class="censorship__container-content-request-detail-btn-list-item">
+                                                <div class="censorship__container-content-request-detail-btn-list-item-element">
+                                                    <input type="button" class="censorship__container-content-request-detail-btn-list-item-element__disagree" value="Từ chối">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-btn-title">
+                                            <span class="censorship__container-content-request-detail-btn-title-name">THÔNG TIN ĐỀ XUẤT</span>
+                                        </div>
+                                    </div>
+                                    <div class="censorship__container-content-request-detail-request">
+                                        <div class="censorship__container-content-request-detail-request-item">
+                                            <div class="col-4">
+                                                <div class="censorship__container-content-request-detail-request-item-left">
+                                                    <div class="censorship__container-content-request-detail-request-item-icon">
+                                                        <i class="fa-solid fa-file-lines"></i>
+                                                    </div>
+                                                    <div class="censorship__container-content-request-detail-request-item-title">
+                                                        <span>Loại yêu cầu</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="censorship__container-content-request-detail-request-item-right">
+                                                    <span class="censorship__container-content-request-detail-request-item-right-value">Xin nghỉ phép</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-request-item">
+                                            <div class="col-4">
+                                                <div class="censorship__container-content-request-detail-request-item-left">
+                                                    <div class="censorship__container-content-request-detail-request-item-icon">
+                                                        <i class="fa-solid fa-circle-user"></i>
+                                                    </div>
+                                                    <div class="censorship__container-content-request-detail-request-item-title">
+                                                        <span>Người tạo</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="censorship__container-content-request-detail-request-item-right">
+                                                    <span class="censorship__container-content-request-detail-request-item-right-value">Nguyễn Quang Pháp</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-request-item">
+                                            <div class="col-4">
+                                                <div class="censorship__container-content-request-detail-request-item-left">
+                                                    <div class="censorship__container-content-request-detail-request-item-icon">
+                                                        <i class="fa-solid fa-building"></i>
+                                                    </div>
+                                                    <div class="censorship__container-content-request-detail-request-item-title">
+                                                        <span>Phòng ban</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="censorship__container-content-request-detail-request-item-right">
+                                                    <span class="censorship__container-content-request-detail-request-item-right-value">Phòng IT</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-request-item">
+                                            <div class="col-4">
+                                                <div class="censorship__container-content-request-detail-request-item-left">
+                                                    <div class="censorship__container-content-request-detail-request-item-icon">
+                                                        <i class="fa-solid fa-calendar-days"></i>
+                                                    </div>
+                                                    <div class="censorship__container-content-request-detail-request-item-title">
+                                                        <span>Thời gian tạo</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="censorship__container-content-request-detail-request-item-right">
+                                                    <span class="censorship__container-content-request-detail-request-item-right-value">20/07/2022</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-request-item">
+                                            <div class="col-4">
+                                                <div class="censorship__container-content-request-detail-request-item-left">
+                                                    <div class="censorship__container-content-request-detail-request-item-icon">
+                                                        <i class="fa-solid fa-window-maximize"></i>
+                                                    </div>
+                                                    <div class="censorship__container-content-request-detail-request-item-title">
+                                                        <span>Lý do</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="censorship__container-content-request-detail-request-item-right">
+                                                    <span class="censorship__container-content-request-detail-request-item-right-value">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur distinctio quod nisi, molestiae eligendi hic itaque consequatur minima iste temporibus soluta.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-request-title">
+                                            <span class="censorship__container-content-request-detail-request-title-name">THÔNG TIN KHÁC (MẪU ĐỀ XUẤT KHÁC)</span>
+                                        </div>
+                                    </div>
+                                    <div class="censorship__container-content-request-detail-request-other">
+                                        <div class="censorship__container-content-request-detail-request-other-item">
+                                            <div class="col-4">
+                                                <div class="censorship__container-content-request-detail-request-other-item-title">
+                                                    <span class="censorship__container-content-request-detail-request-other-item-title-value">Ngày làm thêm giờ</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="censorship__container-content-request-detail-request-other-item-result">
+                                                    <span class="censorship__container-content-request-detail-request-other-item-result-value">20/07/2022</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-request-other-item">
+                                            <div class="col-4">
+                                                <div class="censorship__container-content-request-detail-request-other-item-title">
+                                                    <span class="censorship__container-content-request-detail-request-other-item-title-value">Số giờ dự kiến</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="censorship__container-content-request-detail-request-other-item-result">
+                                                    <span class="censorship__container-content-request-detail-request-other-item-result-value">4</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-request-other-item">
+                                            <div class="col-4">
+                                                <div class="censorship__container-content-request-detail-request-other-item-title">
+                                                    <span class="censorship__container-content-request-detail-request-other-item-title-value">Ngày xin nghỉ</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="censorship__container-content-request-detail-request-other-item-result">
+                                                    <span class="censorship__container-content-request-detail-request-other-item-result-value">20/07/2022</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-request-other-item">
+                                            <div class="col-4">
+                                                <div class="censorship__container-content-request-detail-request-other-item-title">
+                                                    <span class="censorship__container-content-request-detail-request-other-item-title-value">Số ngày nghỉ</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="censorship__container-content-request-detail-request-other-item-result">
+                                                    <span class="censorship__container-content-request-detail-request-other-item-result-value">1</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="censorship__container-content-request-detail-request-other-item">
+                                            <div class="col-4">
+                                                <div class="censorship__container-content-request-detail-request-other-item-title">
+                                                    <span class="censorship__container-content-request-detail-request-other-item-title-value">Ghi chú nghỉ</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="censorship__container-content-request-detail-request-other-item-result">
+                                                    <span class="censorship__container-content-request-detail-request-other-item-result-value">Sáng</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="censorship__container-content-request-manager">
+                                    <div class="censorship__container-content-request-manager-element">
+                                        <div class="censorship__container-content-request-manager-title">
+                                            <span class="censorship__container-content-request-manager-title-name">NGƯỜI KIỂM DUYỆT</span>
+                                        </div>
+                                        <div class="censorship__container-content-request-manager-member">
+                                            <div class="censorship__container-content-request-manager-member-image">
+                                                <div class="circular--landscape">
+                                                    <img src="../assets/img/profile.jpg" alt="Avatar" />
+                                                </div>
+                                            </div>
+                                            <div class="censorship__container-content-request-manager-member-info">
+                                                <div class="censorship__container-content-request-manager-member-info-name">
+                                                    <span class="censorship__container-content-request-manager-member-info-name__value">Nguyễn Quang Pháp</span>
+                                                </div>
+                                                <div class="censorship__container-content-request-manager-member-info-position">
+                                                    <span class="censorship__container-content-request-manager-member-info-position__value">Trưởng phòng</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</html>

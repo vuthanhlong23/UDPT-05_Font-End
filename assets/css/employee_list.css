@@ -1,0 +1,122 @@
+.manager__header{
+    padding-top: 10px;
+}
+.manager__header_nav{
+    display:flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.manager__header-nav-item{
+    display:flex;
+    text-decoration: none;
+    font-weight: 500;
+    padding-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.manager__header-nav-item:hover {
+    color: var(--secondary-color);
+}
+
+.manager__header-nav-item-icon{
+    font-size: 1.4rem;
+    width: 20px;
+    padding-right: 5px;
+    color: var(--angle-color);
+}
+
+.manager__header-nav-item-name{
+    color: var(--angle-color);
+}
+
+.manager__container-title-first{
+    display: block;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--angle-color);
+}
+
+.manager__container-title-first__name{
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.manager__container-list-title{
+    display: flex;
+    list-style: none;
+    background-color: var(--angle-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.manager__container-list-title-name{
+    flex-basis: 33.333%;
+}
+
+.manager__container-list-title-code{
+    flex-basis: 16.667%;
+}
+
+.manager__container-list-title-department{
+    flex-basis: 25%;
+}
+
+.manager__container-list-title-position{
+    flex-basis: 25%;
+}
+
+.manager__container-list-employee-item{
+    border-bottom: 1px solid var(--angle-color);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a.manager__container-list-employee-item-link{
+    text-decoration:none;
+    color: var(--black-color);
+    display: flex;
+    list-style: none;
+}
+
+.manager__container-list-employee-item-fullname{
+    flex-basis: 33.333%;
+    max-width: 33.333%;
+    display:flex;
+}
+
+.manager__container-list-employee-item-fullname-image{
+    flex-basis: 10%;
+    max-width: 10%;
+}
+
+.circular--landscape { 
+	display: inline-block; 
+    position: relative; 
+    max-width: 70%;
+    aspect-ratio : 1 / 1;
+    overflow: hidden; 
+    border-radius: 50%; 
+} 
+.circular--landscape img { 
+    width: auto; 
+    height: 100%;
+}
+
+.manager__container-list-employee-item-fullname-value{
+    flex-basis: 90%;
+    font-weight:500;
+}
+
+.manager__container-list-employee-item-code{
+    flex-basis: 16.667%;
+}
+
+.manager__container-list-employee-item-department{
+    flex-basis: 25%;
+}
+
+.manager__container-list-employee-item-position{
+    flex-basis: 25%;
+}
+

@@ -1,0 +1,30 @@
+.CheckinHistory {
+    padding-top: 15px;
+    border-bottom: 1.5px solid var(--secondary-color);
+}
+
+.CheckinHistory__group {
+    padding-bottom: 10px;
+}
+
+.CheckinHistory__group-title {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.CheckinHistory__group-btn-newcheckin {
+    background-color: var(--secondary-color) !important;
+    width: 130px;
+    height: 42px;
+}
+
+.CheckinHistory__page {
+    padding-top: 30px;
+    padding-left: 500px;
+}
+
+.pagination {
+    color: var(--secondary-color) !important;
+}

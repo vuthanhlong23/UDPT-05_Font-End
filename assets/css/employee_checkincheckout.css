@@ -1,0 +1,65 @@
+.Checkin {
+    padding-top: 15px;
+    border: 1.5px solid var(--secondary-color);
+}
+
+.Checkin__group {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.Checkin__group-title {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.Checkin__information {
+    font-weight: 500;
+    padding-top: 10px;
+    font-size: 1.2rem;
+}
+
+.Checkin__information-detail {
+    padding-top: 5px;
+    font-size: 1rem;
+    font-weight: 450;
+    opacity: 0.8;
+}
+.Checkin__request {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.Checkin__request-session, .Checkin__request-image {
+    padding-bottom: 10px;
+}
+
+
+.Checkin__request-session-name, .Checkin__request-image-name {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.Checkin__request-session-input, .Checkin__request-image-input {
+    width: 70%; 
+    font-size: 1rem;
+}
+
+
+.form-select {
+    width: 70% !important; 
+    font-size: 1rem !important;
+    border: 1px solid black !important;
+}
+
+.Checkin__button {
+    width: 100px;
+    height: 40px;
+    padding-top: 20px;
+}
+
+.Checkin__button-submit {
+    width: 100px;
+    height: 40px;
+}

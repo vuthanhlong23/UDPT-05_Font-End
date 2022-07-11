@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/homepage.css">
+    <link rel="stylesheet" href="../assets/css/employee_checkincheckout.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <header class="HRM__header">
+            <div class="row">
+                <div class="col-2 homepage__header-left">
+                    <a href="#" class="HRM__logo">
+                        <i class="fa-solid fa-dove HRM__logo-text"> H R M</i>
+                    </a>
+                </div>
+                <div class="col-10 homepage__header-right">
+                    <p class="HRM__role-user-login">Vai trò: Nhân viên</p>
+                    <a class="HRM__login--redirect" href="#">Đăng nhập</a>
+                    <!-- <p class="HRM__logout--redirect">Đăng xuất</p> -->
+                </div>
+            </div>
+        </header>
+    
+        <div class="HRM__container">
+            <div class="row">
+                <div class="col-2 homepage__container-left">
+                    <p class="HRM__funtions-list">Danh sách chức năng</p>
+                    
+                    <div class="HRM__functions-name">
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-arrow-right-to-bracket"></i>
+                            <p class="HRM__functions-name-items__name">Check In</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-arrow-right-to-bracket fa-flip-horizontal"></i>
+                            <p class="HRM__functions-name-items__name">Check Out</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-clock"></i>
+                            <p class="HRM__functions-name-items__name">Xin làm thêm giờ</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-bed-pulse"></i>
+                            <p class="HRM__functions-name-items__name">Xin nghỉ phép</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-house"></i>
+                            <p class="HRM__functions-name-items__name">Xin làm ở nhà</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-id-card"></i>
+                            <p class="HRM__functions-name-items__name">Quản lý profile</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-computer"></i>
+                            <p class="HRM__functions-name-items__name">Yêu cầu thiết bị</p>
+                        </a>
+                        <a class="HRM__functions-name-items">
+                            <i class="HRM__functions-name-items__logo fa-solid fa-calendar-days"></i>
+                            <p class="HRM__functions-name-items__name">Hoạt động của công ty</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-10 homepage__container-right">
+                    <div class="row CheckinHistory">
+                        <div class="col-10 CheckinHistory__group">
+                            <p class="CheckinHistory__group-title">Lịch sử chấm công</p>
+                        </div>
+                        <div class="col-2 CheckinHistory__group">
+                            <button type="button" class="btn btn-success CheckinHistory__group-btn-newcheckin">+ Chấm công</p>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Ngày</th>
+                            <th scope="col">Giờ bắt đầu</th>
+                            <th scope="col">Giờ kết thúc</th>
+                            <th scope="col">Đánh giá</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>07:30</td>
+                            <td>16:30</td>
+                            <td>Làm đủ giờ</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>07:30</td>
+                            <td>16:00</td>
+                            <td>Làm thiếu giờ</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>07:30</td>
+                            <td>Không Check-out</td>
+                            <td>Không tính ngày làm việc</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Không Check-in</td>
+                            <td>Không Check-out</td>
+                            <td>Không tính ngày làm việc</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end">
+                              <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                              </li>
+                            </ul>
+                          </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</html>

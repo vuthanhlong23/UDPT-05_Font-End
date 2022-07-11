@@ -2,6 +2,16 @@
     --primary-color: #117182;
     --secondary-color: #42afc2; 
     --text-color: #165f6c;
+    --angle-color:#ccc5c5;
+    --black-color: #000;
+    --green-color: rgb(42, 182, 117);
+    --lightgreen-color: rgb(181, 231, 208);
+    --ash-color: rgb(138, 135, 135);
+    --red-color: rgb(165, 17, 17);
+    --lightred-color: rgb(209, 112, 112);
+    --white-color: rgb(255, 255, 255);
+    --orange-color: rgb(202, 106, 68);
+    --silver-color: rgb(248, 242, 242);
 }
 
 .header, .container {

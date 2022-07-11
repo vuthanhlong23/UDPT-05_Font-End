@@ -78,6 +78,7 @@ a.censorship__container-title-nav-content-link-value{
     display: block;
     padding-top: 10px;
     padding-bottom: 10px;
+    cursor: pointer;
 }
 
 .censorship__container-content-row-element-index{

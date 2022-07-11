@@ -77,6 +77,7 @@ a.manager__container-list-employee-item-link{
     color: var(--black-color);
     display: flex;
     list-style: none;
+    cursor: pointer;
 }
 
 .manager__container-list-employee-item-fullname{
@@ -90,7 +91,7 @@ a.manager__container-list-employee-item-link{
     max-width: 10%;
 }
 
-.circular--landscape { 
+.circular--landscape-list-employee { 
 	display: inline-block; 
     position: relative; 
     max-width: 70%;
@@ -98,7 +99,7 @@ a.manager__container-list-employee-item-link{
     overflow: hidden; 
     border-radius: 50%; 
 } 
-.circular--landscape img { 
+.circular--landscape-list-employee img { 
     width: auto; 
     height: 100%;
 }

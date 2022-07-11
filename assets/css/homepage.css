@@ -101,6 +101,8 @@
     cursor: pointer;
     color: var(--text-color);
     position: relative;
+
+    padding-bottom: 14px;
 }
 
 .HRM__functions-name-items:hover {
@@ -127,6 +129,6 @@
 
 
 
-.HRM__functions-name-items__companyActivity, .HRM__functions-name-items__personalInfo, .HRM__functions-name-items__manageEmployee {
+/* .HRM__functions-name-items__companyActivity, .HRM__functions-name-items__personalInfo, .HRM__functions-name-items__manageEmployee {
     padding-bottom: 16px;
-}
+} */

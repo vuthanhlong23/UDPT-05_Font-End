@@ -1,22 +1,8 @@
 <?php
-class EmployeeHomeController {
-    public function index(){
-        $VIEW = "./view/employee_OT.phtml";
-        require("./template/employee_template.phtml");
-    }
-}
-
-class ManagerHomeController {
+class HomeController {
     public function index(){
         $VIEW = "./view/home.phtml";
-        require("./template/manager_template.phtml");
-    }
-}
-
-class PresidentHomeController {
-    public function index(){
-        $VIEW = "./view/home.phtml";
-        require("./template/president_template.phtml");
+        require("./template/main_template.phtml");
     }
 }
 ?>

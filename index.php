@@ -10,7 +10,7 @@ if (isset($_REQUEST["action"])){
 switch ($action){
 
     default:
-        $controller = new EmployeeHomeController();
+        $controller = new HomeController();
         $controller->index();
         break;
 }

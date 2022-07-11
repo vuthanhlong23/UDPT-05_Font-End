@@ -133,7 +133,7 @@
                                         <span class="information__container-right__content-list-field__element-label">Phòng ban</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <select id="employee_department" class="information__container-right__content-list-field__element-value">
+                                        <select id="employee_department" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
                                             <option value="1" selected>Phòng IT</option>
                                             <option value="2">Kế toán</option>
                                         </select>
@@ -144,7 +144,7 @@
                                         <span class="information__container-right__content-list-field__element-label">Chức vụ</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <select id="employee_position" class="information__container-right__content-list-field__element-value">
+                                        <select id="employee_position" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
                                             <option value="nhanvien" selected>Nhân viên</option>
                                             <option value="truongphong">Trưởng Phòng</option>
                                         </select>
@@ -155,7 +155,7 @@
                                         <span class="information__container-right__content-list-field__element-label">Ngày sinh</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <input type="date" id="employee_dayOfBirth" class="information__container-right__content-list-field__element-value" value=""></input>
+                                        <input type="date" id="employee_dayOfBirth" class="information__container-right__content-list-field__element-value" value="" onchange="checkInvalidValue(id);"></input>
                                     </div>
                                 </div>
                                 <div class="information__container-right__content-list-field">
@@ -163,7 +163,7 @@
                                         <span class="information__container-right__content-list-field__element-label">Giới tính</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <select class="information__container-right__content-list-field__element-value">
+                                        <select id="employee_gender" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
                                             <option value="nam" selected>Nam</option>
                                             <option value="nu">Nữ</option>
                                         </select>
@@ -202,7 +202,7 @@
                                         <span class="information__container-right__content-list-field__element-label">Tình trạng hôn nhân</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <select class="information__container-right__content-list-field__element-value">
+                                        <select id="employee_maritalStatus" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
                                             <option value="docthan" selected>Độc thân</option>
                                             <option value="dakethon">Đã kết hôn</option>
                                         </select>

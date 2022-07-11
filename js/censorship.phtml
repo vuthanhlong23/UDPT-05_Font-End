@@ -1,0 +1,15 @@
+<script>
+    var statusRequests = document.querySelectorAll(".censorship__container-content-row-element-status-name");
+    statusRequests.forEach(index => {
+        var statusValue = index.innerText;
+        if(statusValue == "Chấp thuận"){
+            index.style.cssText += "background-color: var(--green-color);color: var(--white-color);";
+        }
+        else if(statusValue == "Chờ duyệt"){
+            index.style.cssText += "background-color: var(--lightgreen-color);color: var(--green-color);";
+        }
+        else{
+            index.style.cssText += "background-color: var(--lightred-color);color: var(--red-color);";
+        }
+    })
+</script>

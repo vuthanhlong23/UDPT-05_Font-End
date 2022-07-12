@@ -1,0 +1,15 @@
+<script>
+    var statusTasks = document.querySelectorAll(".information__container-right__content-list-item-link-status-value");
+    statusTasks.forEach(index => {
+        var statusValue = index.innerText;
+        if(statusValue == "Hoàn thành"){
+            index.style.cssText += "background-color:var(--green-color); background-clip: content-box; color:var(--white-color);";
+        }
+        else if(statusValue == "Đang thực hiện"){
+            index.style.cssText += "background-color:var(--orange-color); background-clip: content-box; color:var(--white-color);";
+        }
+        else{
+            index.style.cssText += "background-color:var(--red-color); background-clip: content-box; color:var(--white-color);";
+        }
+    })
+</script>

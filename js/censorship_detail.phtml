@@ -1,0 +1,12 @@
+<script>
+    var statusRequest = document.querySelectorAll(".censorship-detail__container-content-request-detail-title-status-value");
+        statusRequest.forEach(index => {
+            var statusValue = index.innerText;
+            if(statusValue == "Từ chối"){
+                index.style.cssText += "color: var(--red-color);";
+            }
+            else{
+                index.style.cssText += "color: var(--secondary-color);";
+            }
+    })
+</script>

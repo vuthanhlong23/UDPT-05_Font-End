@@ -1,0 +1,25 @@
+<script>
+    function checkInvalidValue(fieldId) {
+        if(fieldId == "employee_dayOfBirth" || fieldId == "employee_department" || fieldId == "employee_gender" || fieldId == "employee_maritalStatus" || fieldId == "employee_position"){
+            var btn = document.getElementById("btn-update");
+            if(btn.value == null){
+                document.getElementById("btn-update").innerHTML = "<input type='button' class='btn update--infor__btn' value='Cập nhật'/>"
+            }
+        }
+        else{
+            var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/?]+/;
+            var value = document.getElementById(fieldId).value;
+            if(format.test(value)){
+                var oldvalue = document.getElementById(fieldId).defaultValue;
+                document.querySelector("#"+fieldId).value = oldvalue;
+                alert("Nhập không hợp lệ");
+            }
+            else{
+                var btn = document.getElementById("btn-update");
+                if(btn.value == null){
+                    document.getElementById("btn-update").innerHTML = "<input type='button' class='btn update--infor__btn' value='Cập nhật'/>"
+                }
+            }
+        }
+    }
+</script>

@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['username']))
+    {
+        header("Location: index.php");
+    }
+    function Logout()
+    {
+        unset($_SESSION['username']);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +22,15 @@
     <header class="HRM__header">
         <div class="row">
             <div class="col-2 homepage__header-left">
-                <a href="#" class="HRM__logo">
+                <a href="index.php?action=home" class="HRM__logo">
                     <i class="fa-solid fa-dove HRM__logo-text"> H R M</i>
                 </a>
             </div>
             <div class="col-10 homepage__header-right">
-                <p class="HRM__role-user-login">Vai trò: Quản lý</p>
-                <p class="HRM__logout--redirect">Đăng xuất</p>
+                <p class="HRM__role-user-login"><?php if (isset($_SESSION['roleName'])){echo 'Vai trò: ' . $_SESSION['roleName'];}?></p>
+                <?php
+                    print "<a onclick='Logout();' href='index.php' class='HRM__logout--redirect'>Đăng xuất </a>";
+                ?>
             </div>
         </div>
     </header>
@@ -44,7 +58,7 @@
                         <i class="HRM__functions-name-items__logo fa-solid fa-bed-pulse"></i>
                         <p class="HRM__functions-name-items__name">Xin nghỉ phép</p>
                     </a>
-                    <a class="HRM__functions-name-items">
+                    <a href="index.php?action=requestWFH" class="HRM__functions-name-items">
                         <i class="HRM__functions-name-items__logo fa-solid fa-house"></i>
                         <p class="HRM__functions-name-items__name">Xin làm ở nhà</p>
                     </a>

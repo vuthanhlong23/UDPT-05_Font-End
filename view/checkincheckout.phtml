@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-10 Checkin__group">
+        <p class="Checkin__group-title">Chấm công</p>
+    </div>
+</div>
+<div class="Checkin">
+    <div class="row">
+        <span class="Checkin__information">Thông tin chấm công</span>
+        <span class="Checkin__information-detail">Thực hiện đầy đủ các yêu cầu để tiến hành chấm công</span>
+    </div>
+    <div class="row Checkin__request">
+        <div class="col-6">
+            <div class="Checkin__request-session">
+                <span class="Checkin__request-session-name">Chọn ca làm việc *</span>
+            </div>
+            <select class="form-select Checkin__request-session-input" aria-label="Default select example" name="Session" required value="<?php if(isset($_POST['Session'])){echo $_POST['Session']; } ?>">
+                <option selected></option>
+                <option value="1">07:30 - 11:30</option>
+                <option value="2">13:30 - 16:30</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <div class="Checkin__request-image">
+                <span class="Checkin__request-image-name">Ảnh chụp tại nơi làm việc *</span>
+            </div>
+            <input class="Checkin__request-image-input" type="file" accept="image/*">
+        </div>
+        <div class="col-2 Checkin__button">
+            <button type="button" class="btn btn-success Checkin__button-submit">Check in</p>
+        </div>
+    </div>
+</div>

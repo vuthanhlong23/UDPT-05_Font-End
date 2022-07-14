@@ -6,4 +6,9 @@ if (userRole == "Vai trò: Nhân viên") {
     functionUser[5].style.display="None";
 }
 
+function Logout(){
+    unset($_SESSION['username']);
+    header("Location: index.php");
+}
+
 </script>

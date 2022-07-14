@@ -1,0 +1,70 @@
+<?php
+    session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php require("include/meta.phtml"); ?>
+</head>
+<body>
+    <div class="app">
+        <div class="row">
+            <div class="col-5 Login__form">
+                <a href="#" class="Login__form-logo">
+                    <i class="fa-solid fa-dove Login__form-logo-details"></i>
+                </a>
+                <div class="Login__form-title">
+                    <span class="Login__form-title-text">Đăng nhập</span>
+                </div>
+                <div class="Login__form-text-welcome">
+                    <span >Xin chào. Vui lòng đăng nhập để bắt đầu làm việc!</span>
+                </div>
+                <form action="index.php?action=login" method="POST">
+                    <div class="form-group Login__form-items">
+                      <label class="Login__form-items-input-text" for="formGroupExampleInput">Tên đăng nhập</label>
+                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Username" name="Username" required value="<?php if(isset($_POST['Username'])){echo $_POST['Username']; } ?>">
+                    </div>
+                    <div class="form-group Login__form-items">
+                      <label class="Login__form-items-input-text" for="formGroupExampleInput2">Mật khẩu</label>
+                      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Password" name="Password" required value="<?php if(isset($_POST['Password'])){echo $_POST['Password']; } ?>">
+                    </div>
+                    <div class="form-group Login__form-items-button">
+                        <button type="submit" class="btn btn-primary Login__form-items-button-login">Đăng nhập</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-7 Login__view">
+                <div class="Login__view-items">
+                    <i class="fa-solid fa-dove Login__view-items-logohome"></i>
+                </div>
+                <div class="Login__view-items-secondary">
+                    <i class="fa-solid fa-clock Login__view-items-logoclock"></i>
+                </div>
+                <div class="Login__view-items-secondary">
+                    <i class="fa-solid fa-bed-pulse Login__view-items-logobed"></i>
+                </div>
+                <div class="Login__view-items-secondary">
+                    <i class="fa-solid fa-house Login__view-items-logohouse"></i>
+                </div>
+                <div class="Login__view-items-secondary">
+                    <i class="fa-solid fa-id-card Login__view-items-logocard"></i>
+                </div>
+                <div class="Login__view-items-secondary">
+                    <i class="fa-solid fa-computer Login__view-items-logocomputer"></i>
+                </div>
+                <div class="Login__view-items-secondary">
+                    <i class="fa-solid fa-calendar-days Login__view-items-logocalendar"></i>
+                </div>
+            </div>
+        </div>
+        <div class="Login__footer">
+
+        </div>
+    </div>
+    
+</body>
+<?php require("include/boostrap_scripts.phtml"); ?>
+</html>

@@ -1,0 +1,66 @@
+<?php
+    $data = handleSubmitRequestWFH();
+    $temp = json_decode($data,true);
+?>
+<div class="row requestWFH">
+    <p class="requestWFH__functionName">Xin làm việc tại nhà</p>
+    <div class="col-6 requestWFH__form">
+        <div class="requestWFH__formName">Tạo đề xuất</div>
+        <form action="index.php" method="POST">
+            <div class="row requestWFH__formItem">
+                <span class="requestWFH__formItemName">Ngày bắt đầu *</sp>
+                <input class="requestWFH__formInput" type="date" name="Startday" id="FStart" required value="<?php if(isset($_POST['Startday'])){echo $_POST['Startday']; } ?>" onblur="CheckDateStart(id);">
+            </div>
+            <div class="row requestWFH__formItem">
+                <span class="requestWFH__formItemName">Ngày kết thúc *</sp>
+                <input class="requestWFH__formInput" type="date" name="Endday" id="FEnd" required value="<?php if(isset($_POST['Endday'])){echo $_POST['Endday']; } ?>" onblur="CheckDateEnd(id);">
+            </div>
+            <div class="row requestWFH__formItem">
+                <span class="requestWFH__formItemName">Ghi chú </sp>
+                <input class="requestWFH__formInput" type="text" placeholder="Sáng/chiều/cả ngày" id="FNote" name="Note">
+            </div>
+            <div class="row requestWFH__formItem">
+                <span class="requestWFH__formItemName">Lý do làm tại nhà *</span>
+                <input class="requestWFH__formInput" type="text" name="Reason" id="FReason" required value="<?php if(isset($_POST['Reason'])){echo $_POST['Reason']; } ?>">
+            </div>
+            <button type="submit" class="requestWFH_submit-btn btn btn-success">Gửi đề xuất</button>
+        </form>
+    </div>
+    <div class="col-6 requestWFH__form--status">
+        <p class="requestWFH__formName--status">Trạng thái đơn đề xuất</p>
+        <div class="row requestWFH__formItems--status">
+            <?php
+                foreach ($temp as $item) 
+                {
+                ?>
+                    <div class="col-8">
+                        <span class="requestWFH__formItemsDate">
+                            Xin làm tại nhà
+                        </span> 
+                        <span class="requestWFH__formItemsDate">
+                            Ngày bắt đầu: <?php echo date($item['startDayWFH']);?>
+                        </span>
+                        <span class="requestWFH__formItemsDate">
+                            Ngày kết thúc: <?php echo "{$item['endDayWFH']}";?>
+                        </span>   
+                        <span class="requestWFH__formItemsReason">
+                            Lý do: <?php echo "{$item['reason']}";?>
+                        </span>  
+                        <span class="requestWFH__formItemsRejectReason">
+                            Lý do từ chối: <?php echo "{$item['requestRejectReason']}";?>
+                        </span>  
+                    </div>
+                    <div class="col-4 requestWFH__formItemsStatus">
+                        <span class="requestWFH__formItemsStatusName">
+                            <?php echo "{$item['requestStatus']}";?>
+                        </span>
+                    </div>
+                <?php
+                }
+                ?>
+        </div>
+        <div class="requestWFH__formItems--margin"></div>
+    </div>
+</div>
+
+<?php require("js/employee_WFH.phtml"); ?>

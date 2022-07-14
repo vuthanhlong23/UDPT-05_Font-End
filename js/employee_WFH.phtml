@@ -1,0 +1,50 @@
+<script>
+
+function CheckDateStart(id) {
+    var UserDate = document.getElementById(id).value;
+    var ToDate = new Date();
+
+    if (new Date(UserDate).getTime() < ToDate.getTime()) {
+          alert("Ngày bắt đầu phải lớn hơn hoặc bằng ngày hiện tại!!!");
+          document.querySelector(id).value = "";
+          return false;
+    }
+    return true;
+}
+
+function CheckDateEnd(id) {
+    var UserDate = document.getElementById(id).value;
+    var ToDate = new Date();
+
+    if (new Date(UserDate).getTime() < ToDate.getTime()) {
+          alert("Ngày kết thúc phải lớn hơn hoặc bằng ngày hiện tại!!!");
+          document.querySelector(id).value = "";
+          return false;
+    }
+    return true;
+}
+
+var requestWFHStatusName = document.querySelectorAll(".requestWFH__formItemsStatusName");
+requestWFHStatusName.forEach(index => {
+    var requestWFHStatusNameValue = index.innerText;
+    if (requestWFHStatusNameValue == "Đang chờ duyệt") {
+        index.style.cssText += 'background-color: grey;'
+    }
+    else if (requestWFHStatusNameValue == "Chấp thuận") {
+        index.style.cssText += 'background-color: green;'
+    }
+    else {  
+        index.style.cssText += 'background-color: red;'
+    }
+})
+
+
+var requestWFHRejectReason = document.querySelectorAll(".requestWFH__formItemsRejectReason");
+for(var i=0;i<requestWFHRejectReason.length;i++){
+    var requestWFHStatusNameValue = requestWFHStatusName[i].innerText;
+    if(requestWFHStatusNameValue == "Chấp thuận"){
+        requestWFHRejectReason[i].style.display = "none";
+    }
+}
+
+</script>

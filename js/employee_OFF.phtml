@@ -57,7 +57,7 @@ requestOFFStatusName.forEach(index => {
 var requestOFFRejectReason = document.querySelectorAll(".requestOFF__formItemsRejectReason");
 for(var i=0;i<requestOFFRejectReason.length;i++){
     var requestOFFStatusNameValue = requestOFFStatusName[i].innerText;
-    if(requestOFFStatusNameValue == "Chấp thuận" || requestOFFStatusNameValue == "Đang chờ duyệt" ){
+    if(requestOFFStatusNameValue == "Chấp thuận" || requestOFFStatusNameValue == "Chưa xét duyệt" ){
         requestOFFRejectReason[i].style.display = "none";
     }
 }

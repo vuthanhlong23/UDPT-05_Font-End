@@ -33,121 +33,67 @@
                 </div>
             </div>
             <div class="manager__container-list-employee">
-                <div class="manager__container-list-employee-item">
-                    <a class="manager__container-list-employee-item-link">
-                        <div class="manager__container-list-employee-item-fullname">
-                            <div class="manager__container-list-employee-item-fullname-image">
-                                <div class="circular--landscape-list-employee">
-                                    <img src="assets/img/profile.jpg" class="information--left--profile__photo" alt="Avatar" />
-                                </div>
-                            </div>
-                            <div class="manager__container-list-employee-item-fullname-value">
-                                <span>Nguyễn Quang Pháp</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-code">
-                            <div class="manager__container-list-employee-item-code-value">
-                                <span>NV001</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-department">
-                            <div class="manager__container-list-employee-item-department-value">
-                                <span>Phòng IT</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-position">
-                            <div class="manager__container-list-employee-item-position-value">
-                                <span>Nhân viên</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="manager__container-list-employee-item">
-                    <a class="manager__container-list-employee-item-link">
-                        <div class="manager__container-list-employee-item-fullname">
-                            <div class="manager__container-list-employee-item-fullname-image">
-                                <div class="circular--landscape-list-employee">
-                                    <img src="assets/img/profile.jpg" class="information--left--profile__photo" alt="Avatar" />
-                                </div>
-                            </div>
-                            <div class="manager__container-list-employee-item-fullname-value">
-                                <span>Nguyễn Quang Pháp</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-code">
-                            <div class="manager__container-list-employee-item-code-value">
-                                <span>NV001</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-department">
-                            <div class="manager__container-list-employee-item-department-value">
-                                <span>Phòng IT</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-position">
-                            <div class="manager__container-list-employee-item-position-value">
-                                <span>Nhân viên</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="manager__container-list-employee-item">
-                    <a class="manager__container-list-employee-item-link">
-                        <div class="manager__container-list-employee-item-fullname">
-                            <div class="manager__container-list-employee-item-fullname-image">
-                                <div class="circular--landscape-list-employee">
-                                    <img src="assets/img/profile.jpg" class="information--left--profile__photo" alt="Avatar" />
-                                </div>
-                            </div>
-                            <div class="manager__container-list-employee-item-fullname-value">
-                                <span>Nguyễn Quang Pháp</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-code">
-                            <div class="manager__container-list-employee-item-code-value">
-                                <span>NV001</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-department">
-                            <div class="manager__container-list-employee-item-department-value">
-                                <span>Phòng IT</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-position">
-                            <div class="manager__container-list-employee-item-position-value">
-                                <span>Nhân viên</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="manager__container-list-employee-item">
-                    <a class="manager__container-list-employee-item-link">
-                        <div class="manager__container-list-employee-item-fullname">
-                            <div class="manager__container-list-employee-item-fullname-image">
-                                <div class="circular--landscape-list-employee">
-                                    <img src="assets/img/profile.jpg" class="information--left--profile__photo" alt="Avatar" />
-                                </div>
-                            </div>
-                            <div class="manager__container-list-employee-item-fullname-value">
-                                <span>Nguyễn Quang Pháp</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-code">
-                            <div class="manager__container-list-employee-item-code-value">
-                                <span>NV001</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-department">
-                            <div class="manager__container-list-employee-item-department-value">
-                                <span>Phòng IT</span>
-                            </div>
-                        </div>
-                        <div class="manager__container-list-employee-item-position">
-                            <div class="manager__container-list-employee-item-position-value">
-                                <span>Nhân viên</span>
-                            </div>
-                        </div>
-                    </a>
+                <?php
+                    $self = $_SERVER['PHP_SELF'];
+                    $currentPage = 1;
+                    if (isset($_REQUEST["page"]))
+                        $currentPage = $_REQUEST["page"];
+                    $n = count($data);
+                    $i = 0;
+                    while($i < $n){
+                        $fullname = $data[$i]['firstname']." ".$data[$i]['lastname'];
+                        echo "<div class='manager__container-list-employee-item'>
+                                <a href='index.php?action=information&idEmployee={$data[$i]['id']}' class='manager__container-list-employee-item-link'>
+                                    <div class='manager__container-list-employee-item-fullname'>
+                                        <div class='manager__container-list-employee-item-fullname-image'>
+                                            <div class='circular--landscape-list-employee'>
+                                                <img src='assets/img/profile.png' class='information--left--profile__photo' alt='Avatar' />
+                                            </div>
+                                        </div>
+                                        <div class='manager__container-list-employee-item-fullname-value'>
+                                            <span>$fullname</span>
+                                        </div>
+                                    </div>
+                                    <div class='manager__container-list-employee-item-code'>
+                                        <div class='manager__container-list-employee-item-code-value'>
+                                            <span>{$data[$i]['idEmployee']}</span>
+                                        </div>
+                                    </div>
+                                    <div class='manager__container-list-employee-item-department'>
+                                        <div class='manager__container-list-employee-item-department-value'>
+                                            <span>{$data[$i]['departmentName']}</span>
+                                        </div>
+                                    </div>
+                                    <div class='manager__container-list-employee-item-position'>
+                                        <div class='manager__container-list-employee-item-position-value'>
+                                            <span>{$data[$i]['position']}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>";
+                        $i += 1;
+                    }
+                ?>
+            </div>
+            <div class="information__container-right__content-list-paging">
+                <div class="information__container-right__content-list-paging-element">
+                    <?php
+                        if ($currentPage > 1)
+                        {
+                            $page = $currentPage - 1;
+                            $prev = "<a class='paging-data' href='$self?action=managerEmployee&idManager=$idManager&page=$page'><</a>     ";
+                        }
+                        else
+                        {
+                            $prev = "<a class='paging-data' href='$self?action=managerEmployee&idManager=$idManager&page=1'><</a>     ";
+                        }
+
+
+                        $page = $currentPage + 1;
+                        $next = "     <a class='paging-data' href='$self?action=managerEmployee&idManager=$idManager&page=$page'>></a>";
+
+                        echo $prev.$currentPage.$next;
+                    ?>
                 </div>
             </div>
         </div>

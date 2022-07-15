@@ -68,10 +68,14 @@
                     ?>
                     
                     <!-- manager -->
-                    <a class="HRM__functions-name-items HRM__functions-name-items__manageEmployee">
-                        <i class="HRM__functions-name-items__logo fa-solid fa-id-card"></i>
-                        <p class="HRM__functions-name-items__name">Quản lý nhân viên</p>
-                    </a>
+                    <?php
+                        $idManager = $_SESSION['idEmployee'];
+                        echo "<a href='index.php?action=managerEmployee&idManager=$idManager&page=1' class='HRM__functions-name-items HRM__functions-name-items__manageEmployee'>
+                        <i class='HRM__functions-name-items__logo fa-solid fa-id-card'></i>
+                        <p class='HRM__functions-name-items__name'>Quản lý nhân viên</p>
+                    </a>";
+                    ?>
+                    
                     <a class="HRM__functions-name-items">
                         <i class="HRM__functions-name-items__logo fa-solid fa-computer"></i>
                         <p class="HRM__functions-name-items__name">Yêu cầu thiết bị</p>

@@ -50,5 +50,16 @@ class EmployeeController {
         $VIEW = "./view/employee_tasks.phtml";
         require("./template/main_template.phtml");
     }
+
+    public function listEmployee(){
+        $idManager = $_REQUEST['idManager'];
+        $pageSize = 10;
+        $pageIndex = ($_REQUEST['page'] - 1)*$pageSize;
+
+        $result = Employee::ListEmployeeByManagerId($idManager, $pageIndex, $pageSize);
+        $data = json_decode($result, true);
+        $VIEW = "./view/employee_list.phtml";
+        require("./template/main_template.phtml");
+    }
 }
 ?>

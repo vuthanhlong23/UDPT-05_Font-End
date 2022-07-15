@@ -73,6 +73,20 @@ class Employee {
         return $result;
     }
 
+    public static function ListEmployeeByManagerId($idManager, $pageIndex, $pageSize){
+        $method = "GET";
+        $url = "http://127.0.0.1:5001/listemployee?idManager=$idManager&pageIndex=$pageIndex&pageSize=$pageSize";
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    
+        $result = curl_exec($curl); 
+    
+        curl_close($curl);
+        return $result;
+    }
+
     public static function UpdateInformation($idEmployee, $firstname, $lastname, $idDepartment, $position, $dayOfBirth, $gender, $email, $phoneNumber, $address, $maritalStatus){
         $url = "http://127.0.0.1:5001/employee/update";
         $curl = curl_init();

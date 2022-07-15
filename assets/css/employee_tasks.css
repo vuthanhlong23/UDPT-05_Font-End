@@ -243,7 +243,7 @@ a.information__container-right__content-list-item-link{
     max-width: 50%;
 }
 
-.information__container-right__content-list-item-link-department{
+.information__container-right__content-list-item-link-deadline{
     flex-basis: 16.667%;
     max-width: 16.667%;
 }
@@ -256,4 +256,14 @@ a.information__container-right__content-list-item-link{
 .information__container-right__content-list-item-link-status{
     flex-basis: 16.666%;
     max-width: 16.666%;
+}
+
+.information__container-right__content-list-paging{
+    text-align: center;
+    color: var(--secondary-color)!important;
+}
+
+a.paging-data{
+    text-decoration: none;
+    color: var(--secondary-color)!important;
 }

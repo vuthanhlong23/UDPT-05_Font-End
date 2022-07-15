@@ -62,24 +62,30 @@
                 </div>
                 <div class="information--left__element">
                     <div class="information--left-functions">
-                        <a url="" class="information--left-functions-item">
-                            <div class="col-2 information--left-functions-left">
-                                <i class="information--left-functions-left__icon fa-solid fa-user-large" style="color:var(--secondary-color);"></i>
+                        <?php
+                            $idEmployee = $_REQUEST['idEmployee'];
+                            echo "<a href='index.php?action=information&idEmployee={$idEmployee}' class='information--left-functions-item'>
+                            <div class='col-2 information--left-functions-left'>
+                                <i class='information--left-functions-left__icon fa-solid fa-user-large' style='color:var(--secondary-color);'></i>
                             </div>
-                            <div class="col-10 information--left-functions-right">
-                                    <span class="information--left-functions-right__title" style="color:var(--secondary-color);">Thông tin chính</span>
-                                    <span class="information--left-functions-right__description" style="color:var(--secondary-color);">Thông tin lý lịch và pháp lý</span>
+                            <div class='col-10 information--left-functions-right'>
+                                    <span class='information--left-functions-right__title' style='color:var(--secondary-color);'>Thông tin chính</span>
+                                    <span class='information--left-functions-right__description' style='color:var(--secondary-color);'>Thông tin lý lịch và pháp lý</span>
                             </div>
-                        </a>
-                        <a url="" class="information--left-functions-item">
-                            <div class="col-2 information--left-functions-left">
-                                <i class="information--left-functions-left__icon fa-solid fa-font-awesome"></i>
+                        </a>";
+                        ?>
+                        <?php
+                            $idEmployee = $_REQUEST['idEmployee'];
+                            echo "<a href='index.php?action=task&idEmployee={$idEmployee}&page=1&status=all' class='information--left-functions-item'>
+                            <div class='col-2 information--left-functions-left'>
+                                <i class='information--left-functions-left__icon fa-solid fa-font-awesome'></i>
                             </div>
-                            <div class="col-10 information--left-functions-right">
-                                    <span class="information--left-functions-right__title">Thông tin công việc</span>
-                                    <span class="information--left-functions-right__description">Thông tin công việc, sự nghiệp</span>
+                            <div class='col-10 information--left-functions-right'>
+                                    <span class='information--left-functions-right__title'>Thông tin công việc</span>
+                                    <span class='information--left-functions-right__description'>Thông tin công việc, sự nghiệp</span>
                             </div>
-                        </a>
+                        </a>";
+                        ?>
                     </div>
                 </div>
             </div>

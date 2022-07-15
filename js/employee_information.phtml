@@ -7,7 +7,7 @@
             }
         }
         else{
-            var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/?]+/;
+            var format = /[!#$%^&*()_+\-=\[\]{};':"\\|<>\/?]+/;
             var value = document.getElementById(fieldId).value;
             if(format.test(value)){
                 var oldvalue = document.getElementById(fieldId).defaultValue;

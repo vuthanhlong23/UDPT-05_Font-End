@@ -4,6 +4,7 @@ require_once("./controller/home.php");
 require_once("./controller/loginlogout.php");
 require_once("./controller/employee.php");
 require_once("./controller/request.php");
+require_once("./controller/checkincheckout.php");
 require_once("./model/request.php");
 require_once("./model/employee.php");
 require_once("./model/department.php");
@@ -58,6 +59,10 @@ switch ($action){
     case "task":     
         $controller = new EmployeeController();
         $controller->task();
+        break;
+    case "checkinHistory":     
+        $controller = new CheckinCheckoutController();
+        $controller->checkinHistory();
         break;
     case "checkin":     
         $controller = new CheckinCheckoutController();

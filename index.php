@@ -59,6 +59,10 @@ switch ($action){
         $controller = new EmployeeController();
         $controller->task();
         break;
+    case "checkin":     
+        $controller = new CheckinCheckoutController();
+        $controller->checkin();
+        break;
     default:
         $controller = new LoginLogoutController();
         $controller->index();

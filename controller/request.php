@@ -37,8 +37,7 @@ class requestController {
 
         $dataAddRequestWFH = requestModel::addRequestWFH($idEmployee, $startDayWFH, $endDayWFH,$reason);
         $dataAllRequest = requestModel::listAllRequest($idEmployee, $idRequestType);
-        $VIEW = "./view/employee_WFH.phtml";
-        require("./template/main_template.phtml");
+        header("Location: index.php?action=requestListWFH");
     }
 
     public function addRequestOT() {
@@ -51,8 +50,7 @@ class requestController {
 
         $dataAddRequestOT = requestModel::addRequestOT($idEmployee, $idRequestType, $hourOT, $dayOT, $reason);
         $dataAllRequest = requestModel::listAllRequest($idEmployee, $idRequestType);
-        $VIEW = "./view/employee_OT.phtml";
-        require("./template/main_template.phtml");
+        header("Location: index.php?action=requestListOT");
     }
 
     public function addRequestOFF() {
@@ -66,8 +64,7 @@ class requestController {
 
         $dataAddRequestOFF = requestModel::addRequestOFF($idEmployee, $idRequestType, $startDayOFF, $numberDayOFF, $noteDayOFF, $reason);
         $dataAllRequest = requestModel::listAllRequest($idEmployee, $idRequestType);
-        $VIEW = "./view/employee_OFF.phtml";
-        require("./template/main_template.phtml");
+        header("Location: index.php?action=requestListOFF");
     }
 }
 ?>

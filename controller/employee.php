@@ -21,6 +21,11 @@ class EmployeeController {
             $maritalStatus = $_REQUEST['maritalStatus'];
             
             $temp = Employee::UpdateInformation($idEmployee, $firstname, $lastname, $idDepartment, $position, $dayOfBirth, $gender, $email, $phoneNumber, $address, $maritalStatus);
+            $result = Employee::GetInformation($idEmployee);
+            $data = json_decode($result, true);
+            $result = Department::listDepartment();
+            $department = json_decode($result, true);
+            header("Location: index.php?action=information&idEmployee=$idEmployee");
         }
 
         $result = Employee::GetInformation($idEmployee);

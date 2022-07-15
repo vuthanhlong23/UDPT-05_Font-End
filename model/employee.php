@@ -67,9 +67,44 @@ class Employee {
         $method = "GET";
         $url = "http://127.0.0.1:5001/employee/information?idEmployee=$idEmployee";
         $curl = curl_init();
+
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     
+        $result = curl_exec($curl); 
+    
+        curl_close($curl);
+        return $result;
+    }
+
+    public static function UpdateInformation($idEmployee, $firstname, $lastname, $idDepartment, $position, $dayOfBirth, $gender, $email, $phoneNumber, $address, $maritalStatus){
+        $url = "http://127.0.0.1:5001/employee/update";
+        $curl = curl_init();
+
+        #Set up data send json
+        $data = array(
+            'id' => $idEmployee, 
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'idDepartment' => $idDepartment,
+            'position' => $position,
+            'dayOfBirth' => $dayOfBirth,
+            'gender' => $gender,
+            'email' => $email,
+            'phoneNumber' => $phoneNumber,
+            'address' => $address,
+            'maritalStatus' => $maritalStatus
+        );
+
+        $dataJson = json_encode($data);
+
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
+        curl_setopt($curl, CURLOPT_POSTFIELDS,$dataJson);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
         $result = curl_exec($curl); 
     
         curl_close($curl);

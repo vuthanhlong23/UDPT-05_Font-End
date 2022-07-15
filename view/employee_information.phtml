@@ -19,7 +19,7 @@
                 <div class="information--left__element">
                     <div class="information--left--profile">
                         <div class="circular--landscape">
-                            <img src="assets/img/profile.jpg" class="information--left--profile__photo" alt="Avatar" />
+                            <img src="assets/img/profile.png" class="information--left--profile__photo" alt="Avatar" />
                         </div>
                         <?php 
                             $employeeName = $data["firstname"]." ".$data["lastname"];
@@ -86,7 +86,12 @@
         </div>
         <div class="col-9 information__container-right">
             <div class="row" style="padding-bottom: 10px;">
-                <form class="row">
+                <form class="row" method="post">
+                    <input type="hidden" name="action" value="information"></input>
+                    <input type="hidden" name="func" value="update"></input>
+                    <?php
+                        echo "<input type='hidden' name='idEmployee' value={$data["id"]}></input>";
+                    ?>
                     <div class="information__container-right__title">
                         <div class="row information__container-right__title-element">
                             <div class="col-8 information__container-right__title-left">
@@ -124,7 +129,7 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <?php
-                                            echo "<input type='text' id='employee_firstname' class='information__container-right__content-list-field__element-value' onchange='checkInvalidValue(id);' value='{$data["firstname"]}'></input>";
+                                            echo "<input type='text' name='firstname' id='employee_firstname' class='information__container-right__content-list-field__element-value' onchange='checkInvalidValue(id);' value='{$data["firstname"]}'></input>";
                                         ?>
                                         
                                     </div>
@@ -135,7 +140,7 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <?php
-                                            echo "<input type='text' id='employee_lastname' class='information__container-right__content-list-field__element-value' onchange='checkInvalidValue(id);' value='{$data["lastname"]}'></input>";
+                                            echo "<input type='text' name='lastname' id='employee_lastname' class='information__container-right__content-list-field__element-value' onchange='checkInvalidValue(id);' value='{$data["lastname"]}'></input>";
                                         ?>
                                     </div>
                                 </div>
@@ -163,7 +168,7 @@
                                         <span class="information__container-right__content-list-field__element-label">Phòng ban</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <select id="employee_department" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
+                                        <select name='idDepartment' id="employee_department" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
                                             <?php
                                                 $n = count($department);
                                                 $i = 0;
@@ -185,7 +190,7 @@
                                         <span class="information__container-right__content-list-field__element-label">Chức vụ</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <select id="employee_position" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
+                                        <select name='position' id="employee_position" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
                                             <option value="Nhân viên" selected>Nhân viên</option>
                                             <option value="Trưởng phòng">Trưởng Phòng</option>
                                         </select>
@@ -198,7 +203,7 @@
                                     <div class="information__container-right__content-list-field__element">
                                         <?php
                                             $dayOfBirth = date('yy-m-d',strtotime($data["dayOfBirth"]));
-                                            echo "<input type='date' id='employee_dayOfBirth' class='information__container-right__content-list-field__element-value' value='{$dayOfBirth}' onchange='checkInvalidValue(id);'></input>";
+                                            echo "<input type='date' name='dayOfBirth' id='employee_dayOfBirth' class='information__container-right__content-list-field__element-value' value='{$dayOfBirth}' onchange='checkInvalidValue(id);'></input>";
                                         ?>
                                         
                                     </div>
@@ -208,7 +213,7 @@
                                         <span class="information__container-right__content-list-field__element-label">Giới tính</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <select id="employee_gender" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
+                                        <select name='gender' id="employee_gender" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
                                             <?php
                                                 if(strcmp($data["gender"], "Nam") == 0)
                                                     echo "<option value='Nam' selected>Nam</option>";
@@ -235,7 +240,7 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <?php
-                                            echo "<input type='text' id='employee_email' class='information__container-right__content-list-field__element-value' value='{$data["email"]}' onchange='checkInvalidValue(id);'></input>";
+                                            echo "<input type='text' name='email' id='employee_email' class='information__container-right__content-list-field__element-value' value='{$data["email"]}' onchange='checkInvalidValue(id);'></input>";
                                         ?>
                                         
                                     </div>
@@ -246,7 +251,7 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <?php
-                                            echo "<input type='text' id='employee_phone' class='information__container-right__content-list-field__element-value' value='{$data["phoneNumber"]}' onchange='checkInvalidValue(id);'></input>";
+                                            echo "<input type='text' name='phoneNumber' id='employee_phone' class='information__container-right__content-list-field__element-value' value='{$data["phoneNumber"]}' onchange='checkInvalidValue(id);'></input>";
                                         ?>
                                         
                                     </div>
@@ -257,7 +262,7 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <?php
-                                            echo "<input type='text' id='employee_address' class='information__container-right__content-list-field__element-value' value='{$data["address"]}' onchange='checkInvalidValue(id);'></input>";
+                                            echo "<input type='text' name='address' id='employee_address' class='information__container-right__content-list-field__element-value' value='{$data["address"]}' onchange='checkInvalidValue(id);'></input>";
                                         ?>
                                         
                                     </div>
@@ -267,7 +272,7 @@
                                         <span class="information__container-right__content-list-field__element-label">Tình trạng hôn nhân</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <select id="employee_maritalStatus" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
+                                        <select name='maritalStatus' id="employee_maritalStatus" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
                                             <?php
                                                 if(strcmp($data["maritalStatus"], "Độc thân") == 0)
                                                     echo "<option value='Độc thân' selected>Độc thân</option>";

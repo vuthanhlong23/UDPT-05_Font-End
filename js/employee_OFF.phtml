@@ -41,7 +41,7 @@ function submitRequestOFF() {
 var requestOFFStatusName = document.querySelectorAll(".requestOFF__formItemsStatusName");
 requestOFFStatusName.forEach(index => {
     var requestOFFStatusNameValue = index.innerText;
-    if (requestOFFStatusNameValue == "Đang chờ duyệt") {
+    if (requestOFFStatusNameValue == "Chưa xét duyệt") {
         index.style.cssText += 'background-color: grey;'
     }
     else if (requestOFFStatusNameValue == "Chấp thuận") {

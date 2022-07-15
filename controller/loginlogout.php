@@ -1,26 +1,25 @@
 <?php
 function handleSubmit()
-{
-    $method = "GET";
-    $username = $_POST['Username'];
-    $password = $_POST['Password'];
-    $url = "http://127.0.0.1:5001/login?username='$username'&password='$password'";
-    $databool = false;
-    $curl = curl_init();
+ {
+     $username = $_POST['Username'];
+     $password = $_POST['Password'];
+     $url = "http://127.0.0.1:5001/login?username='$username'&password='$password'";
+     $curl = curl_init();
 
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+     curl_setopt($curl, CURLOPT_URL, $url);
+     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
-    $result = curl_exec($curl); 
+     $result = curl_exec($curl); 
 
-    curl_close($curl);
-    return $result;
-}
+     curl_close($curl);
+     return $result;
+ }
 
 class LoginLogoutController {
     public function login(){  
         $data = handleSubmit();
-        if($data!='0'){
+        if(empty($data) == false){
+            session_start();
             $temp = json_decode($data,true);
             $_SESSION['roleName'] = $temp["roleName"];
             $_SESSION['idEmployee'] = $temp["idEmployee"];

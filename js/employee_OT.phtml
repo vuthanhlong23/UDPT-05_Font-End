@@ -46,7 +46,7 @@ function submitRequestOT() {
 var requestOTStatusName = document.querySelectorAll(".requestOT__formItemsStatusName");
 requestOTStatusName.forEach(index => {
     var requestOTStatusNameValue = index.innerText;
-    if (requestOTStatusNameValue == "Đang chờ duyệt") {
+    if (requestOTStatusNameValue == "Chưa xét duyệt") {
         index.style.cssText += 'background-color: grey;'
     }
     else if (requestOTStatusNameValue == "Chấp thuận") {
@@ -61,7 +61,7 @@ requestOTStatusName.forEach(index => {
 var requestOTRejectReason = document.querySelectorAll(".requestOT__formItemsRejectReason");
 for(var i=0;i<requestOTRejectReason.length;i++){
     var requestOTStatusNameValue = requestOTStatusName[i].innerText;
-    if(requestOTStatusNameValue == "Chấp thuận" || requestOTStatusNameValue == "Đang chờ duyệt" ){
+    if(requestOTStatusNameValue == "Chấp thuận" || requestOTStatusNameValue == "Chưa xét duyệt" ){
         requestOTRejectReason[i].style.display = "none";
     }
 }

@@ -3,6 +3,8 @@
 require_once("./controller/home.php");
 require_once("./controller/loginlogout.php");
 require_once("./controller/employee.php");
+require_once("./controller/request.php");
+require_once("./model/request.php");
 
 $action = "";
 if (isset($_REQUEST["action"])){
@@ -10,9 +12,17 @@ if (isset($_REQUEST["action"])){
 }
 
 switch ($action){
-    case "home":     
+    case "home":
         $controller = new HomeController();
         $controller->home();
+        break;
+    case "requestListOT":
+        $controller = new requestController();
+        $controller->listAllRequestOT();
+        break;
+    case "requestListOFF":
+        $controller = new requestController();
+        $controller->listAllRequestOFF();
         break;
     case "login":     
         $controller = new LoginLogoutController();
@@ -22,6 +32,14 @@ switch ($action){
         $controller = new EmployeeController();
         $controller->requestWFH();
         break;
+    case "addRequestOT":     
+        $controller = new requestController();
+        $controller->addRequestOT();
+        break;
+    // case "addRequestOFF":     
+    //     $controller = new requestController();
+    //     $controller->addRequestOFF();
+    //     break;
     default:
         $controller = new LoginLogoutController();
         $controller->index();

@@ -1,46 +1,84 @@
+<!-- <?php
+        // if(isset($_SESSION["idEmployee"]))
+        $temp = $_SESSION["idEmployee"];
+        echo "
+            <script>
+                console.log('$temp');
+            </script>
+        ";
+?> -->
+
 <div class="row requestOT">
     <p class="requestOT__functionName">Xin làm thêm giờ</p>
 
     <div class="col-6 requestOT__form">
         <div class="requestOT__formName">Tạo đề xuất</div>
-        <div class="row requestOT__formItem">
-            <span class="requestOT__formItemName">Ngày làm thêm giờ *</sp>
-            <input class="requestOT__formInput requestOT__formInput-date" onblur="TDate()" type="date">
-        </div>
-        <div class="row requestOT__formItem">
-            <span class="requestOT__formItemName">Số giờ dự kiến *</sp>
-            <input class="requestOT__formInput requestOT__formInput-hour" onblur="HourExpected()" type="number">
-        </div>
-        <div class="row requestOT__formItem">
-            <span class="requestOT__formItemName">Lý do làm thêm giờ *</span>
-            <input class="requestOT__formInput requestOT__formInput-reasonOT" type="text">
-        </div>
-        <button type="submit" onclick="submitRequestOT()" class="requestOT_submit-btn btn btn-success">Gửi đề xuất</button>
+        <form action="index.php?action=addRequestOT" method="POST" >
+            <!-- <div class="row requestOT__formItem">
+                <span class="requestOT__formItemName">Ngày làm thêm giờ *</sp>
+                <input class="requestOT__formInput requestOT__formInput-date" name="requestDate" onblur="TDate()" type="date">
+            </div> -->
+            <div class="row requestOT__formItem">
+                <span class="requestOT__formItemName">Số giờ dự kiến *</sp>
+                <input class="requestOT__formInput requestOT__formInput-hour" name="hourOT" onblur="HourExpected()" type="number">
+            </div>
+            <div class="row requestOT__formItem">
+                <span class="requestOT__formItemName">Lý do làm thêm giờ *</span>
+                <input class="requestOT__formInput requestOT__formInput-reasonOT" name="reason" type="text">
+            </div>
+            <button type="submit" onclick="submitRequestOT()" class="requestOT_submit-btn btn btn-success">Gửi đề xuất</button>
+        </form>
     </div>
 
     <div class="col-6 requestOT__form--status">
         <p class="requestOT__formName--status">Trạng thái đơn đề xuất</p>
-        <div class="row requestOT__formItems--status">
-            <div class="col-8">
-                <span class="requestOT__formItemsDate">
-                    Xin làm thêm giờ ngày 12/07/2022
-                </span>    
-                <span class="requestOT__formItemsHour">
-                    Số giờ: 4
-                </span>    
-                <span class="requestOT__formItemsReason">
-                    Lý do: chậm tiến độ công việc
-                </span>  
-                <span class="requestOT__formItemsRejectReason">
-                    Lý do từ chối: dự án sắp đến hạn nộp
-                </span>  
-            </div>
-            <div class="col-4 requestOT__formItemsStatus">
-                <span class="requestOT__formItemsStatusName">Đang chờ duyệt</span>
-            </div>
-        </div>
-        <div class="requestOT__formItems--margin"></div>
-        <div class="row requestOT__formItems--status">
+        <?php
+            $pagesize = 10;
+            $currentpage = 1;
+            $numrow = count($dataAllRequest);
+            $self = $_SERVER['PHP_SELF'];
+            $nav = "";
+            $numpage = ceil($numrow / ($pagesize*1.0));
+            
+            if (isset($_REQUEST["page"]))
+                $currentpage = $_REQUEST["page"];
+            
+            $start = ($currentpage - 1) * $pagesize;
+            $end = $start + $pagesize - 1;
+            
+            if ($end > $numrow - 1)
+                $end = $numrow - 1;
+
+            while($start<=$end) {
+                print"
+                <div class='row requestOT__formItems--status'>
+                    <div class='col-8'>
+                        <span class='requestOT__formItemsDate'>
+                            Xin làm thêm giờ ngày {$dataAllRequest[$start]->requestDate}
+                        </span>    
+                        <span class='requestOT__formItemsHour'>
+                            Số giờ: {$dataAllRequest[$start]->hourOT}
+                        </span>    
+                        <span class='requestOT__formItemsReason'>
+                            Lý do: {$dataAllRequest[$start]->reason}
+                        </span>  
+                        <span class='requestOT__formItemsRejectReason'>
+                            Lý do từ chối: {$dataAllRequest[$start]->requestRejectReason}
+                        </span>  
+                    </div>
+                    <div class='col-4 requestOT__formItemsStatus'>
+                        <span class='requestOT__formItemsStatusName'>{$dataAllRequest[$start]->requestStatus}</span>
+                    </div>
+                </div>
+                <div class='requestOT__formItems--margin'></div>
+                ";
+            $start+=1;
+            }
+        ?>
+
+
+
+        <!-- <div class="row requestOT__formItems--status">
             <div class="col-8">
                 <span class="requestOT__formItemsDate">
                     Xin làm thêm giờ ngày 12/07/2022
@@ -83,7 +121,7 @@
                 </span>
             </div>
         </div>
-        <div class="requestOT__formItems--margin"></div>
+        <div class="requestOT__formItems--margin"></div> -->
 
 
     </div>

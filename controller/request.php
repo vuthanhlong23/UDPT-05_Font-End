@@ -32,11 +32,27 @@ class requestController {
         $idEmployee = $_SESSION["idEmployee"];
         $idRequestType = 1; 
         $hourOT = $_REQUEST["hourOT"];
+        $dayOT = $_REQUEST["dayOT"];
         $reason = $_REQUEST["reason"];
 
-        $dataAddRequestOT = requestModel::addRequestOT($idEmployee, $idRequestType, $hourOT, $reason);
+        $dataAddRequestOT = requestModel::addRequestOT($idEmployee, $idRequestType, $hourOT, $dayOT, $reason);
         $dataAllRequest = requestModel::listAllRequest($idEmployee, $idRequestType);
         $VIEW = "./view/employee_OT.phtml";
+        require("./template/main_template.phtml");
+    }
+
+    public function addRequestOFF() {
+        session_start();
+        $idEmployee = $_SESSION["idEmployee"];
+        $idRequestType = 2; 
+        $startDayOFF = $_REQUEST["startDayOFF"];
+        $numberDayOFF = $_REQUEST["numberDayOFF"];
+        $noteDayOFF = $_REQUEST["noteDayOFF"];
+        $reason = $_REQUEST["reason"];
+
+        $dataAddRequestOFF = requestModel::addRequestOFF($idEmployee, $idRequestType, $startDayOFF, $numberDayOFF, $noteDayOFF, $reason);
+        $dataAllRequest = requestModel::listAllRequest($idEmployee, $idRequestType);
+        $VIEW = "./view/employee_OFF.phtml";
         require("./template/main_template.phtml");
     }
 }

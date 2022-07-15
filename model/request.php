@@ -8,6 +8,8 @@ class requestModel {
     public $idCensor; 
     public $requestName; 
     public $hourOT; 
+    public $dayOT; 
+    public $startDayOFF; 
     public $numberDayOFF; 
     public $noteDayOFF; 
     public $startDayWFH; 
@@ -26,6 +28,8 @@ class requestModel {
         $this->idCensor = "";
         $this->requestName = "";
         $this->hourOT = "";
+        $this->dayOT = "";
+        $this->startDayOFF = "";
         $this->numberDayOFF = "";
         $this->noteDayOFF = "";
         $this->startDayWFH = "";
@@ -62,6 +66,8 @@ class requestModel {
                 $request->idCensor = $row["idCensor"];
                 $request->requestName = $row["requestName"];
                 $request->hourOT = $row["hourOT"];
+                $request->dayOT = $row["dayOT"];
+                $request->startDayOFF = $row["startDayOFF"];
                 $request->numberDayOFF = $row["numberDayOFF"];
                 $request->noteDayOFF = $row["noteDayOFF"];
                 $request->startDayWFH = $row["startDayWFH"];
@@ -79,18 +85,22 @@ class requestModel {
         curl_close($ch);
     }
 
-    public static function addRequestOT ($idEmployee, $idRequestType, $hourOT, $reason) {
+    public static function addRequestOT($idEmployee, $idRequestType, $hourOT, $dayOT, $reason) {
         $param = array(
-            'idEmployee'=> 2,
-            'idRequestType'=> 1,
-            'hourOT'=> 3,
-            'reason'=>"cuoi vo"
+            'idEmployee'=> $idEmployee,
+            'idRequestType'=> $idRequestType,
+            'hourOT'=> $hourOT,
+            'dayOT'=> "'$dayOT'",
+            'reason'=>"'$reason'"
         );
         $url = "http://127.0.0.1:5001/addrequestOT";
         $curl = curl_init();
+
+        $payload = json_encode($param);
+
         curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_POST, count($param));
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $param); 
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $payload); 
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         
         $result = curl_exec($curl);
@@ -99,14 +109,42 @@ class requestModel {
             echo $e;
         }
         else {
-            $decoded = json_decode($result);
-            return $decoded;
+            curl_close($curl);
+            return $result;
         }
-
         curl_close($curl);
+    }
         
-        // return $result;
-}
+    public static function addRequestOFF($idEmployee, $idRequestType, $startDayOFF, $numberDayOFF, $noteDayOFF, $reason) {
+        $param = array(
+            'idEmployee'=> $idEmployee,
+            'idRequestType'=> $idRequestType,
+            'startDayOFF'=> "'$startDayOFF'",
+            'numberDayOFF'=> $numberDayOFF,
+            'noteDayOFF'=> "'$noteDayOFF'",
+            'reason'=>"'$reason'"
+        );
+        $url = "http://127.0.0.1:5001/addrequestOFF";
+        $curl = curl_init();
+
+        $payload = json_encode($param);
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $payload); 
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        
+        $result = curl_exec($curl);
+        
+        if($e=curl_error($curl)) {
+            echo $e;
+        }
+        else {
+            curl_close($curl);
+            return $result;
+        }
+        curl_close($curl);
+    }
 }
 
 ?>

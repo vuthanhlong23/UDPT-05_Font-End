@@ -38,10 +38,7 @@ switch ($action){
         $controller = new requestController();
         $controller->addRequestOT();
         break;
-    // case "addRequestOFF":     
-    //     $controller = new requestController();
-    //     $controller->addRequestOFF();
-    //     break;
+
     case "information":     
         $controller = new EmployeeController();
         $controller->information();

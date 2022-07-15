@@ -1,32 +1,22 @@
-<!-- <?php
-        // if(isset($_SESSION["idEmployee"]))
-        $temp = $_SESSION["idEmployee"];
-        echo "
-            <script>
-                console.log('$temp');
-            </script>
-        ";
-?> -->
-
 <div class="row requestOT">
     <p class="requestOT__functionName">Xin làm thêm giờ</p>
 
     <div class="col-6 requestOT__form">
         <div class="requestOT__formName">Tạo đề xuất</div>
-        <form action="index.php?action=addRequestOT" method="POST" >
-            <!-- <div class="row requestOT__formItem">
+        <form action="index.php?action=addRequestOT" method="POST">
+            <div class="row requestOT__formItem">
                 <span class="requestOT__formItemName">Ngày làm thêm giờ *</sp>
-                <input class="requestOT__formInput requestOT__formInput-date" name="requestDate" onblur="TDate()" type="date">
-            </div> -->
+                <input class="requestOT__formInput requestOT__formInput-date" name="dayOT" required onblur="TDate()" type="date">
+            </div>
             <div class="row requestOT__formItem">
                 <span class="requestOT__formItemName">Số giờ dự kiến *</sp>
-                <input class="requestOT__formInput requestOT__formInput-hour" name="hourOT" onblur="HourExpected()" type="number">
+                <input class="requestOT__formInput requestOT__formInput-hour" name="hourOT" required onchange="HourExpected()" type="number">
             </div>
             <div class="row requestOT__formItem">
                 <span class="requestOT__formItemName">Lý do làm thêm giờ *</span>
-                <input class="requestOT__formInput requestOT__formInput-reasonOT" name="reason" type="text">
+                <input class="requestOT__formInput requestOT__formInput-reasonOT" name="reason" required type="text">
             </div>
-            <button type="submit" onclick="submitRequestOT()" class="requestOT_submit-btn btn btn-success">Gửi đề xuất</button>
+            <button type="submit" class="requestOT_submit-btn btn btn-success">Gửi đề xuất</button>
         </form>
     </div>
 

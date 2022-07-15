@@ -37,5 +37,13 @@ class LoginLogoutController {
     public function index(){
         require("./view/loginlogout.phtml");
     }
+    public function Logout(){
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        session_destroy();
+        header("Location: index.php");
+        // require("./view/loginlogout.phtml");
+    }
 }
 ?>

@@ -51,6 +51,10 @@ switch ($action){
         $controller = new EmployeeController();
         $controller->information();
         break;
+    case "logout":     
+        $controller = new LoginLogoutController();
+        $controller->Logout();
+        break;
     case "task":     
         $controller = new EmployeeController();
         $controller->task();

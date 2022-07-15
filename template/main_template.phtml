@@ -6,10 +6,6 @@
     {
         header("Location: index.php");
     }
-    function Logout()
-    {
-        unset($_SESSION['username']);
-    }
 ?>
 
 
@@ -31,7 +27,7 @@
             </div>
             <div class="col-10 homepage__header-right">
                 <p class="HRM__role-user-login"><?php if (isset($_SESSION['roleName'])){echo 'Vai trò: ' . $_SESSION['roleName'];}?></p>
-                <a href="index.php" class='HRM__logout--redirect'>Đăng xuất </a>
+                <a href="index.php?action=logout" class='HRM__logout--redirect'>Đăng xuất </a>
             </div>
         </div>
     </header>

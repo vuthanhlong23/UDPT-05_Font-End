@@ -243,7 +243,8 @@ a.information__container-right__content-list-item-link{
     max-width: 50%;
 }
 
-.information__container-right__content-list-item-link-deadline{
+
+.information__container-right__content-list-item-link-deadline {
     flex-basis: 16.667%;
     max-width: 16.667%;
 }

@@ -64,10 +64,14 @@
                         <i class="HRM__functions-name-items__logo fa-solid fa-house"></i>
                         <p class="HRM__functions-name-items__name">Xin làm ở nhà</p>
                     </a>
-                    <a class="HRM__functions-name-items HRM__functions-name-items__personalInfo">
-                        <i class="HRM__functions-name-items__logo fa-solid fa-id-card"></i>
-                        <p class="HRM__functions-name-items__name">Thông tin cá nhân</p>
-                    </a>
+                    <?php
+                        $idEmployee = $_SESSION['idEmployee'];
+                        echo "<a href='index.php?action=information&idEmployee={$idEmployee}' class='HRM__functions-name-items HRM__functions-name-items__personalInfo'>
+                        <i class='HRM__functions-name-items__logo fa-solid fa-id-card'></i>
+                        <p class='HRM__functions-name-items__name'>Thông tin cá nhân</p>
+                        </a>";
+                    ?>
+                    
                     <!-- manager -->
                     <a class="HRM__functions-name-items HRM__functions-name-items__manageEmployee">
                         <i class="HRM__functions-name-items__logo fa-solid fa-id-card"></i>

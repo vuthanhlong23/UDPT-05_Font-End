@@ -21,27 +21,42 @@
                         <div class="circular--landscape">
                             <img src="assets/img/profile.jpg" class="information--left--profile__photo" alt="Avatar" />
                         </div>
-                        <span class="information--left--profile__fullname">Nguyễn Quang Pháp</span>
-                        <span class="information--left--profile__position">Nhân viên</span>
+                        <?php 
+                            $employeeName = $data["firstname"]." ".$data["lastname"];
+                            echo "<span class='information--left--profile__fullname'>".$employeeName."</span>";
+                        ?>
+                        <?php
+                            $roleName = $_SESSION['roleName'];
+                            echo "<span class='information--left--profile__position'>".$roleName."</span>";
+                        ?>
                     </div>
                 </div>
                 <div class="information--left__element">
                     <div class="information--left--quickinfor">
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-qrcode"></i>
-                            <span class="information--left--quickinfor__element-value">NV001</span>
+                            <?php
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["idEmployee"]."</span>";
+                            ?>
                         </div>
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-briefcase"></i>
-                            <span class="information--left--quickinfor__element-value">Nhân viên</span>
+                            <?php
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["position"]."</span>";
+                            ?>
                         </div>
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-envelope"></i>
-                            <span class="information--left--quickinfor__element-value">phaphtt@gmail.com</span>
+                            <?php
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["email"]."</span>";
+                            ?>
+                            
                         </div>
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-square-phone"></i>
-                            <span class="information--left--quickinfor__element-value">123456</span>
+                            <?php
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["phoneNumber"]."</span>";
+                            ?> 
                         </div>
                     </div>
                 </div>
@@ -97,7 +112,10 @@
                                         <span class="information__container-right__content-list-field__element-label">Mã nhân viên</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <span class="information__container-right__content-list-field__element-value">NV0001<span>
+                                        <?php
+                                            echo "<span class='information__container-right__content-list-field__element-value'>".$data["idEmployee"]."<span>";
+                                        ?>
+                                        
                                     </div>
                                 </div>
                                 <div class="information__container-right__content-list-field">
@@ -105,7 +123,10 @@
                                         <span class="information__container-right__content-list-field__element-label">Họ</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <input type="text" id="employee_firstname" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);" value="Nguyễn Quang"></input>
+                                        <?php
+                                            echo "<input type='text' id='employee_firstname' class='information__container-right__content-list-field__element-value' onchange='checkInvalidValue(id);' value='{$data["firstname"]}'></input>";
+                                        ?>
+                                        
                                     </div>
                                 </div>
                                 <div class="information__container-right__content-list-field">
@@ -113,7 +134,9 @@
                                         <span class="information__container-right__content-list-field__element-label">Tên</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <input type="text" id="employee_lastname" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);" value="Pháp"></input>
+                                        <?php
+                                            echo "<input type='text' id='employee_lastname' class='information__container-right__content-list-field__element-value' onchange='checkInvalidValue(id);' value='{$data["lastname"]}'></input>";
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="information__container-right__content-list-field">
@@ -121,7 +144,14 @@
                                         <span class="information__container-right__content-list-field__element-label">Tình trạng việc làm</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <span class="information__container-right__content-list-field__element-value">Active</span>
+                                        <?php
+                                            if($data["active"] == 1){
+                                                echo "<span class='information__container-right__content-list-field__element-value' style='color:var(--green-color);'>Active</span>";
+                                            }
+                                            else
+                                                echo "<span class='information__container-right__content-list-field__element-value' style='color:var(--red-color);'>Out</span>";
+                                        ?>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -145,8 +175,8 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <select id="employee_position" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
-                                            <option value="nhanvien" selected>Nhân viên</option>
-                                            <option value="truongphong">Trưởng Phòng</option>
+                                            <option value="Nhân viên" selected>Nhân viên</option>
+                                            <option value="Trưởng phòng">Trưởng Phòng</option>
                                         </select>
                                     </div>
                                 </div>
@@ -155,7 +185,11 @@
                                         <span class="information__container-right__content-list-field__element-label">Ngày sinh</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <input type="date" id="employee_dayOfBirth" class="information__container-right__content-list-field__element-value" value="" onchange="checkInvalidValue(id);"></input>
+                                        <?php
+                                            $dayOfBirth = date('yy-m-d',strtotime($data["dayOfBirth"]));
+                                            echo "<input type='date' id='employee_dayOfBirth' class='information__container-right__content-list-field__element-value' value='{$dayOfBirth}' onchange='checkInvalidValue(id);'></input>";
+                                        ?>
+                                        
                                     </div>
                                 </div>
                                 <div class="information__container-right__content-list-field">
@@ -164,8 +198,19 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <select id="employee_gender" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
-                                            <option value="nam" selected>Nam</option>
-                                            <option value="nu">Nữ</option>
+                                            <?php
+                                                if(strcmp($data["gender"], "Nam") == 0)
+                                                    echo "<option value='Nam' selected>Nam</option>";
+                                                else
+                                                    echo "<option value='Nam'>Nam</option>";
+
+                                                if(strcmp($data["gender"], "Nữ") == 0)
+                                                    echo "<option value='Nữ' selected>Nữ</option>";
+                                                else
+                                                    echo "<option value='Nữ'>Nữ</option>";
+                                            ?>
+                                            
+                                            
                                         </select>
                                     </div>
                                 </div>
@@ -178,7 +223,10 @@
                                         <span class="information__container-right__content-list-field__element-label">Email</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <input type="text" id="employee_email" class="information__container-right__content-list-field__element-value" value="phaphtt@gmail" onchange="checkInvalidValue(id);"></input>
+                                        <?php
+                                            echo "<input type='text' id='employee_email' class='information__container-right__content-list-field__element-value' value='{$data["email"]}' onchange='checkInvalidValue(id);'></input>";
+                                        ?>
+                                        
                                     </div>
                                 </div>
                                 <div class="information__container-right__content-list-field">
@@ -186,7 +234,10 @@
                                         <span class="information__container-right__content-list-field__element-label">Số điện thoại</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <input type="text" id="employee_phone" class="information__container-right__content-list-field__element-value" value="0368047874" onchange="checkInvalidValue(id);"></input>
+                                        <?php
+                                            echo "<input type='text' id='employee_phone' class='information__container-right__content-list-field__element-value' value='{$data["phoneNumber"]}' onchange='checkInvalidValue(id);'></input>";
+                                        ?>
+                                        
                                     </div>
                                 </div>
                                 <div class="information__container-right__content-list-field">
@@ -194,7 +245,10 @@
                                         <span class="information__container-right__content-list-field__element-label">Địa chỉ</span>
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
-                                        <input type="text" id="employee_address" class="information__container-right__content-list-field__element-value" value="Aasda" onchange="checkInvalidValue(id);"></input>
+                                        <?php
+                                            echo "<input type='text' id='employee_address' class='information__container-right__content-list-field__element-value' value='{$data["address"]}' onchange='checkInvalidValue(id);'></input>";
+                                        ?>
+                                        
                                     </div>
                                 </div>
                                 <div class="information__container-right__content-list-field">
@@ -203,8 +257,17 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <select id="employee_maritalStatus" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
-                                            <option value="docthan" selected>Độc thân</option>
-                                            <option value="dakethon">Đã kết hôn</option>
+                                            <?php
+                                                if(strcmp($data["maritalStatus"], "Độc thân") == 0)
+                                                    echo "<option value='Độc thân' selected>Độc thân</option>";
+                                                else
+                                                    echo "<option value='Độc thân'>Độc thân</option>";
+                                                
+                                                if(strcmp($data["maritalStatus"], "Đã kết hôn") == 0)
+                                                    echo "<option value='Đã kết hôn' selected>Đã kết hôn</option>";
+                                                else
+                                                    echo "<option value='Đã kết hôn'>Đã kết hôn</option>";
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -237,7 +300,9 @@
                                     <span class="information__container-right__content-list-field__element-label">Mã nhân viên</span>
                                 </div>
                                 <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-value">NV0002</span>
+                                    <?php
+                                        echo "<span class='information__container-right__content-list-field__element-value'>{$data["manager_idEmployee"]}</span>";
+                                    ?>
                                 </div>
                             </div>
                             <div class="information__container-right__content-list-field">
@@ -245,7 +310,10 @@
                                     <span class="information__container-right__content-list-field__element-label">Họ</span>
                                 </div>
                                 <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-value">Nguyễn Quang</span>
+                                    <?php
+                                        echo "<span class='information__container-right__content-list-field__element-value'>{$data["manager_firstname"]}</span>";
+                                    ?>
+                                    
                                 </div>
                             </div>
                             <div class="information__container-right__content-list-field">
@@ -253,7 +321,9 @@
                                     <span class="information__container-right__content-list-field__element-label">Tên</span>
                                 </div>
                                 <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-value">Pháp</span>
+                                    <?php
+                                        echo "<span class='information__container-right__content-list-field__element-value'>{$data["manager_lastname"]}</span>";
+                                    ?>
                                 </div>
                             </div>
                             <div class="information__container-right__content-list-field">
@@ -261,7 +331,10 @@
                                     <span class="information__container-right__content-list-field__element-label">Giới tính</span>
                                 </div>
                                 <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-value">Nam</span>
+                                    <?php
+                                        echo "<span class='information__container-right__content-list-field__element-value'>{$data["manager_gender"]}</span>";
+                                    ?>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -281,7 +354,9 @@
                                     <span class="information__container-right__content-list-field__element-label">Chức vụ</span>
                                 </div>
                                 <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-value">Trưởng phòng</span>
+                                    <?php
+                                        echo "<span class='information__container-right__content-list-field__element-value'>{$data["position"]}</span>";
+                                    ?>
                                 </div>
                             </div>
                             <div class="information__container-right__content-list-field">
@@ -289,7 +364,9 @@
                                     <span class="information__container-right__content-list-field__element-label">Email</span>
                                 </div>
                                 <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-value">phaphtt@gmail</span>
+                                    <?php
+                                        echo "<span class='information__container-right__content-list-field__element-value'>{$data["manager_email"]}</span>";
+                                    ?>
                                 </div>
                             </div>
                             <div class="information__container-right__content-list-field">
@@ -297,7 +374,9 @@
                                     <span class="information__container-right__content-list-field__element-label">Số điện thoại</span>
                                 </div>
                                 <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-value">0368047874</span>
+                                    <?php
+                                        echo "<span class='information__container-right__content-list-field__element-value'>{$data["manager_phoneNumber"]}</span>";
+                                    ?>
                                 </div>
                             </div>
                         </div>

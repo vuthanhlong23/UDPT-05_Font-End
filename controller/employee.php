@@ -22,5 +22,14 @@ class EmployeeController {
         $VIEW = "./view/employee_WFH.phtml";
         require("./template/main_template.phtml");
     }
+
+    public function information(){
+        $idEmployee = $_REQUEST['idEmployee'];
+
+        $result = Employee::GetInformation($idEmployee);
+        $data = json_decode($result, true);
+        $VIEW = "./view/employee_information.phtml";
+        require("./template/main_template.phtml");
+    }
 }
 ?>

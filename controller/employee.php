@@ -28,6 +28,8 @@ class EmployeeController {
 
         $result = Employee::GetInformation($idEmployee);
         $data = json_decode($result, true);
+        $result = Department::listDepartment();
+        $department = json_decode($result, true);
         $VIEW = "./view/employee_information.phtml";
         require("./template/main_template.phtml");
     }

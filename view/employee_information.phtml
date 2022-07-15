@@ -164,8 +164,19 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <select id="employee_department" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
-                                            <option value="1" selected>Phòng IT</option>
-                                            <option value="2">Kế toán</option>
+                                            <?php
+                                                $n = count($department);
+                                                $i = 0;
+                                                while($i < $n){
+                                                    if($department[$i]['id'] == $data['idDepartment']){
+                                                        echo "<option value={$department[$i]['id']} selected>{$department[$i]['departmentName']}</option>";
+                                                    }
+                                                    else{
+                                                        echo "<option value={$department[$i]['id']}>{$department[$i]['departmentName']}</option>";
+                                                    }
+                                                    $i += 1;
+                                                }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -346,7 +357,10 @@
                                     <span class="information__container-right__content-list-field__element-label">Phòng ban</span>
                                 </div>
                                 <div class="information__container-right__content-list-field__element">
-                                    <span class="information__container-right__content-list-field__element-value">Phòng IT</span>
+                                    <?php
+                                        echo "<span class='information__container-right__content-list-field__element-value'>{$data["manager_departmentName"]}</span>";
+                                    ?>
+                                    
                                 </div>
                             </div>
                             <div class="information__container-right__content-list-field">
@@ -355,7 +369,7 @@
                                 </div>
                                 <div class="information__container-right__content-list-field__element">
                                     <?php
-                                        echo "<span class='information__container-right__content-list-field__element-value'>{$data["position"]}</span>";
+                                        echo "<span class='information__container-right__content-list-field__element-value'>{$data["manager_position"]}</span>";
                                     ?>
                                 </div>
                             </div>

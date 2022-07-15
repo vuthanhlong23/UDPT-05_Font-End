@@ -6,6 +6,7 @@ require_once("./controller/employee.php");
 require_once("./controller/request.php");
 require_once("./model/request.php");
 require_once("./model/employee.php");
+require_once("./model/department.php");
 
 $action = "";
 if (isset($_REQUEST["action"])){

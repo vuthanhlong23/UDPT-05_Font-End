@@ -48,5 +48,19 @@ class EmployeeController {
         $VIEW = "./view/employee_information.phtml";
         require("./template/main_template.phtml");
     }
+
+    public function task(){
+        $idEmployee = $_REQUEST['idEmployee'];
+        $pageSize = 5;
+        $pageIndex = ($_REQUEST['page'] - 1)*$pageSize;
+        $status = $_REQUEST['status'];
+
+        $result = Employee::GetInformation($idEmployee);
+        $data = json_decode($result, true);
+        $result = TaskEmployee::ListTaskEmployees($idEmployee, $pageIndex, $pageSize, $status);
+        $listTasks = json_decode($result, true);
+        $VIEW = "./view/employee_tasks.phtml";
+        require("./template/main_template.phtml");
+    }
 }
 ?>

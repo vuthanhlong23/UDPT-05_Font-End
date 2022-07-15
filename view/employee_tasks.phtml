@@ -21,50 +21,71 @@
                         <div class="circular--landscape">
                             <img src="assets/img/profile.jpg" class="information--left--profile__photo" alt="Avatar" />
                         </div>
-                        <span class="information--left--profile__fullname">Nguyễn Quang Pháp</span>
-                        <span class="information--left--profile__position">Nhân viên</span>
+                        <?php 
+                            $employeeName = $data["firstname"]." ".$data["lastname"];
+                            echo "<span class='information--left--profile__fullname'>".$employeeName."</span>";
+                        ?>
+                        <?php
+                            $roleName = $_SESSION['roleName'];
+                            echo "<span class='information--left--profile__position'>".$roleName."</span>";
+                        ?>
                     </div>
                 </div>
                 <div class="information--left__element">
                     <div class="information--left--quickinfor">
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-qrcode"></i>
-                            <span class="information--left--quickinfor__element-value">NV001</span>
+                            <?php
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["idEmployee"]."</span>";
+                            ?>
                         </div>
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-briefcase"></i>
-                            <span class="information--left--quickinfor__element-value">Nhân viên</span>
+                            <?php
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["position"]."</span>";
+                            ?>
                         </div>
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-envelope"></i>
-                            <span class="information--left--quickinfor__element-value">phaphtt@gmail.com</span>
+                            <?php
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["email"]."</span>";
+                            ?>
+                            
                         </div>
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-square-phone"></i>
-                            <span class="information--left--quickinfor__element-value">123456</span>
+                            <?php
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["phoneNumber"]."</span>";
+                            ?> 
                         </div>
                     </div>
                 </div>
                 <div class="information--left__element">
                     <div class="information--left-functions">
-                        <a class="information--left-functions-item">
-                            <div class="col-2 information--left-functions-left">
-                                <i class="information--left-functions-left__icon fa-solid fa-user-large"></i>
+                        <?php
+                            $idEmployee = $_REQUEST['idEmployee'];
+                            echo "<a href='index.php?action=information&idEmployee={$idEmployee}' class='information--left-functions-item'>
+                            <div class='col-2 information--left-functions-left'>
+                                <i class='information--left-functions-left__icon fa-solid fa-user-large' ></i>
                             </div>
-                            <div class="col-10 information--left-functions-right">
-                                    <span class="information--left-functions-right__title">Thông tin chính</span>
-                                    <span class="information--left-functions-right__description">Thông tin lý lịch và pháp lý</span>
+                            <div class='col-10 information--left-functions-right'>
+                                    <span class='information--left-functions-right__title' >Thông tin chính</span>
+                                    <span class='information--left-functions-right__description' >Thông tin lý lịch và pháp lý</span>
                             </div>
-                        </a>
-                        <a url="" class="information--left-functions-item">
-                            <div class="col-2 information--left-functions-left">
-                                <i class="information--left-functions-left__icon fa-solid fa-font-awesome"  style="color:var(--secondary-color);"></i>
+                        </a>";
+                        ?>
+                        <?php
+                            $idEmployee = $_REQUEST['idEmployee'];
+                            echo "<a href='index.php?action=task&idEmployee={$idEmployee}&page=1&status=all p' class='information--left-functions-item'>
+                            <div class='col-2 information--left-functions-left'>
+                                <i class='information--left-functions-left__icon fa-solid fa-font-awesome' style='color:var(--secondary-color);'></i>
                             </div>
-                            <div class="col-10 information--left-functions-right">
-                                    <span class="information--left-functions-right__title" style="color:var(--secondary-color);">Thông tin công việc</span>
-                                    <span class="information--left-functions-right__description" style="color:var(--secondary-color);">Thông tin công việc, sự nghiệp</span>
+                            <div class='col-10 information--left-functions-right'>
+                                    <span class='information--left-functions-right__title' style='color:var(--secondary-color);'>Thông tin công việc</span>
+                                    <span class='information--left-functions-right__description' style='color:var(--secondary-color);'>Thông tin công việc, sự nghiệp</span>
                             </div>
-                        </a>
+                        </a>";
+                        ?>
                     </div>
                 </div>
             </div>
@@ -87,18 +108,39 @@
                     <div class="row" style="border-bottom: 1px solid var(--angle-color);">
                         <div class="information__container-right__filter-list">
                             <div class="information__container-right__filter-list-item">
-                                <select class="information__container-right__filter-list-item__element">
-                                    <option value="all">Tất cả trạng thái</option>
-                                </select>
-                            </div>
-                            <div class="information__container-right__filter-list-item">
-                                <select class="information__container-right__filter-list-item__element">
-                                    <option value="all">Tất cả dự án</option>
-                                </select>
-                            </div>
-                            <div class="information__container-right__filter-list-item">
-                                <select class="information__container-right__filter-list-item__element">
-                                    <option value="all">Giao & Được giao</option>
+                                <select class="information__container-right__filter-list-item__element" onchange="filterStatus(this);">
+                                    <?php
+                                        $idEmployee = $_REQUEST['idEmployee'];
+                                        $status = $_REQUEST['status'];
+
+                                        if(strcmp($status, "all") == 0){
+                                            echo "<option value='{$idEmployee}&page=1&status=all' selected>Tất cả trạng thái</option>";
+                                        }
+                                        else{
+                                            echo "<option value='{$idEmployee}&page=1&status=all'>Tất cả trạng thái</option>";
+                                        }
+
+                                        if(strcmp($status, "out") == 0){
+                                            echo "<option value='{$idEmployee}&page=1&status=out' selected>Quá hạn</option>";
+                                        }
+                                        else{
+                                            echo "<option value='{$idEmployee}&page=1&status=out'>Quá hạn</option>";
+                                        }
+
+                                        if(strcmp($status, "complete") == 0){
+                                            echo "<option value='{$idEmployee}&page=1&status=complete' selected>Hoàn thành</option>";
+                                        }
+                                        else{
+                                            echo "<option value='{$idEmployee}&page=1&status=complete'>Hoàn thành</option>";
+                                        }
+
+                                        if(strcmp($status, "doing") == 0){
+                                            echo "<option value='{$idEmployee}&page=1&status=doing' selected>Đang thực hiện</option>";
+                                        }
+                                        else{
+                                            echo "<option value='{$idEmployee}&page=1&status=doing'>Đang thực hiện</option>";
+                                        }
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -121,53 +163,54 @@
                                     <span>TRẠNG THÁI</span>
                                 </div>
                             </div>
-                            <div class="information__container-right__content-list-item">
-                                <a class="information__container-right__content-list-item-link">
-                                    <div class="information__container-right__content-list-item-link-job">
-                                        <span class="information__container-right__content-list-item-link-job-value">Công việc A</span>
-                                    </div>
-                                    <div class="information__container-right__content-list-item-link-department">
-                                        <span class="information__container-right__content-list-item-link-department-value">Phòng IT</span>
-                                    </div>
-                                    <div class="information__container-right__content-list-item-link-project">
-                                        <span class="information__container-right__content-list-item-link-project-value">Dự án A</span>
-                                    </div>
-                                    <div class="information__container-right__content-list-item-link-status">
-                                        <span class="information__container-right__content-list-item-link-status-value">Hoàn thành</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="information__container-right__content-list-item">
-                                <a class="information__container-right__content-list-item-link">
-                                    <div class="information__container-right__content-list-item-link-job">
-                                        <span class="information__container-right__content-list-item-link-job-value">Công việc A</span>
-                                    </div>
-                                    <div class="information__container-right__content-list-item-link-department">
-                                        <span class="information__container-right__content-list-item-link-department-value">Phòng IT</span>
-                                    </div>
-                                    <div class="information__container-right__content-list-item-link-project">
-                                        <span class="information__container-right__content-list-item-link-project-value">Dự án A</span>
-                                    </div>
-                                    <div class="information__container-right__content-list-item-link-status">
-                                        <span class="information__container-right__content-list-item-link-status-value">Đang thực hiện</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="information__container-right__content-list-item">
-                                <a class="information__container-right__content-list-item-link">
-                                    <div class="information__container-right__content-list-item-link-job">
-                                        <span class="information__container-right__content-list-item-link-job-value">Công việc A</span>
-                                    </div>
-                                    <div class="information__container-right__content-list-item-link-department">
-                                        <span class="information__container-right__content-list-item-link-department-value">Phòng IT</span>
-                                    </div>
-                                    <div class="information__container-right__content-list-item-link-project">
-                                        <span class="information__container-right__content-list-item-link-project-value">Dự án A</span>
-                                    </div>
-                                    <div class="information__container-right__content-list-item-link-status">
-                                        <span class="information__container-right__content-list-item-link-status-value">Quá hạn</span>
-                                    </div>
-                                </a>
+                            <?php
+                                $self = $_SERVER['PHP_SELF'];
+                                $currentPage = 1;
+                                if (isset($_REQUEST["page"]))
+                                    $currentPage = $_REQUEST["page"];
+                                $n = count($listTasks);
+                                $i = 0;
+                                while($i < $n){
+                                    $deadline = date('d-m-yy',strtotime($listTasks[$i]["deadline"]));
+                                    echo "<div class='information__container-right__content-list-item'>
+                                    <a class='information__container-right__content-list-item-link'>
+                                        <div class='information__container-right__content-list-item-link-job'>
+                                            <span class='information__container-right__content-list-item-link-job-value'>{$listTasks[$i]["taskName"]}</span>
+                                        </div>
+                                        <div class='information__container-right__content-list-item-link-deadline'>
+                                            <span class='information__container-right__content-list-item-link-deadline-value'>{$deadline}</span>
+                                        </div>
+                                        <div class='information__container-right__content-list-item-link-project'>
+                                            <span class='information__container-right__content-list-item-link-project-value'>{$listTasks[$i]["projectName"]}</span>
+                                        </div>
+                                        <div class='information__container-right__content-list-item-link-status'>
+                                            <span class='information__container-right__content-list-item-link-status-value'>{$listTasks[$i]["status"]}</span>
+                                        </div>
+                                    </a>
+                                </div>";
+                                    $i += 1;
+                                }
+                            ?>
+                        </div>
+                        <div class="information__container-right__content-list-paging">
+                            <div class="information__container-right__content-list-paging-element">
+                                <?php
+                                    if ($currentPage > 1)
+                                    {
+                                        $page = $currentPage - 1;
+                                        $prev = "<a class='paging-data' href='$self?action=task&idEmployee=$idEmployee&page=$page&status=$status'><</a>     ";
+                                    }
+                                    else
+                                    {
+                                        $prev = "<a class='paging-data' href='$self?action=task&idEmployee=$idEmployee&page=1&status=$status'><</a>     ";
+                                    }
+
+
+                                    $page = $currentPage + 1;
+                                    $next = "     <a class='paging-data' href='$self?action=task&idEmployee=$idEmployee&page=$page&status=$status'>></a>";
+
+                                    echo $prev.$currentPage.$next;
+                                ?>
                             </div>
                         </div>
                     </div>

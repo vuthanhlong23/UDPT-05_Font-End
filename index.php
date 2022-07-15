@@ -7,6 +7,7 @@ require_once("./controller/request.php");
 require_once("./model/request.php");
 require_once("./model/employee.php");
 require_once("./model/department.php");
+require_once("./model/task.php");
 
 $action = "";
 if (isset($_REQUEST["action"])){
@@ -42,6 +43,10 @@ switch ($action){
     case "information":     
         $controller = new EmployeeController();
         $controller->information();
+        break;
+    case "task":     
+        $controller = new EmployeeController();
+        $controller->task();
         break;
     default:
         $controller = new LoginLogoutController();

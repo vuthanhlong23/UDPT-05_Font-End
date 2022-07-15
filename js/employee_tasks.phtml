@@ -3,13 +3,21 @@
     statusTasks.forEach(index => {
         var statusValue = index.innerText;
         if(statusValue == "Hoàn thành"){
-            index.style.cssText += "background-color:var(--green-color); background-clip: content-box; color:var(--white-color);";
+            index.style.cssText += "background-color:var(--green-color); color:var(--white-color);";
         }
         else if(statusValue == "Đang thực hiện"){
-            index.style.cssText += "background-color:var(--orange-color); background-clip: content-box; color:var(--white-color);";
+            index.style.cssText += "background-color:var(--orange-color); color:var(--white-color);";
         }
         else{
-            index.style.cssText += "background-color:var(--red-color); background-clip: content-box; color:var(--white-color);";
+            index.style.cssText += "background-color:var(--red-color); color:var(--white-color);";
         }
     })
+
+    function filterStatus(input){
+        var url ="index.php?action=task&idEmployee="+input.value;
+        if(url != ''){
+            window.location=url;
+        }
+        return false;
+    }
 </script>

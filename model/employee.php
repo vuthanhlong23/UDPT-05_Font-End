@@ -56,10 +56,6 @@ class Employee {
             }
         }
 
-
-
-
-
         curl_close($ch);
     }
 

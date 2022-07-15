@@ -27,6 +27,20 @@ class requestController {
         require("./template/main_template.phtml");
     }
 
+    public function addRequestWFH() {
+        session_start();
+        $idRequestType = 3; 
+        $idEmployee = $_SESSION["idEmployee"];
+        $startDayWFH = $_REQUEST["startDayWFH"];
+        $endDayWFH = $_REQUEST["endDayWFH"];
+        $reason = $_REQUEST["reason"];
+
+        $dataAddRequestWFH = requestModel::addRequestWFH($idEmployee, $startDayWFH, $endDayWFH,$reason);
+        $dataAllRequest = requestModel::listAllRequest($idEmployee, $idRequestType);
+        $VIEW = "./view/employee_WFH.phtml";
+        require("./template/main_template.phtml");
+    }
+
     public function addRequestOT() {
         session_start();
         $idEmployee = $_SESSION["idEmployee"];

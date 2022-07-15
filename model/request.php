@@ -85,6 +85,34 @@ class requestModel {
         curl_close($ch);
     }
 
+    public static function addRequestWFH($idEmployee, $startDayWFH, $endDayWFH,$reason)
+    {
+        $param = array(
+                'idRequestType'=> 3,
+                'idEmployee'=> $idEmployee,
+                'idCensor'=> 2,
+                'startDayWFH'=> "'$startDayWFH'", 
+                'endDayWFH'=> "'$endDayWFH'",
+                'reason'=> "'$reason'"
+        );
+
+        $data = json_encode($param);
+
+        $url = "http://127.0.0.1:5001/employee/addrequestWFH";
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data); 
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        
+        $result = curl_exec($curl);
+    
+        curl_close($curl);
+        
+        return ($result);
+    }
+
     public static function addRequestOT($idEmployee, $idRequestType, $hourOT, $dayOT, $reason) {
         $param = array(
             'idEmployee'=> $idEmployee,

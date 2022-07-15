@@ -26,19 +26,22 @@ switch ($action){
         $controller = new requestController();
         $controller->listAllRequestOFF();
         break;
+    case "requestListWFH":
+        $controller = new requestController();
+        $controller->listAllRequestWFH();
+        break;
     case "login":     
         $controller = new LoginLogoutController();
         $controller->login();
         break;
-    case "requestWFH":     
-        $controller = new EmployeeController();
-        $controller->requestWFH();
+    case "addRequestWFH":     
+        $controller = new requestController();
+        $controller->addRequestWFH();
         break;
     case "addRequestOT":     
         $controller = new requestController();
         $controller->addRequestOT();
         break;
-
     case "information":     
         $controller = new EmployeeController();
         $controller->information();

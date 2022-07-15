@@ -27,7 +27,7 @@ function CheckDateEnd(id) {
 var requestWFHStatusName = document.querySelectorAll(".requestWFH__formItemsStatusName");
 requestWFHStatusName.forEach(index => {
     var requestWFHStatusNameValue = index.innerText;
-    if (requestWFHStatusNameValue == "Đang chờ duyệt") {
+    if (requestWFHStatusNameValue == "Chưa xét duyệt") {
         index.style.cssText += 'background-color: grey;'
     }
     else if (requestWFHStatusNameValue == "Chấp thuận") {
@@ -42,7 +42,7 @@ requestWFHStatusName.forEach(index => {
 var requestWFHRejectReason = document.querySelectorAll(".requestWFH__formItemsRejectReason");
 for(var i=0;i<requestWFHRejectReason.length;i++){
     var requestWFHStatusNameValue = requestWFHStatusName[i].innerText;
-    if(requestWFHStatusNameValue == "Chấp thuận"){
+    if(requestWFHStatusNameValue == "Chấp thuận" || requestWFHStatusNameValue == "Chưa xét duyệt"){
         requestWFHRejectReason[i].style.display = "none";
     }
 }

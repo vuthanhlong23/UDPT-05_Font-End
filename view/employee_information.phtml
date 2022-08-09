@@ -1,3 +1,63 @@
+<script type="text/javascript" language="javascript">
+    var xmlHttp;
+	function CreateXMLHttpRequest()
+	{
+		if ( window.XMLHttpRequest )
+		{
+			 // code for IE7+, Firefox, Chrome, Opera, Safari
+			return new XMLHttpRequest()
+		}
+		else if (window.ActiveXObject )
+		{
+			 // code for IE6, IE5
+			return new ActiveXObject("Microsoft.XMLHTTP")
+		}
+	}
+
+    
+	function showResult()
+	{
+		if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+		{
+			alert("Cập nhật thông tin nhân viên thành công!");
+		}
+	}
+
+    function btnUpdateEmployee()
+	{
+		xmlHttp = CreateXMLHttpRequest();
+
+        xmlHttp.onreadystatechange = showResult;
+		
+		var serverURL = 'Index.php';
+
+		var firstname = document.getElementById('employee_firstname').value;
+        
+		var lastname = document.getElementById('employee_lastname').value;
+
+        var idDepartment = document.getElementById('employee_department').value;
+
+        var position = document.getElementById('employee_position').value;
+
+        var dayOfBirth = document.getElementById('employee_dayOfBirth').value;
+
+        var gender = document.getElementById('employee_gender').value;
+
+        var email = document.getElementById('employee_email').value;
+
+        var phone = document.getElementById('employee_phone').value;
+
+        var address = document.getElementById('employee_address').value;
+
+        var maritalStatus = document.getElementById('employee_maritalStatus').value;
+
+		var params = "action=information&func=update&firstname=" + encodeURI(firstname) + "&lastname=" + encodeURI(lastname) + "&idDepartment=" + encodeURI(idDepartment) + "&position=" + encodeURI(position)+ "&dayOfBirth=" + encodeURI(dayOfBirth) + "&gender=" + encodeURI(gender) + "&email=" + encodeURI(email) + "&phoneNumber=" + encodeURI(phone) + "&address=" + encodeURI(address) + "&maritalStatus=" + encodeURI(maritalStatus);
+        xmlHttp.open("put", serverURL, true);
+        xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xmlHttp.send(params);
+	}
+</script>
+
 <div class="information__header">
     <div class="row">
         <div class="information__header_nav">
@@ -92,7 +152,7 @@
         </div>
         <div class="col-9 information__container-right">
             <div class="row" style="padding-bottom: 10px;">
-                <form class="row" method="post">
+                <div class="row">
                     <input type="hidden" name="action" value="information"></input>
                     <input type="hidden" name="func" value="update"></input>
                     <?php
@@ -176,14 +236,14 @@
                                     <div class="information__container-right__content-list-field__element">
                                         <select name='idDepartment' id="employee_department" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
                                             <?php
-                                                $n = count($department);
+                                                $n = count($data['list_department']);
                                                 $i = 0;
                                                 while($i < $n){
-                                                    if($department[$i]['id'] == $data['idDepartment']){
-                                                        echo "<option value={$department[$i]['id']} selected>{$department[$i]['departmentName']}</option>";
+                                                    if($data['list_department'][$i]['id'] == $data['idDepartment']){
+                                                        echo "<option value={$data['list_department'][$i]['id']} selected>{$data['list_department'][$i]['departmentName']}</option>";
                                                     }
                                                     else{
-                                                        echo "<option value={$department[$i]['id']}>{$department[$i]['departmentName']}</option>";
+                                                        echo "<option value={$data['list_department'][$i]['id']}>{$data['list_department'][$i]['departmentName']}</option>";
                                                     }
                                                     $i += 1;
                                                 }
@@ -297,7 +357,7 @@
                         </div>
                     </div>
 
-                <form>
+                <div>
                 
             </div>
 

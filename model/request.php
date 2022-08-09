@@ -43,7 +43,7 @@ class requestModel {
 
     public static function listAllRequest($idEmployee, $idRequestType) {
         $ch = curl_init();
-        $url = "http://127.0.0.1:5001/readrequest?idEmployee=$idEmployee&idRequestType=$idRequestType";
+        $url = "urlEmployeeRequest = https://employee-request.herokuapp.com/employee/readrequest?idEmployee=$idEmployee&idRequestType=$idRequestType";
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -121,7 +121,7 @@ class requestModel {
             'dayOT'=> "'$dayOT'",
             'reason'=>"'$reason'"
         );
-        $url = "http://127.0.0.1:5001/addrequestOT";
+        $url = "https://employee-request.herokuapp.com/employee/addrequestOT";
         $curl = curl_init();
 
         $payload = json_encode($param);
@@ -152,7 +152,7 @@ class requestModel {
             'noteDayOFF'=> "'$noteDayOFF'",
             'reason'=>"'$reason'"
         );
-        $url = "http://127.0.0.1:5001/addrequestOFF";
+        $url = "https://employee-request.herokuapp.com/employee/addrequestOFF";
         $curl = curl_init();
 
         $payload = json_encode($param);

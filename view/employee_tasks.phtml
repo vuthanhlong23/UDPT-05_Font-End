@@ -22,7 +22,7 @@
                             <img src="assets/img/profile.jpg" class="information--left--profile__photo" alt="Avatar" />
                         </div>
                         <?php 
-                            $employeeName = $data["firstname"]." ".$data["lastname"];
+                            $employeeName = $data["employee"]["firstname"]." ".$data["employee"]["lastname"];
                             echo "<span class='information--left--profile__fullname'>".$employeeName."</span>";
                         ?>
                         <?php
@@ -36,26 +36,26 @@
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-qrcode"></i>
                             <?php
-                                echo "<span class='information--left--quickinfor__element-value'>".$data["idEmployee"]."</span>";
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["employee"]["idEmployee"]."</span>";
                             ?>
                         </div>
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-briefcase"></i>
                             <?php
-                                echo "<span class='information--left--quickinfor__element-value'>".$data["position"]."</span>";
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["employee"]["position"]."</span>";
                             ?>
                         </div>
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-envelope"></i>
                             <?php
-                                echo "<span class='information--left--quickinfor__element-value'>".$data["email"]."</span>";
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["employee"]["email"]."</span>";
                             ?>
                             
                         </div>
                         <div class="information--left--quickinfor__element">
                             <i class="information--left--quickinfor__element-icon fa-solid fa-square-phone"></i>
                             <?php
-                                echo "<span class='information--left--quickinfor__element-value'>".$data["phoneNumber"]."</span>";
+                                echo "<span class='information--left--quickinfor__element-value'>".$data["employee"]["phoneNumber"]."</span>";
                             ?> 
                         </div>
                     </div>
@@ -168,23 +168,23 @@
                                 $currentPage = 1;
                                 if (isset($_REQUEST["page"]))
                                     $currentPage = $_REQUEST["page"];
-                                $n = count($listTasks);
+                                $n = count($data["listTasks"]);
                                 $i = 0;
                                 while($i < $n){
-                                    $deadline = date('d-m-yy',strtotime($listTasks[$i]["deadline"]));
+                                    $deadline = date('d-m-yy',strtotime($data["listTasks"][$i]["deadline"]));
                                     echo "<div class='information__container-right__content-list-item'>
                                     <a class='information__container-right__content-list-item-link'>
                                         <div class='information__container-right__content-list-item-link-job'>
-                                            <span class='information__container-right__content-list-item-link-job-value'>{$listTasks[$i]["taskName"]}</span>
+                                            <span class='information__container-right__content-list-item-link-job-value'>{$data["listTasks"][$i]["taskName"]}</span>
                                         </div>
                                         <div class='information__container-right__content-list-item-link-deadline'>
                                             <span class='information__container-right__content-list-item-link-deadline-value'>{$deadline}</span>
                                         </div>
                                         <div class='information__container-right__content-list-item-link-project'>
-                                            <span class='information__container-right__content-list-item-link-project-value'>{$listTasks[$i]["projectName"]}</span>
+                                            <span class='information__container-right__content-list-item-link-project-value'>{$data["listTasks"][$i]["projectName"]}</span>
                                         </div>
                                         <div class='information__container-right__content-list-item-link-status'>
-                                            <span class='information__container-right__content-list-item-link-status-value'>{$listTasks[$i]["status"]}</span>
+                                            <span class='information__container-right__content-list-item-link-status-value'>{$data["listTasks"][$i]["status"]}</span>
                                         </div>
                                     </a>
                                 </div>";

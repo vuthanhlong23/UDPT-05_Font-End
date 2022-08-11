@@ -45,26 +45,6 @@ select.censorship__container-title-first__filter-list{
     border: none;
 }
 
-.censorship__container-title-nav{
-    width: 100%;
-    padding-top: 5px;
-    border-bottom: 2px solid var(--angle-color);
-    display: block;
-}
-
-.censorship__container-title-nav-content-link{
-    padding-right: 10px;
-    width: max-content;
-    display: inline-block;
-}
-
-a.censorship__container-title-nav-content-link-value{
-    text-decoration: none;
-    color:var(--ash-color);
-    font-size: 1rem;
-    cursor: pointer;
-}
-
 .censorship__container-content-row{
     display:block;
     border-bottom: 1px solid var(--angle-color);

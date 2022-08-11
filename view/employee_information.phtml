@@ -29,7 +29,9 @@
 
         xmlHttp.onreadystatechange = showResult;
 		
-		var serverURL = 'Index.php';
+		var serverURL = 'Index.php?action=information&func=update';
+
+        var idEmployee = document.getElementById('idEmployee').value;
 
 		var firstname = document.getElementById('employee_firstname').value;
         
@@ -51,8 +53,9 @@
 
         var maritalStatus = document.getElementById('employee_maritalStatus').value;
 
-		var params = "action=information&func=update&firstname=" + encodeURI(firstname) + "&lastname=" + encodeURI(lastname) + "&idDepartment=" + encodeURI(idDepartment) + "&position=" + encodeURI(position)+ "&dayOfBirth=" + encodeURI(dayOfBirth) + "&gender=" + encodeURI(gender) + "&email=" + encodeURI(email) + "&phoneNumber=" + encodeURI(phone) + "&address=" + encodeURI(address) + "&maritalStatus=" + encodeURI(maritalStatus);
-        xmlHttp.open("put", serverURL, true);
+		var params = "action=information&func=update&idEmployee=" + encodeURI(idEmployee) +"&firstname=" + encodeURI(firstname) + "&lastname=" + encodeURI(lastname) + "&idDepartment=" + encodeURI(idDepartment) + "&position=" + encodeURI(position)+ "&dayOfBirth=" + encodeURI(dayOfBirth) + "&gender=" + encodeURI(gender) + "&email=" + encodeURI(email) + "&phoneNumber=" + encodeURI(phone) + "&address=" + encodeURI(address) + "&maritalStatus=" + encodeURI(maritalStatus);
+
+        xmlHttp.open("post", serverURL, true);
         xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xmlHttp.send(params);
 	}
@@ -156,7 +159,7 @@
                     <input type="hidden" name="action" value="information"></input>
                     <input type="hidden" name="func" value="update"></input>
                     <?php
-                        echo "<input type='hidden' name='idEmployee' value={$data["id"]}></input>";
+                        echo "<input type='hidden' id='idEmployee' name='idEmployee' value={$data["id"]}></input>";
                     ?>
                     <div class="information__container-right__title">
                         <div class="row information__container-right__title-element">

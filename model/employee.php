@@ -1,4 +1,10 @@
 <?php
+class Hosting{
+    public $urlHost;
+    function __construct() {
+        $this->urlHost = "http://127.0.0.1:5001/";
+    }
+}
 class Employee {
     public $id;
     public $idManager;
@@ -34,7 +40,8 @@ class Employee {
 
     public static function readRequest() {
         $ch = curl_init();
-        $url = "http://127.0.0.1:5001/readrequest?idEmployee=2&idRequestType=1";
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."readrequest?idEmployee=2&idRequestType=1";
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -61,7 +68,8 @@ class Employee {
 
     public static function GetInformation($idEmployee){
         $method = "GET";
-        $url = "http://127.0.0.1:5001/employee/information?idEmployee=$idEmployee";
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."employee/information?idEmployee=$idEmployee";
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -75,7 +83,8 @@ class Employee {
 
     public static function ListEmployeeByManagerId($idManager, $pageIndex, $pageSize){
         $method = "GET";
-        $url = "http://127.0.0.1:5001/listemployee?idManager=$idManager&pageIndex=$pageIndex&pageSize=$pageSize";
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."listemployee?idManager=$idManager&pageIndex=$pageIndex&pageSize=$pageSize";
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -88,7 +97,8 @@ class Employee {
     }
 
     public static function UpdateInformation($idEmployee, $firstname, $lastname, $idDepartment, $position, $dayOfBirth, $gender, $email, $phoneNumber, $address, $maritalStatus){
-        $url = "http://127.0.0.1:5001/employee/update";
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."employee/update";
         $curl = curl_init();
 
         #Set up data send json

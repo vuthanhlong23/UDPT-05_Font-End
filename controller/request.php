@@ -1,5 +1,9 @@
 <?php
 class requestController {
+    public function listRequestCenSorshipAll(){
+        $VIEW = "./view/censorship.phtml";
+        require("./template/main_template.phtml");
+    }
     public function listAllRequestOT() {
         session_start();
         $idEmployee = $_SESSION["idEmployee"];

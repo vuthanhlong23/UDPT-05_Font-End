@@ -36,6 +36,10 @@ switch ($action){
         $controller = new LoginLogoutController();
         $controller->login();
         break;
+    case "censorship":     
+        $controller = new requestController();
+        $controller->listRequestCenSorshipAll();
+        break;
     case "addRequestWFH":     
         $controller = new requestController();
         $controller->addRequestWFH();

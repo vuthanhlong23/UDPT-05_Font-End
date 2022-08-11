@@ -39,10 +39,14 @@
                 
                 <div class="HRM__functions-name">
                     <!-- manager -->
-                    <a class="HRM__functions-name-items">
-                        <i class="HRM__functions-name-items__logo fa-solid fa-envelope"></i>
-                        <p class="HRM__functions-name-items__name">Kiểm duyệt</p>
-                    </a>
+                    
+                    <?php
+                        $idEmployee = $_SESSION['idEmployee'];
+                        echo"<a href='index.php?action=censorship&idEmployee={$idEmployee}' class='HRM__functions-name-items'>
+                        <i class='HRM__functions-name-items__logo fa-solid fa-envelope'></i>
+                        <p class='HRM__functions-name-items__name'>Kiểm duyệt</p>
+                        </a>";
+                    ?>
                     <a href="index.php?action=checkinHistory" class="HRM__functions-name-items">
                         <i class="HRM__functions-name-items__logo fa-solid fa-arrow-right-to-bracket"></i>
                         <p class="HRM__functions-name-items__name">Check In/Out</p>

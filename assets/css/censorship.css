@@ -59,6 +59,8 @@ select.censorship__container-title-first__filter-list{
     padding-top: 10px;
     padding-bottom: 10px;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--black-color);
 }
 
 .censorship__container-content-row-element-index{

@@ -38,7 +38,11 @@ switch ($action){
         break;
     case "censorship":     
         $controller = new requestController();
-        $controller->listRequestCenSorshipAll();
+        $controller->listRequestByCenSorship();
+        break;
+    case "censorshipdetail":     
+        $controller = new requestController();
+        $controller->RequestDetailByCensorship();
         break;
     case "addRequestWFH":     
         $controller = new requestController();

@@ -1,9 +1,30 @@
 <?php
 class requestController {
-    public function listRequestCenSorshipAll(){
+    public function listRequestByCenSorship(){
+        $idCensorship = $_REQUEST["idCensorship"];
+        $page = $_REQUEST["page"];
+        $pageSize = 5;
+        $pageIndex = ($page - 1) * $pageSize;
+        $typeRequest = $_REQUEST["typeRequest"];
+        $result = requestModel::ListRequestByCensorshipId($idCensorship, $pageIndex, $pageSize, $typeRequest);
+        $dataListRequestByCensorship = json_decode($result, true);
         $VIEW = "./view/censorship.phtml";
         require("./template/main_template.phtml");
     }
+
+    public function RequestDetailByCensorship(){
+        $idCensorship = $_REQUEST["idCensorship"];
+        $page = $_REQUEST["page"];
+        $pageSize = 5;
+        $pageIndex = ($page - 1) * $pageSize;
+        $typeRequest = $_REQUEST["typeRequest"];
+        $idRequest = $_REQUEST["idRequest"];
+        $result = requestModel::RequestDetailByIdRequest($idCensorship, $pageIndex, $pageSize, $typeRequest, $idRequest);
+        $data= json_decode($result, true);
+        $VIEW = "./view/censorship_detail.phtml";
+        require("./template/main_template.phtml");
+    }
+    
     public function listAllRequestOT() {
         session_start();
         $idEmployee = $_SESSION["idEmployee"];

@@ -40,6 +40,37 @@ class requestModel {
         $this->requestRejectReason = "";
         $this->active = "";
     }
+    
+    public static function ListRequestByCensorshipId($idCensorship, $pageIndex, $pageSize, $typeRequest){
+        $method = "GET";
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."listrequest/censorship?idCensorship=$idCensorship&pageIndex=$pageIndex&pageSize=$pageSize&typeRequest=$typeRequest";
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    
+        $result = curl_exec($curl); 
+    
+        curl_close($curl);
+        return $result;
+    }
+
+    public static function RequestDetailByIdRequest($idCensorship, $pageIndex, $pageSize, $typeRequest, $idRequest){
+        $method = "GET";
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."request/detail?idCensorship=$idCensorship&pageIndex=$pageIndex&pageSize=$pageSize&typeRequest=$typeRequest&idRequest=$idRequest";
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    
+        $result = curl_exec($curl); 
+    
+        curl_close($curl);
+        return $result;
+    }
+
 
     public static function listAllRequest($idEmployee, $idRequestType) {
         $ch = curl_init();

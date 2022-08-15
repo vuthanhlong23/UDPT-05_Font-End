@@ -34,6 +34,7 @@
 .censorship-detail__container-title-first{
     display: block;
     padding-bottom: 5px;
+    border-bottom: 2px solid var(--angle-color);
 }
 
 .censorship-detail__container-title-first__name{

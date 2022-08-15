@@ -13,94 +13,131 @@
         <div class="censorship-detail__container-title">
             <div class="censorship-detail__container-title-first">
                 <div class="censorship-detail__container-title-first__name">
-                    <spa>Danh sách để xuất</spa>
+                    <span>Chi tiết đề xuất</span>
                 </div>
                 <div class="censorship-detail__container-title-first__filter">
                     <label>Loại đề xuất:</label>
-                    <select class="censorship-detail__container-title-first__filter-list">
-                        <option value="all">Tất cả</option>
-                        <option value="all">Yêu cầu nghỉ phép</option>
-                        <option value="all">Yêu cầu OT</option>
-                        <option value="all">Yêu cầu checkout bù</option>
+                    <select class="censorship-detail__container-title-first__filter-list"  onchange="filterDetailTypeRequest(this);">
+                    <?php
+                        $idCensorship = $_REQUEST["idCensorship"];
+                        $typeRequest = $_REQUEST["typeRequest"];
+
+                        if(strcmp($typeRequest, "all") == 0){
+                            echo "<option value='{$idCensorship}&page=1&typeRequest=all&idRequest=0' selected>Tất cả</option>";
+                        }
+                        else{
+                            echo "<option value='{$idCensorship}&page=1&typeRequest=all&idRequest=0'>Tất cả</option>";
+                        }
+
+                        if(strcmp($typeRequest, "off") == 0){
+                            echo "<option value='{$idCensorship}&page=1&typeRequest=off&idRequest=0' selected>Yêu cầu nghỉ phép</option>";
+                        }
+                        else{
+                            echo "<option value='{$idCensorship}&page=1&typeRequest=off&idRequest=0'>Yêu cầu nghỉ phép</option>";
+                        }
+
+                        if(strcmp($typeRequest, "ot") == 0){
+                            echo "<option value='{$idCensorship}&page=1&typeRequest=ot&idRequest=0' selected>Yêu cầu OT</option>";
+                        }
+                        else{
+                            echo "<option value='{$idCensorship}&page=1&typeRequest=ot&idRequest=0'>Yêu cầu OT</option>";
+                        }
+
+                        if(strcmp($typeRequest, "home") == 0){
+                            echo "<option value='{$idCensorship}&page=1&typeRequest=home&idRequest=0' selected>Yêu cầu làm việc tại nhà</option>";
+                        }
+                        else{
+                            echo "<option value='{$idCensorship}&page=1&typeRequest=home&idRequest=0'>Yêu cầu làm việc tại nhà</option>";
+                        }
+
+                        if(strcmp($typeRequest, "checkout") == 0){
+                            echo "<option value='{$idCensorship}&page=1&typeRequest=checkout&idRequest=0' selected>Yêu cầu checkout bù</option>";
+                        }
+                        else{
+                            echo "<option value='{$idCensorship}&page=1&typeRequest=checkout&idRequest=0'>Yêu cầu checkout bù</option>";
+                        }
+                    ?>
                     </select>
-                </div>
-            </div>
-            <div class="censorship-detail__container-title-nav">
-                <div class="censorship-detail__container-title-nav-content-link">
-                    <a class="censorship-detail__container-title-nav-content-link-value">TẤT CẢ</a>
-                </div>
-                <div class="censorship-detail__container-title-nav-content-link">
-                    <a class="censorship-detail__container-title-nav-content-link-value">ĐANG CHỜ DUYỆT</a>
-                </div>
-                <div class="censorship-detail__container-title-nav-content-link">
-                    <a class="censorship-detail__container-title-nav-content-link-value">ĐÃ PHÊ DUYỆT</a>
-                </div>
-                <div class="censorship-detail__container-title-nav-content-link">
-                    <a class="censorship-detail__container-title-nav-content-link-value">ĐÃ TỪ CHỐI</a>
                 </div>
             </div>
         </div>
         <div class="censorship-detail__container-content">
             <div class="censorship-detail__container-content-request-list">
-                <div class="censorship-detail__container-content-request-list-item" style="background-color: var(--secondary-color);">
-                    <a class="censorship-detail__container-content-request-list-item-element">
-                        <div class="censorship-detail__container-content-request-list-item-element__title">
-                            <span class="censorship-detail__container-content-request-list-item-element__title-name" style="color: var(--white-color);">Yêu cầu nghỉ phép ngày 20/05</span>
-                        </div>
-                        <div class="censorship-detail__container-content-request-list-item-element__description">
-                            <span class="censorship-detail__container-content-request-list-item-element__description-name" style="color: var(--white-color);">Nhân viên a, asda</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="censorship-detail__container-content-request-list-item">
-                    <a class="censorship-detail__container-content-request-list-item-element">
-                        <div class="censorship-detail__container-content-request-list-item-element__title">
-                            <span class="censorship-detail__container-content-request-list-item-element__title-name">Yêu cầu nghỉ phép ngày 20/05</span>
-                        </div>
-                        <div class="censorship-detail__container-content-request-list-item-element__description">
-                            <span class="censorship-detail__container-content-request-list-item-element__description-name">Nhân viên a, asda</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="censorship-detail__container-content-request-list-item">
-                    <a class="censorship-detail__container-content-request-list-item-element">
-                        <div class="censorship-detail__container-content-request-list-item-element__title">
-                            <span class="censorship-detail__container-content-request-list-item-element__title-name">Yêu cầu nghỉ phép ngày 20/05</span>
-                        </div>
-                        <div class="censorship-detail__container-content-request-list-item-element__description">
-                            <span class="censorship-detail__container-content-request-list-item-element__description-name">Nhân viên a, asda</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="censorship-detail__container-content-request-list-item">
-                    <a class="censorship-detail__container-content-request-list-item-element">
-                        <div class="censorship-detail__container-content-request-list-item-element__title">
-                            <span class="censorship-detail__container-content-request-list-item-element__title-name">Yêu cầu nghỉ phép ngày 20/05</span>
-                        </div>
-                        <div class="censorship-detail__container-content-request-list-item-element__description">
-                            <span class="censorship-detail__container-content-request-list-item-element__description-name">Nhân viên a, asda</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="censorship-detail__container-content-request-list-item">
-                    <a class="censorship-detail__container-content-request-list-item-element">
-                        <div class="censorship-detail__container-content-request-list-item-element__title">
-                            <span class="censorship-detail__container-content-request-list-item-element__title-name">Yêu cầu nghỉ phép ngày 20/05</span>
-                        </div>
-                        <div class="censorship-detail__container-content-request-list-item-element__description">
-                            <span class="censorship-detail__container-content-request-list-item-element__description-name">Nhân viên a, asda</span>
-                        </div>
-                    </a>
+                <?php
+                    $self = $_SERVER['PHP_SELF'];
+                    $currentPage = 1;
+                    if (isset($_REQUEST["page"]))
+                        $currentPage = $_REQUEST["page"];
+                    $n = count($data['listRequest']);
+                    $i = 0;
+                    $idCensorship = $_REQUEST["idCensorship"];
+                    $page = $_REQUEST["page"];
+                    $typeRequest = $_REQUEST["typeRequest"];
+                    
+                    while ($i < $n) {
+                        $fullName = $data['listRequest'][$i]['employeeFirstName']." ".$data['listRequest'][$i]['employeeLastName'];
+                        if((int)$data['detailRequest']['id'] == (int)$data['listRequest'][$i]['id']){
+                            echo "<div class='censorship-detail__container-content-request-list-item' style='background-color: var(--secondary-color);'>
+                                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$data['listRequest'][$i]['id']}' class='censorship-detail__container-content-request-list-item-element'>
+                                        <div class='censorship-detail__container-content-request-list-item-element__title'>
+                                            <span class='censorship-detail__container-content-request-list-item-element__title-name' style='color: var(--white-color);'>{$data['listRequest'][$i]['requestName']}</span>
+                                        </div>
+                                        <div class='censorship-detail__container-content-request-list-item-element__description'>
+                                            <span class='censorship-detail__container-content-request-list-item-element__description-name' style='color: var(--white-color);'>{$fullName}, {$data['listRequest'][$i]['requestStatus']}</span>
+                                        </div>
+                                    </a>
+                                </div>";
+                        }
+                        else{
+                            echo "<div class='censorship-detail__container-content-request-list-item'>
+                                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$data['listRequest'][$i]['id']}' class='censorship-detail__container-content-request-list-item-element'>
+                                        <div class='censorship-detail__container-content-request-list-item-element__title'>
+                                            <span class='censorship-detail__container-content-request-list-item-element__title-name'>{$data['listRequest'][$i]['requestName']}</span>
+                                        </div>
+                                        <div class='censorship-detail__container-content-request-list-item-element__description'>
+                                            <span class='censorship-detail__container-content-request-list-item-element__description-name'>{$fullName}, {$data['listRequest'][$i]['requestStatus']}</span>
+                                        </div>
+                                    </a>
+                                </div>";
+                        }
+                        $i += 1;
+                    }
+                ?>
+                <div class="information__container-right__content-list-paging">
+                    <div class="information__container-right__content-list-paging-element">
+                        <?php
+                            if ($currentPage > 1)
+                            {
+                                $page = $currentPage - 1;
+                                $prev = "<a class='paging-data' href='$self?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest=0'><</a>     ";
+                            }
+                            else
+                            {
+                                $prev = "<a class='paging-data' href='$self?action=censorshipdetail&idCensorship={$idCensorship}&page=1&typeRequest={$typeRequest}&idRequest=0'><</a>     ";
+                            }
+
+
+                            $page = $currentPage + 1;
+                            $next = "     <a class='paging-data' href='$self?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest=0'>></a>";
+
+                            echo $prev.$currentPage.$next;
+                        ?>
+                    </div>
                 </div>
             </div>
             <div class="censorship-detail__container-content-request-detail">
                 <div class="censorship-detail__container-content-request-detail-title">
                     <div class="censorship-detail__container-content-request-detail-title-name">
-                        <span>Yêu cầu nghỉ phép</span>
+                        <?php
+                            echo "<span>{$data['detailRequest']['requestName']}</span>";
+                        ?>
                     </div>
                     <div class="censorship-detail__container-content-request-detail-title-status">
                         <span>Trạng thái: </span>
-                        <span class="censorship-detail__container-content-request-detail-title-status-value" >Đang chờ duyệt</span>
+                        <?php
+                            echo "<span class='censorship-detail__container-content-request-detail-title-status-value' >{$data['detailRequest']['requestStatus']}</span>";
+                        ?>
+                        
                     </div>
                 </div>
                 <div class="censorship-detail__container-content-request-detail-btn">
@@ -134,7 +171,9 @@
                         </div>
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-item-right">
-                                <span class="censorship-detail__container-content-request-detail-request-item-right-value">Xin nghỉ phép</span>
+                                <?php
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-item-right-value'>{$data['detailRequest']['typeName']}</span>";
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -151,24 +190,10 @@
                         </div>
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-item-right">
-                                <span class="censorship-detail__container-content-request-detail-request-item-right-value">Nguyễn Quang Pháp</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="censorship-detail__container-content-request-detail-request-item">
-                        <div class="col-4">
-                            <div class="censorship-detail__container-content-request-detail-request-item-left">
-                                <div class="censorship-detail__container-content-request-detail-request-item-icon">
-                                    <i class="fa-solid fa-building"></i>
-                                </div>
-                                <div class="censorship-detail__container-content-request-detail-request-item-title">
-                                    <span>Phòng ban</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-8">
-                            <div class="censorship-detail__container-content-request-detail-request-item-right">
-                                <span class="censorship-detail__container-content-request-detail-request-item-right-value">Phòng IT</span>
+                                <?php
+                                    $fullName = $data['detailRequest']['employeeFirstName']." ".$data['detailRequest']['employeeLastName'];
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-item-right-value'>{$fullName}</span>";
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -185,7 +210,10 @@
                         </div>
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-item-right">
-                                <span class="censorship-detail__container-content-request-detail-request-item-right-value">20/07/2022</span>
+                                <?php
+                                    $date = date('d-m-yy',strtotime($data['detailRequest']['requestDate']));
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-item-right-value'>{$date}</span>";
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -202,7 +230,10 @@
                         </div>
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-item-right">
-                                <span class="censorship-detail__container-content-request-detail-request-item-right-value">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur distinctio quod nisi, molestiae eligendi hic itaque consequatur minima iste temporibus soluta.</span>
+                                <?php
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-item-right-value'>{$data['detailRequest']['reason']}</span>";
+                                ?>
+                                
                             </div>
                         </div>
                     </div>
@@ -219,7 +250,10 @@
                         </div>
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-other-item-result">
-                                <span class="censorship-detail__container-content-request-detail-request-other-item-result-value">20/07/2022</span>
+                                <?php
+                                    $date = date('d-m-yy',strtotime($data['detailRequest']['dayOT']));
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$date}</span>";
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -231,7 +265,9 @@
                         </div>
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-other-item-result">
-                                <span class="censorship-detail__container-content-request-detail-request-other-item-result-value">4</span>
+                                <?php
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$data['detailRequest']['hourOT']}</span>";
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -243,7 +279,10 @@
                         </div>
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-other-item-result">
-                                <span class="censorship-detail__container-content-request-detail-request-other-item-result-value">20/07/2022</span>
+                                <?php
+                                    $date = date('d-m-yy',strtotime($data['detailRequest']['startDayOFF']));
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$date}</span>";
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -255,7 +294,10 @@
                         </div>
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-other-item-result">
-                                <span class="censorship-detail__container-content-request-detail-request-other-item-result-value">1</span>
+                                <?php
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$data['detailRequest']['numberDayOFF']}</span>";
+                                ?>
+                                
                             </div>
                         </div>
                     </div>
@@ -267,7 +309,9 @@
                         </div>
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-other-item-result">
-                                <span class="censorship-detail__container-content-request-detail-request-other-item-result-value">Sáng</span>
+                                <?php
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$data['detailRequest']['noteDayOFF']}</span>";
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -286,10 +330,16 @@
                         </div>
                         <div class="censorship-detail__container-content-request-manager-member-info">
                             <div class="censorship-detail__container-content-request-manager-member-info-name">
-                                <span class="censorship-detail__container-content-request-manager-member-info-name__value">Nguyễn Quang Pháp</span>
+                                <?php
+                                    $censorFullName = $data['detailRequest']['censorFirstName']." ".$data['detailRequest']['censorLastName'];
+                                    echo "<span class='censorship-detail__container-content-request-manager-member-info-name__value'>{$censorFullName}</span>";
+                                ?>
+                                
                             </div>
                             <div class="censorship-detail__container-content-request-manager-member-info-position">
-                                <span class="censorship-detail__container-content-request-manager-member-info-position__value">Trưởng phòng</span>
+                                <?php
+                                    echo "<span class='censorship-detail__container-content-request-manager-member-info-position__value'>{$data['detailRequest']['positionCensor']}</span>";
+                                ?>
                             </div>
                         </div>
                     </div>

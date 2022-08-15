@@ -6,86 +6,112 @@
             </div>
             <div class="censorship__container-title-first__filter">
                 <label>Loại đề xuất:</label>
-                <select class="censorship__container-title-first__filter-list">
-                    <option value="all">Tất cả</option>
-                    <option value="all">Yêu cầu nghỉ phép</option>
-                    <option value="all">Yêu cầu OT</option>
-                    <option value="all">Yêu cầu checkout bù</option>
+                <select class="censorship__container-title-first__filter-list" onchange="filterTypeRequest(this);">
+                <?php
+                    $idCensorship = $_REQUEST["idCensorship"];
+                    $typeRequest = $_REQUEST["typeRequest"];
+
+                    if(strcmp($typeRequest, "all") == 0){
+                        echo "<option value='{$idCensorship}&page=1&typeRequest=all' selected>Tất cả</option>";
+                    }
+                    else{
+                        echo "<option value='{$idCensorship}&page=1&typeRequest=all'>Tất cả</option>";
+                    }
+
+                    if(strcmp($typeRequest, "off") == 0){
+                        echo "<option value='{$idCensorship}&page=1&typeRequest=off' selected>Yêu cầu nghỉ phép</option>";
+                    }
+                    else{
+                        echo "<option value='{$idCensorship}&page=1&typeRequest=off'>Yêu cầu nghỉ phép</option>";
+                    }
+
+                    if(strcmp($typeRequest, "ot") == 0){
+                        echo "<option value='{$idCensorship}&page=1&typeRequest=ot' selected>Yêu cầu OT</option>";
+                    }
+                    else{
+                        echo "<option value='{$idCensorship}&page=1&typeRequest=ot'>Yêu cầu OT</option>";
+                    }
+
+                    if(strcmp($typeRequest, "home") == 0){
+                        echo "<option value='{$idCensorship}&page=1&typeRequest=home' selected>Yêu cầu làm việc tại nhà</option>";
+                    }
+                    else{
+                        echo "<option value='{$idCensorship}&page=1&typeRequest=home'>Yêu cầu làm việc tại nhà</option>";
+                    }
+
+                    if(strcmp($typeRequest, "checkout") == 0){
+                        echo "<option value='{$idCensorship}&page=1&typeRequest=checkout' selected>Yêu cầu checkout bù</option>";
+                    }
+                    else{
+                        echo "<option value='{$idCensorship}&page=1&typeRequest=checkout'>Yêu cầu checkout bù</option>";
+                    }
+                ?>
                 </select>
             </div>
         </div>
     </div>
     <div class="censorship__container-content">
-        <div class="censorship__container-content-row">
-            <div class="censorship__container-content-row-element">
-                <div class="col-8 censorship__container-content-row-element-index">
-                    <span class="censorship__container-content-row-element-index-name">Tên yêu cầu</span>
-                    <span class="censorship__container-content-row-element-index-employee">Nhân viên</span>
-                    <span class="censorship__container-content-row-element-index-reason">Lý do</span>
-                </div>
-                <div class="col-2 censorship__container-content-row-element-type">
-                    <div class="censorship__container-content-row-element-type-name">
-                        <span>Yêu cầu nghỉ phép</span>
-                    </div>
-                </div>
-                <div class="col-2 censorship__container-content-row-element-status">
-                    <div class="censorship__container-content-row-element-status-name">
-                        <span>Chấp thuận</span>
-                    </div>
-                </div>
-                <div class="censorship__container-content-row-element-date">
-                    <div class="censorship__container-content-row-element-date-name">
-                        <span>Date</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="censorship__container-content-row">
-            <div class="censorship__container-content-row-element">
-                <div class="col-8 censorship__container-content-row-element-index">
-                    <span class="censorship__container-content-row-element-index-name">Tên yêu cầu</span>
-                    <span class="censorship__container-content-row-element-index-employee">Nhân viên</span>
-                    <span class="censorship__container-content-row-element-index-reason">Lý do</span>
-                </div>
-                <div class="col-2 censorship__container-content-row-element-type">
-                    <div class="censorship__container-content-row-element-type-name">
-                        <span>Yêu cầu checkout bù</span>
-                    </div>
-                </div>
-                <div class="col-2 censorship__container-content-row-element-status">
-                    <div class="censorship__container-content-row-element-status-name">
-                        <span>Từ chối</span>
-                    </div>
-                </div>
-                <div class="censorship__container-content-row-element-date">
-                    <div class="censorship__container-content-row-element-date-name">
-                        <span>Date</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="censorship__container-content-row">
-            <div class="censorship__container-content-row-element">
-                <div class="col-8 censorship__container-content-row-element-index">
-                    <span class="censorship__container-content-row-element-index-name">Tên yêu cầu</span>
-                    <span class="censorship__container-content-row-element-index-employee">Nhân viên</span>
-                    <span class="censorship__container-content-row-element-index-reason">Lý do</span>
-                </div>
-                <div class="col-2 censorship__container-content-row-element-type">
-                    <div class="censorship__container-content-row-element-type-name">
-                        <span>Yêu cầu OT</span>
-                    </div>
-                </div>
-                <div class="col-2 censorship__container-content-row-element-status">
-                    <div class="censorship__container-content-row-element-status-name">
-                        <span>Chưa xét duyệt</span>
-                    </div>
-                </div>
-                <div class="censorship__container-content-row-element-date">
-                    <div class="censorship__container-content-row-element-date-name">
-                        <span>Date</span>
-                    </div>
-                </div>
+        <?php
+            $self = $_SERVER['PHP_SELF'];
+            $currentPage = 1;
+            if (isset($_REQUEST["page"]))
+                $currentPage = $_REQUEST["page"];
+            $n = count($dataListRequestByCensorship);
+            $i = 0;
+            $idCensorship = $_REQUEST["idCensorship"];
+            $page = $_REQUEST["page"];
+            $typeRequest = $_REQUEST["typeRequest"];
+            while ($i < $n){
+                $fullName = $dataListRequestByCensorship[$i]["employeeFirstName"].$dataListRequestByCensorship[$i]["employeeLastName"];
+                $date = date('d-m-yy',strtotime($dataListRequestByCensorship[$i]["requestDate"]));
+                echo "<div class='censorship__container-content-row'>
+                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$dataListRequestByCensorship[$i]["id"]}' class='censorship__container-content-row-element'>
+                        <div class='col-8 censorship__container-content-row-element-index'>
+                            <span class='censorship__container-content-row-element-index-name'>{$dataListRequestByCensorship[$i]["requestName"]}</span>
+                            <span class='censorship__container-content-row-element-index-employee'>{$fullName}</span>
+                            <span class='censorship__container-content-row-element-index-reason'>Lý do: {$dataListRequestByCensorship[$i]["reason"]}</span>
+                        </div>
+                        <div class='col-2 censorship__container-content-row-element-type'>
+                            <div class='censorship__container-content-row-element-type-name'>
+                                <span>{$dataListRequestByCensorship[$i]["typeName"]}</span>
+                            </div>
+                        </div>
+                        <div class='col-2 censorship__container-content-row-element-status'>
+                            <div class='censorship__container-content-row-element-status-name'>
+                                <span>{$dataListRequestByCensorship[$i]["requestStatus"]}</span>
+                            </div>
+                        </div>
+                        <div class='censorship__container-content-row-element-date'>
+                            <div class='censorship__container-content-row-element-date-name'>
+                                <span>$date</span>
+                            </div>
+                        </div>
+                    </a>
+            </div>";
+                $i += 1;
+            }
+        ?>
+        <div class="information__container-right__content-list-paging">
+            <div class="information__container-right__content-list-paging-element">
+                <?php
+                    $idCensorship = $_REQUEST["idCensorship"];
+                    $typeRequest = $_REQUEST["typeRequest"];
+                    if ($currentPage > 1)
+                    {
+                        $page = $currentPage - 1;
+                        $prev = "<a class='paging-data' href='$self?action=censorship&idCensorship=$idCensorship&page=$page&typeRequest=$typeRequest'><</a>     ";
+                    }
+                    else
+                    {
+                        $prev = "<a class='paging-data' href='$self?action=censorship&idCensorship=$idCensorship&page=1&typeRequest=$typeRequest'><</a>     ";
+                    }
+
+
+                    $page = $currentPage + 1;
+                    $next = "     <a class='paging-data' href='$self?action=censorship&idCensorship=$idCensorship&page=$page&typeRequest=$typeRequest'>></a>";
+
+                    echo $prev.$currentPage.$next;
+                ?>
             </div>
         </div>
     </div>

@@ -9,4 +9,12 @@
                 index.style.cssText += "color: var(--secondary-color);";
             }
     })
+
+    function filterDetailTypeRequest(input){
+        var url ="index.php?action=censorshipdetail&idCensorship="+input.value;
+        if(url != ''){
+            window.location=url;
+        }
+        return false;
+    }
 </script>

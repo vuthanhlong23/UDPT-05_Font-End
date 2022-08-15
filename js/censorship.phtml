@@ -12,4 +12,12 @@
             index.style.cssText += "background-color: var(--lightred-color);color: var(--red-color);";
         }
     })
+
+    function filterTypeRequest(input){
+        var url ="index.php?action=censorship&idCensorship="+input.value;
+        if(url != ''){
+            window.location=url;
+        }
+        return false;
+    }
 </script>

@@ -23,6 +23,11 @@ function HourExpected() {
         document.querySelector(".requestOT__formInput-hour").value = "";
         return false;
     }
+    else if(NumHour>6) {
+        alert("Số giờ làm phải nhỏ hơn 6!!!");
+        document.querySelector(".requestOT__formInput-hour").value = "";
+        return false;
+    }
     return true;
 }
 

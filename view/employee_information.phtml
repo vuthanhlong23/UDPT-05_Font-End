@@ -271,7 +271,7 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <?php
-                                            $dayOfBirth = date('yy-m-d',strtotime($data["dayOfBirth"]));
+                                            $dayOfBirth = date('Y-m-d',strtotime($data["dayOfBirth"]));
                                             echo "<input type='date' name='dayOfBirth' id='employee_dayOfBirth' class='information__container-right__content-list-field__element-value' value='{$dayOfBirth}' onchange='checkInvalidValue(id);'></input>";
                                         ?>
                                         

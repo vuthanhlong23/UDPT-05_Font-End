@@ -221,7 +221,7 @@
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-item-right">
                                 <?php
-                                    $date = date('d-m-yy',strtotime($data['detailRequest']['requestDate']));
+                                    $date = date('d-m-Y',strtotime($data['detailRequest']['requestDate']));
                                     echo "<span class='censorship-detail__container-content-request-detail-request-item-right-value'>{$date}</span>";
                                 ?>
                             </div>
@@ -281,7 +281,7 @@
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-other-item-result">
                                 <?php
-                                    $date = date('d-m-yy',strtotime($data['detailRequest']['dayOT']));
+                                    $date = date('d-m-Y',strtotime($data['detailRequest']['dayOT']));
                                     echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$date}</span>";
                                 ?>
                             </div>
@@ -310,7 +310,7 @@
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-other-item-result">
                                 <?php
-                                    $date = date('d-m-yy',strtotime($data['detailRequest']['startDayOFF']));
+                                    $date = date('d-m-Y',strtotime($data['detailRequest']['startDayOFF']));
                                     echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$date}</span>";
                                 ?>
                             </div>
@@ -354,7 +354,7 @@
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-other-item-result">
                                 <?php
-                                    $date = date('d-m-yy',strtotime($data['detailRequest']['startDayWFH']));
+                                    $date = date('d-m-Y',strtotime($data['detailRequest']['startDayWFH']));
                                     echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$date}</span>";
                                 ?>
                             </div>
@@ -369,7 +369,7 @@
                         <div class="col-8">
                             <div class="censorship-detail__container-content-request-detail-request-other-item-result">
                                 <?php
-                                    $date = date('d-m-yy',strtotime($data['detailRequest']['endDayWFH']));
+                                    $date = date('d-m-Y',strtotime($data['detailRequest']['endDayWFH']));
                                     echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$date}</span>";
                                 ?>
                             </div>

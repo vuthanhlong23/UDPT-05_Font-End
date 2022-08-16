@@ -375,6 +375,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="censorship-detail__container-content-request-detail-request-other-item">
+                        <div class="col-4">
+                            <div class="censorship-detail__container-content-request-detail-request-other-item-title">
+                                <span class="censorship-detail__container-content-request-detail-request-other-item-title-value">Ngày xin checkout</span>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="censorship-detail__container-content-request-detail-request-other-item-result">
+                                <?php
+                                    $date = date('d-m-Y',strtotime($data['detailRequest']['checkoutDate']));
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$date}</span>";
+                                ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="censorship-detail__container-content-request-manager">

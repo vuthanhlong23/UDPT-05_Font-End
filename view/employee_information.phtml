@@ -260,8 +260,17 @@
                                     </div>
                                     <div class="information__container-right__content-list-field__element">
                                         <select name='position' id="employee_position" class="information__container-right__content-list-field__element-value" onchange="checkInvalidValue(id);">
-                                            <option value="Nhân viên" selected>Nhân viên</option>
-                                            <option value="Trưởng phòng">Trưởng Phòng</option>
+                                                <?php
+                                                    if (strcmp($data["position"], "Nhân viên")==0)
+                                                        echo "<option value='Nhân viên' selected>Nhân viên</option>";
+                                                    else
+                                                        echo "<option value='Nhân viên'>Nhân viên</option>";
+
+                                                    if (strcmp($data["position"], "Trưởng phòng")==0)
+                                                        echo "<option value='Trưởng phòng' selected>Trưởng phòng</option>";
+                                                    else
+                                                        echo "<option value='Trưởng phòng'>Trưởng phòng</option>";
+                                                ?>
                                         </select>
                                     </div>
                                 </div>

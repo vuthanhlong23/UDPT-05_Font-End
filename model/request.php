@@ -71,6 +71,32 @@ class requestModel {
         return $result;
     }
 
+    public static function UpdateRequestByCensorship($idRequest, $requestStatus, $requestRejectReason){
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."request/update/censorship";
+        $curl = curl_init();
+
+        #Set up data send json
+        $data = array(
+            'idRequest' => $idRequest, 
+            'requestStatus' => $requestStatus,
+            'requestRejectReason' => $requestRejectReason
+        );
+
+        $dataJson = json_encode($data);
+
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
+        curl_setopt($curl, CURLOPT_POSTFIELDS,$dataJson);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        $result = curl_exec($curl); 
+    
+        curl_close($curl);
+        return $result;
+    }
 
     public static function listAllRequest($idEmployee, $idRequestType) {
         $ch = curl_init();

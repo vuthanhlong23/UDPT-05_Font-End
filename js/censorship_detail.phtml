@@ -10,6 +10,71 @@
             }
     })
 
+    function hiddenFieldByTypeRequest(){
+        var typeName = document.getElementById("typeName").innerText;
+        var field = document.querySelectorAll(".censorship-detail__container-content-request-detail-request-other-item");
+        if (typeName == "Yêu cầu nghỉ phép") {
+            field[0].style.display="None";
+            field[1].style.display="None";
+            field[5].style.display="None";
+            field[6].style.display="None";
+        }
+        else if (typeName == "Yêu cầu làm thêm giờ"){
+            field[2].style.display="None";
+            field[3].style.display="None";
+            field[4].style.display="None";
+            field[5].style.display="None";
+            field[6].style.display="None";
+        }
+        else if (typeName == "Yêu cầu làm việc tại nhà"){
+            field[0].style.display="None";
+            field[1].style.display="None";
+            field[2].style.display="None";
+            field[3].style.display="None";
+            field[4].style.display="None";
+        }
+        else{
+            field[0].style.display="None";
+            field[1].style.display="None";
+            field[2].style.display="None";
+            field[3].style.display="None";
+            field[4].style.display="None";
+            field[5].style.display="None";
+            field[6].style.display="None";
+        }
+    }
+
+    function hiddenButton(){
+        var status = document.querySelector(".censorship-detail__container-content-request-detail-title-status-value").innerText;
+        if (status != "Chưa xét duyệt"){
+            var button = document.querySelector(".censorship-detail__container-content-request-detail-btn-list");
+            button.style.display="None";
+        }
+        if(status != "Từ chối"){
+            var field = document.querySelectorAll(".censorship-detail__container-content-request-detail-request-item");
+            field[4].style.display="None";
+        }
+    }
+
+    function clickBtnReject(){
+        var button = document.querySelector(".censorship-detail__container-content-request-detail-btn-list");
+        button.style.display="None";
+        var checkExists = document.getElementById("click-btn-reject").innerHTML;
+        
+        if(!checkExists){
+            document.getElementById("click-btn-reject").innerHTML = "<div class='censorship-detail__container-content-request-detail-btn-reason-reject-item'><div class='col-4'><div class='censorship-detail__container-content-request-detail-btn-reason-reject-item-left'><div class='censorship-detail__container-content-request-detail-btn-reason-reject-item-icon'><i class='fa-solid fa-window-maximize'></i></div><div class='censorship-detail__container-content-request-detail-btn-reason-reject-item-title'><span>Lí do từ chối</span></div></div></div><div class='col-8'><div class='censorship-detail__container-content-request-detail-btn-reason-reject-item-right' ><textarea id='requestRejectReason' class='censorship-detail__container-content-request-detail-request-item-right-value' rows='3' placeholder='Nhập lý do từ chối yêu cầu'></textarea></div></div></div><div class='censorship-detail__container-content-request-detail-btn-reason-reject-btn'><div class='censorship-detail__container-content-request-detail-btn-reason-reject-btn-item'><input type='button' class='censorship-detail__container-content-request-detail-btn-reason-reject-btn-confirm' value='Xác nhận từ chối' onclick='updateStatusRequest();'></div><div class='censorship-detail__container-content-request-detail-btn-reason-reject-btn-item'><input type='button' class='censorship-detail__container-content-request-detail-btn-reason-reject-btn-cancel' value='Hủy' onclick='clickBtnCancel();'></div></div>";
+        }
+        else{
+            document.getElementById("click-btn-reject").style.display="Block";
+        }
+    }
+
+    function clickBtnCancel(){
+        var button = document.querySelector(".censorship-detail__container-content-request-detail-btn-list");
+        button.style.display= "Flex";
+        document.getElementById("click-btn-reject").style.display="None";
+    }
+    
     function filterDetailTypeRequest(input){
         var url ="index.php?action=censorshipdetail&idCensorship="+input.value;
         if(url != ''){
@@ -17,4 +82,25 @@
         }
         return false;
     }
+
+    function updateStatusRequest(requestStatus){
+        if(typeof requestStatus == "undefined")
+            requestStatus = "Từ chối";
+        var idRequest = document.getElementById("idRequest").value;
+        var idCensorship = document.getElementById("idCensorship").value;
+        var page = document.getElementById("page").value;
+        var typeRequest = document.getElementById("typeRequest").value;
+        var requestRejectReason = "";
+        if (document.getElementById('requestRejectReason') !=null) {
+            requestRejectReason = document.getElementById("requestRejectReason").value;
+        }
+        var url ="index.php?action=censorshipdetail&func=update&idCensorship=" + encodeURI(idCensorship) + "&idRequest=" + encodeURI(idRequest) + "&page=" + encodeURI(page) + "&typeRequest=" + encodeURI(typeRequest) + "&requestRejectReason=" + encodeURI(requestRejectReason)  + "&requestStatus=" + encodeURI(requestStatus);
+        if(url != ''){
+            window.location=url;
+        }
+        return false;
+    }
+
+    hiddenFieldByTypeRequest();
+    hiddenButton();
 </script>

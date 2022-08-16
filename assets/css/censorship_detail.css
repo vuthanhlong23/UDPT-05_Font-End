@@ -173,6 +173,55 @@ input.censorship-detail__container-content-request-detail-btn-list-item-element_
     font-weight: 500;
 }
 
+.censorship-detail__container-content-request-detail-btn-reason-reject-item{
+    display: flex;
+    list-style: none;
+    padding-top: 5px;
+}
+
+.censorship-detail__container-content-request-detail-btn-reason-reject-item-left{
+    display:flex;
+    list-style: none;
+    color: var(--red-color);
+}
+.censorship-detail__container-content-request-detail-btn-reason-reject-item-icon{
+    font-size: 1.2rem;
+    flex-basis:16.667%;
+}
+
+.censorship-detail__container-content-request-detail-btn-reason-reject-item-title{
+    flex-basis:83.333%;
+}
+.censorship-detail__container-content-request-detail-btn-reason-reject-item-right{
+    max-width: 100%;
+}
+
+.censorship-detail__container-content-request-detail-request-item-right-value{
+    width: 100%;
+}
+
+.censorship-detail__container-content-request-detail-btn-reason-reject-btn{
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.censorship-detail__container-content-request-detail-btn-reason-reject-btn-confirm{
+    border: none;
+    background-color: var(--red-color);
+    color: var(--white-color);
+}
+
+.censorship-detail__container-content-request-detail-btn-reason-reject-btn-item{
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.censorship-detail__container-content-request-detail-btn-reason-reject-btn-cancel{
+    border: none;
+    background-color: var(--ash-color);
+    color: var(--white-color);
+}
+
 .censorship-detail__container-content-request-detail-request{
     border-bottom: 1px solid var(--angle-color);
 }

@@ -19,6 +19,13 @@ class requestController {
         $pageIndex = ($page - 1) * $pageSize;
         $typeRequest = $_REQUEST["typeRequest"];
         $idRequest = $_REQUEST["idRequest"];
+        
+        if(isset($_REQUEST["func"])){
+            $requestStatus = $_REQUEST["requestStatus"];
+            $requestRejectReason = $_REQUEST["requestRejectReason"];
+            $result = requestModel::UpdateRequestByCensorship($idRequest, $requestStatus, $requestRejectReason);
+        }
+
         $result = requestModel::RequestDetailByIdRequest($idCensorship, $pageIndex, $pageSize, $typeRequest, $idRequest);
         $data= json_decode($result, true);
         $VIEW = "./view/censorship_detail.phtml";

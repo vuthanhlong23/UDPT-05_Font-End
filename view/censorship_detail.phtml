@@ -129,7 +129,14 @@
                 <div class="censorship-detail__container-content-request-detail-title">
                     <div class="censorship-detail__container-content-request-detail-title-name">
                         <?php
-                            echo "<span>{$data['detailRequest']['requestName']}</span>";
+                            $currentPage = 1;
+                            if (isset($_REQUEST["page"]))
+                                $currentPage = $_REQUEST["page"];
+                            echo "<span>{$data['detailRequest']['requestName']}</span>
+                            <input type='hidden' id='idRequest' value='{$data['detailRequest']['id']}'>
+                            <input type='hidden' id='idCensorship' value='{$idCensorship}'>
+                            <input type='hidden' id='page' value='{$currentPage}'>
+                            <input type='hidden' id='typeRequest' value='{$typeRequest}'>";
                         ?>
                     </div>
                     <div class="censorship-detail__container-content-request-detail-title-status">
@@ -144,14 +151,17 @@
                     <div class="censorship-detail__container-content-request-detail-btn-list">
                         <div class="censorship-detail__container-content-request-detail-btn-list-item">
                             <div class="censorship-detail__container-content-request-detail-btn-list-item-element">
-                                <input type="button" class="censorship-detail__container-content-request-detail-btn-list-item-element__agree" value="Chấp thuận">
+                                <input type="button" class="censorship-detail__container-content-request-detail-btn-list-item-element__agree" value="Chấp thuận" onclick="updateStatusRequest('Chấp thuận');">
                             </div>
                         </div>
                         <div class="censorship-detail__container-content-request-detail-btn-list-item">
                             <div class="censorship-detail__container-content-request-detail-btn-list-item-element">
-                                <input type="button" class="censorship-detail__container-content-request-detail-btn-list-item-element__disagree" value="Từ chối">
+                                <input type="button" class="censorship-detail__container-content-request-detail-btn-list-item-element__disagree" value="Từ chối" onclick="clickBtnReject();">
                             </div>
                         </div>
+                    </div>
+                    <div class="censorship-detail__container-content-request-detail-btn-reason-reject" >
+                        <form id="click-btn-reject"></form>
                     </div>
                     <div class="censorship-detail__container-content-request-detail-btn-title">
                         <span class="censorship-detail__container-content-request-detail-btn-title-name">THÔNG TIN ĐỀ XUẤT</span>
@@ -170,9 +180,9 @@
                             </div>
                         </div>
                         <div class="col-8">
-                            <div class="censorship-detail__container-content-request-detail-request-item-right">
+                            <div class="censorship-detail__container-content-request-detail-request-item-right" >
                                 <?php
-                                    echo "<span class='censorship-detail__container-content-request-detail-request-item-right-value'>{$data['detailRequest']['typeName']}</span>";
+                                    echo "<span id='typeName' class='censorship-detail__container-content-request-detail-request-item-right-value'>{$data['detailRequest']['typeName']}</span>";
                                 ?>
                             </div>
                         </div>
@@ -232,6 +242,26 @@
                             <div class="censorship-detail__container-content-request-detail-request-item-right">
                                 <?php
                                     echo "<span class='censorship-detail__container-content-request-detail-request-item-right-value'>{$data['detailRequest']['reason']}</span>";
+                                ?>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="censorship-detail__container-content-request-detail-request-item" >
+                        <div class="col-4">
+                            <div class="censorship-detail__container-content-request-detail-request-item-left" >
+                                <div class="censorship-detail__container-content-request-detail-request-item-icon" style="color:var(--red-color) !important;">
+                                    <i class="fa-solid fa-window-maximize"></i>
+                                </div>
+                                <div class="censorship-detail__container-content-request-detail-request-item-title" style="color:var(--red-color) !important;">
+                                    <span>Lý do từ chối</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="censorship-detail__container-content-request-detail-request-item-right">
+                                <?php
+                                    echo "<span  style='color:var(--red-color) !important;' class='censorship-detail__container-content-request-detail-request-item-right-value'>{$data['detailRequest']['requestRejectReason']}</span>";
                                 ?>
                                 
                             </div>
@@ -315,6 +345,36 @@
                             </div>
                         </div>
                     </div>
+                    <div class="censorship-detail__container-content-request-detail-request-other-item">
+                        <div class="col-4">
+                            <div class="censorship-detail__container-content-request-detail-request-other-item-title">
+                                <span class="censorship-detail__container-content-request-detail-request-other-item-title-value">Từ ngày</span>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="censorship-detail__container-content-request-detail-request-other-item-result">
+                                <?php
+                                    $date = date('d-m-yy',strtotime($data['detailRequest']['startDayWFH']));
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$date}</span>";
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="censorship-detail__container-content-request-detail-request-other-item">
+                        <div class="col-4">
+                            <div class="censorship-detail__container-content-request-detail-request-other-item-title">
+                                <span class="censorship-detail__container-content-request-detail-request-other-item-title-value">Đến ngày</span>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="censorship-detail__container-content-request-detail-request-other-item-result">
+                                <?php
+                                    $date = date('d-m-yy',strtotime($data['detailRequest']['endDayWFH']));
+                                    echo "<span class='censorship-detail__container-content-request-detail-request-other-item-result-value'>{$date}</span>";
+                                ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="censorship-detail__container-content-request-manager">
@@ -325,7 +385,7 @@
                     <div class="censorship-detail__container-content-request-manager-member">
                         <div class="censorship-detail__container-content-request-manager-member-image">
                             <div class="circular--landscape-manager">
-                                <img src="assets/img/profile.jpg" alt="Avatar" />
+                                <img src="assets/img/profile.png" alt="Avatar" />
                             </div>
                         </div>
                         <div class="censorship-detail__container-content-request-manager-member-info">

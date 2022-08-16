@@ -1,4 +1,5 @@
 <?php
+
 class requestModel {
 
     public $id; 
@@ -19,6 +20,11 @@ class requestModel {
     public $requestStatus; 
     public $requestRejectReason; 
     public $active; 
+    public $employeeFirstName; 
+    public $employeeLastName; 
+    public $censorFirstName; 
+    public $censorLastName; 
+    public $positionCensor; 
 
     function __construct() {
         $this->id = "";
@@ -39,6 +45,11 @@ class requestModel {
         $this->requestStatus = "";
         $this->requestRejectReason = "";
         $this->active = "";
+        $this->employeeFirstName = "";
+        $this->employeeLastName = "";
+        $this->censorFirstName = "";
+        $this->censorLastName = "";
+        $this->positionCensor = "";
     }
     
     public static function ListRequestByCensorshipId($idCensorship, $pageIndex, $pageSize, $typeRequest){
@@ -100,7 +111,8 @@ class requestModel {
 
     public static function listAllRequest($idEmployee, $idRequestType) {
         $ch = curl_init();
-        $url = "urlEmployeeRequest = https://employee-request.herokuapp.com/employee/readrequest?idEmployee=$idEmployee&idRequestType=$idRequestType";
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."employee/readrequest?idEmployee=$idEmployee&idRequestType=$idRequestType";
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -134,6 +146,11 @@ class requestModel {
                 $request->requestStatus = $row["requestStatus"];
                 $request->requestRejectReason = $row["requestRejectReason"];
                 $request->active = $row["active"];
+                $request->employeeFirstName = $row["employeeFirstName"];
+                $request->employeeLastName = $row["employeeLastName"];
+                $request->censorFirstName = $row["censorFirstName"];
+                $request->censorLastName = $row["censorLastName"];
+                $request->positionCensor = $row["positionCensor"];
                 $requestList[] = $request; //add an item into array
             }
             curl_close($ch);
@@ -178,7 +195,9 @@ class requestModel {
             'dayOT'=> "'$dayOT'",
             'reason'=>"'$reason'"
         );
-        $url = "https://employee-request.herokuapp.com/employee/addrequestOT";
+        
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."employee/addrequestOT";
         $curl = curl_init();
 
         $payload = json_encode($param);
@@ -209,7 +228,9 @@ class requestModel {
             'noteDayOFF'=> "'$noteDayOFF'",
             'reason'=>"'$reason'"
         );
-        $url = "https://employee-request.herokuapp.com/employee/addrequestOFF";
+
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."employee/addrequestOFF";
         $curl = curl_init();
 
         $payload = json_encode($param);

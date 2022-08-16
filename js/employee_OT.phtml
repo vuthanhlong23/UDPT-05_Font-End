@@ -8,7 +8,7 @@ function TDate() {
     var UserDate = document.querySelector(".requestOT__formInput-date").value;
     var ToDate = new Date();
 
-    if (new Date(UserDate).getTime() < ToDate.getTime()) {
+    if (new Date(UserDate).getDate() < ToDate.getDate()) {
           alert("Ngày làm thêm giờ phải lớn hơn hoặc bằng ngày hiện tại!!!");
           document.querySelector(".requestOT__formInput-date").value = "";
           return false;

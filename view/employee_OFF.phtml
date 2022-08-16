@@ -45,11 +45,12 @@
                 $end = $numrow - 1;
 
             while($start<=$end) {
+                $date = date('d-m-Y',strtotime($dataAllRequest[$start]->startDayOFF));
                 print"
                     <div class='row requestOFF__formItems--status'>
                         <div class='col-8'>
                             <span class='requestOFF__formItemsDate'>
-                                Xin nghỉ ngày {$dataAllRequest[$start]->startDayOFF}
+                                Xin nghỉ ngày {$date}
                             </span>    
                             <span class='requestOFF__formItemsHour'>
                                 Số ngày nghỉ: {$dataAllRequest[$start]->numberDayOFF}

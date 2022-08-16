@@ -40,11 +40,14 @@
                 $end = $numrow - 1;
 
             while($start<=$end) {
+                $date = date('d-m-Y',strtotime($dataAllRequest[$start]->dayOT));
+                // $time = strtotime($dataAllRequest[$start]->dayOT);
+                // $dataAllRequest[$start]->dayOT = date('d-m-Y',$time);
                 print"
                 <div class='row requestOT__formItems--status'>
                     <div class='col-8'>
                         <span class='requestOT__formItemsDate'>
-                            Xin làm thêm giờ ngày {$dataAllRequest[$start]->requestDate}
+                            Xin làm thêm giờ ngày {$date}
                         </span>    
                         <span class='requestOT__formItemsHour'>
                             Số giờ: {$dataAllRequest[$start]->hourOT}
@@ -65,7 +68,6 @@
             $start+=1;
             }
         ?>
-
 
 
         <!-- <div class="row requestOT__formItems--status">

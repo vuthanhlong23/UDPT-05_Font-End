@@ -23,7 +23,7 @@
     <div class="col-6 requestOT__form--status">
         <p class="requestOT__formName--status">Trạng thái đơn đề xuất</p>
         <?php
-            $pagesize = 10;
+            $pagesize = 5;
             $currentpage = 1;
             $numrow = count($dataAllRequest);
             $self = $_SERVER['PHP_SELF'];
@@ -41,8 +41,6 @@
 
             while($start<=$end) {
                 $date = date('d-m-Y',strtotime($dataAllRequest[$start]->dayOT));
-                // $time = strtotime($dataAllRequest[$start]->dayOT);
-                // $dataAllRequest[$start]->dayOT = date('d-m-Y',$time);
                 print"
                 <div class='row requestOT__formItems--status'>
                     <div class='col-8'>
@@ -116,8 +114,48 @@
         <div class="requestOT__formItems--margin"></div> -->
 
 
+        <div class="requestOT__pagination--section">
+            <?php
+                for ($i = 1; $i <= $numpage; $i ++)
+                {
+                    if ($i != $currentpage) 
+                        echo "<a class='requestOT__pagination' href='$self?action=requestListOT&page=$i'>$i</a> ";
+                    else
+                        echo "<strong class='requestOT__pagination2'>$i</strong>";
+                }
+
+            ?>
+        </div>
+
     </div>
 </div>
+
+<style>
+    .requestOT__pagination--section {
+        margin: auto;
+    }
+
+    .requestOT__pagination {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin: 0 4px 40px;
+        padding: 0 10px;
+        color: var(--white-color);
+        background-color: #0d6efd;
+        text-decoration: none;
+    }
+
+    .requestOT__pagination2 {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin: 0 4px 40px;
+        padding: 0 10px;
+        color: black;
+        background-color: #0d6efd;
+        text-decoration: none;
+    }
+</style>
+
 
 <?php require("js/employee_OT.phtml"); ?>
 <?php require("js/jquery.phtml"); ?>

@@ -52,10 +52,10 @@ class requestModel {
         $this->positionCensor = "";
     }
     
-    public static function ListRequestByCensorshipId($idCensorship, $pageIndex, $pageSize, $typeRequest){
+    public static function ListRequestByCensorshipId($idCensorship, $pageIndex, $pageSize, $typeRequest, $requestStatus){
         $method = "GET";
         $hosting = new Hosting();
-        $url = $hosting->urlHost."listrequest/censorship?idCensorship=$idCensorship&pageIndex=$pageIndex&pageSize=$pageSize&typeRequest=$typeRequest";
+        $url = $hosting->urlHost."listrequest/censorship?idCensorship=$idCensorship&pageIndex=$pageIndex&pageSize=$pageSize&typeRequest=$typeRequest&requestStatus=$requestStatus";
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -67,10 +67,10 @@ class requestModel {
         return $result;
     }
 
-    public static function RequestDetailByIdRequest($idCensorship, $pageIndex, $pageSize, $typeRequest, $idRequest){
+    public static function RequestDetailByIdRequest($idCensorship, $pageIndex, $pageSize, $typeRequest, $idRequest, $requestStatus){
         $method = "GET";
         $hosting = new Hosting();
-        $url = $hosting->urlHost."request/detail?idCensorship=$idCensorship&pageIndex=$pageIndex&pageSize=$pageSize&typeRequest=$typeRequest&idRequest=$idRequest";
+        $url = $hosting->urlHost."request/detail?idCensorship=$idCensorship&pageIndex=$pageIndex&pageSize=$pageSize&typeRequest=$typeRequest&idRequest=$idRequest&requestStatus=$requestStatus";
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_URL, $url);

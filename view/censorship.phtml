@@ -6,7 +6,7 @@
             </div>
             <div class="censorship__container-title-first__filter">
                 <label>Loại đề xuất:</label>
-                <select class="censorship__container-title-first__filter-list" id="typeRequest" onchange="filterTypeRequest();">
+                <select class="censorship__container-title-first__filter-list" onchange="filterTypeRequest(this);">
                 <?php
                     $idCensorship = $_REQUEST["idCensorship"];
                     $typeRequest = $_REQUEST["typeRequest"];
@@ -48,41 +48,6 @@
                 ?>
                 </select>
             </div>
-            <div class="censorship__container-title-first__filter">
-                <label>Trạng thái:</label>
-                <select class="censorship__container-title-first__filter-list" id="requestStatus" onchange="filterTypeRequest();">
-                <?php
-                    $requestStatus = $_REQUEST["requestStatus"];
-                    if(strcmp($requestStatus, "all") == 0){
-                        echo "<option value='&requestStatus=all' selected>Tất cả</option>";
-                    }
-                    else{
-                        echo "<option value='&requestStatus=all'>Tất cả</option>";
-                    }
-
-                    if(strcmp($requestStatus, "unconfimred") == 0){
-                        echo "<option value='&requestStatus=unconfimred' selected>Chưa xét duyệt</option>";
-                    }
-                    else{
-                        echo "<option value='&requestStatus=unconfimred'>Chưa xét duyệt</option>";
-                    }
-
-                    if(strcmp($requestStatus, "confimred") == 0){
-                        echo "<option value='&requestStatus=confimred' selected>Chấp thuận</option>";
-                    }
-                    else{
-                        echo "<option value='&requestStatus=confimred'>Chấp thuận</option>";
-                    }
-
-                    if(strcmp($requestStatus, "reject") == 0){
-                        echo "<option value='&requestStatus=reject' selected>Từ chối</option>";
-                    }
-                    else{
-                        echo "<option value='&requestStatus=reject'>Từ chối</option>";
-                    }
-                ?>
-                </select>
-            </div>
         </div>
     </div>
     <div class="censorship__container-content">
@@ -91,43 +56,39 @@
             $currentPage = 1;
             if (isset($_REQUEST["page"]))
                 $currentPage = $_REQUEST["page"];
+            $n = count($dataListRequestByCensorship);
+            $i = 0;
             $idCensorship = $_REQUEST["idCensorship"];
             $page = $_REQUEST["page"];
             $typeRequest = $_REQUEST["typeRequest"];
-            $requestStatus = $_REQUEST["requestStatus"];
-            
-            if(isset($dataListRequestByCensorship)){
-                $n = count($dataListRequestByCensorship);
-                $i = 0;
-                while ($i < $n){
-                    $fullName = $dataListRequestByCensorship[$i]["employeeFirstName"]." ".$dataListRequestByCensorship[$i]["employeeLastName"];
-                    $date = date('d-m-Y',strtotime($dataListRequestByCensorship[$i]["requestDate"]));
-                    echo "<div class='censorship__container-content-row'>
-                        <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$dataListRequestByCensorship[$i]["id"]}&requestStatus=$requestStatus' class='censorship__container-content-row-element'>
-                            <div class='col-8 censorship__container-content-row-element-index'>
-                                <span class='censorship__container-content-row-element-index-name'>{$dataListRequestByCensorship[$i]["requestName"]}</span>
-                                <span class='censorship__container-content-row-element-index-employee'>{$fullName}</span>
-                                <span class='censorship__container-content-row-element-index-reason'>Lý do: {$dataListRequestByCensorship[$i]["reason"]}</span>
+            while ($i < $n){
+                $fullName = $dataListRequestByCensorship[$i]["employeeFirstName"]." ".$dataListRequestByCensorship[$i]["employeeLastName"];
+                $date = date('d-m-Y',strtotime($dataListRequestByCensorship[$i]["requestDate"]));
+                echo "<div class='censorship__container-content-row'>
+                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$dataListRequestByCensorship[$i]["id"]}' class='censorship__container-content-row-element'>
+                        <div class='col-8 censorship__container-content-row-element-index'>
+                            <span class='censorship__container-content-row-element-index-name'>{$dataListRequestByCensorship[$i]["requestName"]}</span>
+                            <span class='censorship__container-content-row-element-index-employee'>{$fullName}</span>
+                            <span class='censorship__container-content-row-element-index-reason'>Lý do: {$dataListRequestByCensorship[$i]["reason"]}</span>
+                        </div>
+                        <div class='col-2 censorship__container-content-row-element-type'>
+                            <div class='censorship__container-content-row-element-type-name'>
+                                <span>{$dataListRequestByCensorship[$i]["typeName"]}</span>
                             </div>
-                            <div class='col-2 censorship__container-content-row-element-type'>
-                                <div class='censorship__container-content-row-element-type-name'>
-                                    <span>{$dataListRequestByCensorship[$i]["typeName"]}</span>
-                                </div>
+                        </div>
+                        <div class='col-2 censorship__container-content-row-element-status'>
+                            <div class='censorship__container-content-row-element-status-name'>
+                                <span>{$dataListRequestByCensorship[$i]["requestStatus"]}</span>
                             </div>
-                            <div class='col-2 censorship__container-content-row-element-status'>
-                                <div class='censorship__container-content-row-element-status-name'>
-                                    <span>{$dataListRequestByCensorship[$i]["requestStatus"]}</span>
-                                </div>
+                        </div>
+                        <div class='censorship__container-content-row-element-date'>
+                            <div class='censorship__container-content-row-element-date-name'>
+                                <span>$date</span>
                             </div>
-                            <div class='censorship__container-content-row-element-date'>
-                                <div class='censorship__container-content-row-element-date-name'>
-                                    <span>$date</span>
-                                </div>
-                            </div>
-                        </a>
-                </div>";
-                    $i += 1;
-                }
+                        </div>
+                    </a>
+            </div>";
+                $i += 1;
             }
         ?>
         <div class="information__container-right__content-list-paging">
@@ -135,20 +96,19 @@
                 <?php
                     $idCensorship = $_REQUEST["idCensorship"];
                     $typeRequest = $_REQUEST["typeRequest"];
-                    $requestStatus = $_REQUEST["requestStatus"];
                     if ($currentPage > 1)
                     {
                         $page = $currentPage - 1;
-                        $prev = "<a class='paging-data' href='$self?action=censorship&idCensorship=$idCensorship&page=$page&typeRequest=$typeRequest&requestStatus=$requestStatus'><</a>     ";
+                        $prev = "<a class='paging-data' href='$self?action=censorship&idCensorship=$idCensorship&page=$page&typeRequest=$typeRequest'><</a>     ";
                     }
                     else
                     {
-                        $prev = "<a class='paging-data' href='$self?action=censorship&idCensorship=$idCensorship&page=1&typeRequest=$typeRequest&requestStatus=$requestStatus'><</a>     ";
+                        $prev = "<a class='paging-data' href='$self?action=censorship&idCensorship=$idCensorship&page=1&typeRequest=$typeRequest'><</a>     ";
                     }
 
 
                     $page = $currentPage + 1;
-                    $next = "     <a class='paging-data' href='$self?action=censorship&idCensorship=$idCensorship&page=$page&typeRequest=$typeRequest&requestStatus=$requestStatus'>></a>";
+                    $next = "     <a class='paging-data' href='$self?action=censorship&idCensorship=$idCensorship&page=$page&typeRequest=$typeRequest'>></a>";
 
                     echo $prev.$currentPage.$next;
                 ?>

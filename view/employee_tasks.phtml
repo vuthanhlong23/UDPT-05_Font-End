@@ -19,7 +19,7 @@
                 <div class="information--left__element">
                     <div class="information--left--profile">
                         <div class="circular--landscape">
-                            <img src="assets/img/profile.png" class="information--left--profile__photo" alt="Avatar" />
+                            <img src="assets/img/profile.jpg" class="information--left--profile__photo" alt="Avatar" />
                         </div>
                         <?php 
                             $employeeName = $data["employee"]["firstname"]." ".$data["employee"]["lastname"];
@@ -164,35 +164,32 @@
                                 </div>
                             </div>
                             <?php
-                                if(isset($data["listTasks"])){
-                                    $self = $_SERVER['PHP_SELF'];
-                                    $currentPage = 1;
-                                    if (isset($_REQUEST["page"]))
-                                        $currentPage = $_REQUEST["page"];
-                                    $n = count($data["listTasks"]);
-                                    $i = 0;
-                                    while($i < $n){
-                                        $deadline = date('d-m-yy',strtotime($data["listTasks"][$i]["deadline"]));
-                                        echo "<div class='information__container-right__content-list-item'>
-                                        <a class='information__container-right__content-list-item-link'>
-                                            <div class='information__container-right__content-list-item-link-job'>
-                                                <span class='information__container-right__content-list-item-link-job-value'>{$data["listTasks"][$i]["taskName"]}</span>
-                                            </div>
-                                            <div class='information__container-right__content-list-item-link-deadline'>
-                                                <span class='information__container-right__content-list-item-link-deadline-value'>{$deadline}</span>
-                                            </div>
-                                            <div class='information__container-right__content-list-item-link-project'>
-                                                <span class='information__container-right__content-list-item-link-project-value'>{$data["listTasks"][$i]["projectName"]}</span>
-                                            </div>
-                                            <div class='information__container-right__content-list-item-link-status'>
-                                                <span class='information__container-right__content-list-item-link-status-value'>{$data["listTasks"][$i]["status"]}</span>
-                                            </div>
-                                        </a>
-                                    </div>";
-                                        $i += 1;
-                                    }
+                                $self = $_SERVER['PHP_SELF'];
+                                $currentPage = 1;
+                                if (isset($_REQUEST["page"]))
+                                    $currentPage = $_REQUEST["page"];
+                                $n = count($data["listTasks"]);
+                                $i = 0;
+                                while($i < $n){
+                                    $deadline = date('d-m-yy',strtotime($data["listTasks"][$i]["deadline"]));
+                                    echo "<div class='information__container-right__content-list-item'>
+                                    <a class='information__container-right__content-list-item-link'>
+                                        <div class='information__container-right__content-list-item-link-job'>
+                                            <span class='information__container-right__content-list-item-link-job-value'>{$data["listTasks"][$i]["taskName"]}</span>
+                                        </div>
+                                        <div class='information__container-right__content-list-item-link-deadline'>
+                                            <span class='information__container-right__content-list-item-link-deadline-value'>{$deadline}</span>
+                                        </div>
+                                        <div class='information__container-right__content-list-item-link-project'>
+                                            <span class='information__container-right__content-list-item-link-project-value'>{$data["listTasks"][$i]["projectName"]}</span>
+                                        </div>
+                                        <div class='information__container-right__content-list-item-link-status'>
+                                            <span class='information__container-right__content-list-item-link-status-value'>{$data["listTasks"][$i]["status"]}</span>
+                                        </div>
+                                    </a>
+                                </div>";
+                                    $i += 1;
                                 }
-                                
                             ?>
                         </div>
                         <div class="information__container-right__content-list-paging">

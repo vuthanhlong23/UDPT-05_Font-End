@@ -6,8 +6,7 @@ class requestController {
         $pageSize = 5;
         $pageIndex = ($page - 1) * $pageSize;
         $typeRequest = $_REQUEST["typeRequest"];
-        $requestStatus = $_REQUEST["requestStatus"];
-        $result = requestModel::ListRequestByCensorshipId($idCensorship, $pageIndex, $pageSize, $typeRequest, $requestStatus);
+        $result = requestModel::ListRequestByCensorshipId($idCensorship, $pageIndex, $pageSize, $typeRequest);
         $dataListRequestByCensorship = json_decode($result, true);
         $VIEW = "./view/censorship.phtml";
         require("./template/main_template.phtml");
@@ -20,7 +19,6 @@ class requestController {
         $pageIndex = ($page - 1) * $pageSize;
         $typeRequest = $_REQUEST["typeRequest"];
         $idRequest = $_REQUEST["idRequest"];
-        $requestStatus = $_REQUEST["requestStatus"];
         
         if(isset($_REQUEST["func"])){
             $requestStatus = $_REQUEST["requestStatus"];
@@ -28,7 +26,7 @@ class requestController {
             $result = requestModel::UpdateRequestByCensorship($idRequest, $requestStatus, $requestRejectReason);
         }
 
-        $result = requestModel::RequestDetailByIdRequest($idCensorship, $pageIndex, $pageSize, $typeRequest, $idRequest, $requestStatus);
+        $result = requestModel::RequestDetailByIdRequest($idCensorship, $pageIndex, $pageSize, $typeRequest, $idRequest);
         $data= json_decode($result, true);
         $VIEW = "./view/censorship_detail.phtml";
         require("./template/main_template.phtml");

@@ -3,18 +3,12 @@
     <div class="row ApprovalITManager__formItems">
         <div class="col-9 ApprovalITManager__formItems--list">
             <p class="ApprovalITManager__formName">Danh sách xét duyệt</p>
-            <?php
-                $waittingDR = 'Đang chờ duyệt';
-                $tempDR = 'Tạm duyệt';
-                $defuseDR = 'Từ chối';
-                print "
-                <div class='ApprovalITManager__formItems--header'>
-                    <a href='index.php?action=listALLDR_ITmanager' class='ApprovalITManager_All-btn'>Tất cả</a>
-                    <a href='index.php?action=ITmanager_DR&requestStatus={$waittingDR}' class='ApprovalITManager_All-btn'>Đang chờ duyệt</a>
-                    <a href='index.php?action=ITmanager_DR&requestStatus={$tempDR}' class='ApprovalITManager_All-btn'>Tạm duyệt</a>
-                    <a href='index.php?action=ITmanager_DR&requestStatus={$defuseDR}' class='ApprovalITManager_All-btn'>Từ chối</a>
-                </div>";
-            ?>
+            <div class="ApprovalITManager__formItems--header">
+                <a href="#" class="ApprovalITManager_All-btn">Tất cả</a>
+                <a href="#" class="ApprovalITManager_All-btn">Đang chờ duyệt</a>
+                <a href="#" class="ApprovalITManager_All-btn">Tạm duyệt</a>
+                <a href="#" class="ApprovalITManager_All-btn">Từ chối</a>
+            </div>
             <table class="ApprovalITManager__formItems--table">
                 <thead>
                     <tr class="ApprovalITManager__formItems--header--tr">
@@ -26,47 +20,108 @@
                         <td class="ApprovalITManager__formItems--header--td">Trạng thái</td>
                     </tr>
                 </thead>
-                <?php
-                    foreach ($dataAllRequest as $item)  {
-                        $time = strtotime($item->requestDate);
-                        $item->requestDate = date('d-m-Y',$time);
-                        print "
-                        <tbody>
-                            <tr class='ApprovalITManager__formItems--body--tr'>
-                                    <td class='ApprovalITManager__formItems--body--td'>
-                                        <a href='index.php?action=listITmanager_formDR&id={$item->id}' class='ApprovalITManager__formItems--body--a'>
-                                            {$item->requestName}
-                                        </a>
-                                    </td>
-                                    <td class='ApprovalITManager__formItems--body--td'>
-                                        <a href='index.php?action=listITmanager_formDR&id={$item->id}' class='ApprovalITManager__formItems--body--a'>
-                                            {$item->type}
-                                        </a>   
-                                    </td>
-                                    <td class='ApprovalITManager__formItems--body--td'>
-                                        <a href='index.php?action=listITmanager_formDR&id={$item->id}' class='ApprovalITManager__formItems--body--a'>
-                                            {$item->noteRequest}
-                                        </a>
-                                    </td>
-                                    <td class='ApprovalITManager__formItems--body--td'>
-                                        <a href='index.php?action=listITmanager_formDR&id={$item->id}' class='ApprovalITManager__formItems--body--a'>
-                                            {$item->reason}
-                                        </a>
-                                    </td>
-                                    <td class='ApprovalITManager__formItems--body--td'>
-                                        <a href='index.php?action=listITmanager_formDR&id={$item->id}' class='ApprovalITManager__formItems--body--a'>
-                                            {$item->requestDate}
-                                        </a>
-                                    </td>
-                                    <td class='ApprovalITManager__formItems--body--td'>
-                                        <a href='index.php?action=listITmanager_formDR&id={$item->id}' class='ApprovalITManager__formItems--body--a'>
-                                            {$item->requestStatus}
-                                        </a>
-                                    </td>
-                            </tr>
-                        </tbody>";
-                    }
-                ?>
+                <tbody>
+                    <tr class="ApprovalITManager__formItems--body--tr">
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Phần cứng</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Casio fx-1975 PLUS</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Lười tính tay</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">20/02/2023</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Đang chờ duyệt</a>
+                        </td>
+                    </tr>
+                    <tr class="ApprovalITManager__formItems--body--tr">
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Phần cứng</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Casio fx-1975 PLUS</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Lười tính tay</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">20/02/2023</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Tạm duyệt</a>
+                        </td>
+                    </tr>
+                    <tr class="ApprovalITManager__formItems--body--tr">
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Phần cứng</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Casio fx-1975 PLUS</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Lười tính tay</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">20/02/2023</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Tạm duyệt</a>
+                        </td>
+                    </tr>
+                    <tr class="ApprovalITManager__formItems--body--tr">
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Phần cứng</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Casio fx-1975 PLUS</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Lười tính tay</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">20/02/2023</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Tạm duyệt</a>
+                        </td>
+                    </tr>
+                    <tr class="ApprovalITManager__formItems--body--tr">
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Phần cứng</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Casio fx-1975 PLUS</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Lười tính tay</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">20/02/2023</a>
+                        </td>
+                        <td class="ApprovalITManager__formItems--body--td">
+                            <a href="#" class="ApprovalITManager__formItems--body--a">Đang chờ duyệt</a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         <div class="col-3 ApprovalITManager__formDevices--list">
@@ -78,24 +133,57 @@
                         <td class="ApprovalITManager__formDevices--header--td">Số lượng</td>
                     </tr>
                 </thead>
-                <?php
-                    foreach ($dataAllRequestDevice as $item)  {
-                        print "
-                        <tbody>
-                            <tr class='ApprovalITManager__formDevices--body--tr'>
-                                <td class='ApprovalITManager__formDevices--body--td'>
-                                    {$item->deviceName}
-                                </td>
-                                <td class='ApprovalITManager__formDevices--body--td'>
-                                    {$item->deviceQuota}    
-                                </td>
-                            </tr>
-                        </tbody>";
-                    }
-                ?>
-    
+                <tbody>
+                    <tr class="ApprovalITManager__formDevices--body--tr">
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">20</a>
+                        </td>
+                    </tr>
+                    <tr class="ApprovalITManager__formDevices--body--tr">
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">20</a>
+                        </td>
+                    </tr>
+                    <tr class="ApprovalITManager__formDevices--body--tr">
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">20</a>
+                        </td>
+                    </tr>
+                    <tr class="ApprovalITManager__formDevices--body--tr">
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">20</a>
+                        </td>
+                    </tr>
+                    <tr class="ApprovalITManager__formDevices--body--tr">
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">20</a>
+                        </td>
+                    </tr>
+                    <tr class="ApprovalITManager__formDevices--body--tr">
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">Máy tính xách tay Casio</a>
+                        </td>
+                        <td class="ApprovalITManager__formDevices--body--td">
+                            <a href="#" class="ApprovalITManager__formDevices--body--a">20</a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
 </div>
-<?php require("js/ITmanager_DR.phtml"); ?>

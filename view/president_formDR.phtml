@@ -2,14 +2,10 @@
     <p class="president_formDR__functionName">Xét duyệt thiết bị</p>
     <div class="row president_formDR__form">
         <div class="col-6 president_formDR__form--info">
-            <?php
-                print "<span class='row president_formDR__formTitle'>{$dataAllRequest[0]->requestName}</span>";
-            ?>
+            <span class="row president_formDR__formTitle">Máy tính xách tay Casio</span>
             <div class="president_formDR__formStatus">
                 <span class="president_formDR__formStatus--name">Trạng thái:</span>
-                <?php
-                    print "<span class='president_formDR__formStatus--status'>{$dataAllRequest[0]->requestStatus}</span>";
-                ?>
+                <span class="president_formDR__formStatus--status">Tạm duyệt</span>
             </div>
             <div class="president_formDR__formRequestSuggest">
                 <span class="president_formDR__formRequestSuggest--name">Thông tin đề xuất</span>
@@ -18,41 +14,27 @@
                 <div class="row president_formDR__formRequestInfo--items">
                     <i class="col-1 president_formDR__formRequestInfo--items__logo fa-solid fa-id-badge"></i>
                     <span class="col-5 president_formDR__formRequestInfo--items--info1">Mã đề xuất</span>
-                    <?php
-                        print "<span class='col-6 president_formDR__formRequestInfo--items--info2'>{$dataAllRequest[0]->id}</span>";
-                    ?>
+                    <span class="col-6 president_formDR__formRequestInfo--items--info2">123ABC</span>
                 </div>
                 <div class="row president_formDR__formRequestInfo--items">
                     <i class="col-1 president_formDR__formRequestInfo--items__logo fa-solid fa-user"></i>
                     <span class="col-5 president_formDR__formRequestInfo--items--info1">Người tạo</span>
-                    <?php
-                        $fullName = $dataAllRequestt[0]['firstname']." ".$dataAllRequestt[0]['lastname'];
-                        print "<span class='col-6 president_formDR__formRequestInfo--items--info2'>{$fullName}</span>";
-                    ?>
+                    <span class="col-6 president_formDR__formRequestInfo--items--info2">Trần Văn B</span>
                 </div>
                 <div class="row president_formDR__formRequestInfo--items">
                     <i class="col-1 president_formDR__formRequestInfo--items__logo fa-solid fa-user"></i>
                     <span class="col-5 president_formDR__formRequestInfo--items--info1">Người xét duyệt</span>
-                    <?php
-                        $fullName = $dataAllRequesttt[0]['firstname']." ".$dataAllRequesttt[0]['lastname'];
-                        print "<span class='col-6 president_formDR__formRequestInfo--items--info2'>{$fullName}</span>";
-                    ?>
+                    <span class="col-6 president_formDR__formRequestInfo--items--info2">Trần Văn C</span>
                 </div>
                 <div class="row president_formDR__formRequestInfo--items">
                     <i class="col-1 president_formDR__formRequestInfo--items__logo fa-solid fa-calendar"></i>
                     <span class="col-5 president_formDR__formRequestInfo--items--info1">Loại thiết bị</span>
-                    <?php
-                        print "<span class='col-6 president_formDR__formRequestInfo--items--info2'>{$dataAllRequest[0]->type}</span>";
-                    ?>
+                    <span class="col-6 president_formDR__formRequestInfo--items--info2">Phần cứng</span>
                 </div>
                 <div class="row president_formDR__formRequestInfo--items">
                     <i class="col-1 president_formDR__formRequestInfo--items__logo fa-solid fa-calendar-days"></i>
                     <span class="col-5 president_formDR__formRequestInfo--items--info1">Ngày gửi</span>
-                    <?php
-                        $time = strtotime($dataAllRequest[0]->requestDate);
-                        $dataAllRequest[0]->requestDate = date('d-m-Y',$time);
-                        print "<span class='col-6 president_formDR__formRequestInfo--items--info2'>{$dataAllRequest[0]->requestDate}</span>";
-                    ?>
+                    <span class="col-6 president_formDR__formRequestInfo--items--info2">20/02/2023</span>
                 </div>
             </div>
             <div class="president_formDR__formRequestSuggest">
@@ -63,17 +45,13 @@
                     <i class="fa-solid fa-note"></i>
                     <i class="col-1 president_formDR__formRequestInfo--items__logo fa-solid fa-clipboard"></i>
                     <span class="col-5 president_formDR__formRequestInfo--items--info1">Ghi chú</span>
-                    <?php
-                        print "<span class='col-6 president_formDR__formRequestInfo--items--info2'>{$dataAllRequest[0]->noteRequest}</span>";
-                    ?>
+                    <span class="col-6 president_formDR__formRequestInfo--items--info2">Casio 123456</span>
 
                 </div>
                 <div class="row president_formDR__formRequestInfo--items">
                     <i class="col-1 president_formDR__formRequestInfo--items__logo fa-solid fa-comment-dots"></i>
                     <span class="col-5 president_formDR__formRequestInfo--items--info1">Lý do</span>
-                    <?php
-                        print "<span class='col-6 president_formDR__formRequestInfo--items--info2'>{$dataAllRequest[0]->reason}</span>";
-                    ?>
+                    <p class="col-6 president_formDR__formRequestInfo--items--info2">Lười tính tay</p>
                 </div>
 
             </div>
@@ -81,18 +59,12 @@
         </div>
         <div class="col-6 president_formDR__form--contact">
             <span class="president_formDR__formReasonName">Lý do từ chối yêu cầu (Nếu có)</span>
-            <?php
-                print "<form action='index.php?action=updatePresident_formDR&id={$dataAllRequest[0]->id}' method = 'POST'>
-                <textarea name ='requestManagerRejectReason' class='president_formDR__formInput'></textarea>
-                <div class='president_formDR_btn'>
-                    <button type='submit' name = 'formDR_success' value = 'Thành công' class='president_formDR_submit-btn btn btn-success' onclick='SuccessMessageA()'>Chấp nhận</button>
-                    <button type='submit' name = 'formDR_defuse' value = 'Từ chối' class='president_formDR_cancel-btn btn btn-danger' onclick='DefuseMessageA()'>Từ chối</button>
-                </div>
-                </form>";
-            ?>
+            <textarea class="president_formDR__formInput"></textarea>
+            <div class="president_formDR_btn">
+                <button type="submit" class="president_formDR_submit-btn btn btn-success">Chấp nhận</button>
+                <button type="submit" class="president_formDR_cancel-btn btn btn-danger">Từ chối</button>
+            </div>
 
         </div>
     </div>
 </div>
-
-<?php require("js/president_formDR.phtml"); ?>

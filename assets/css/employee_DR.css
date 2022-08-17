@@ -10,6 +10,7 @@
     /* border-bottom: 2px solid var(--text-color); */
 }
 
+
 .requestDR__form, .requestDR__form--status {
     border: 2px solid var(--text-color);
 }
@@ -34,27 +35,29 @@
 
 .requestDR__formInput {
     width: 340px !important;
+    resize: horizontal;
     position: absolute;
     left: 180px;
     
 }
 
-.requestDR__request-session-input{
-    width: 340px !important; 
-    position: absolute;
-    left: 180px;
-    font-size: 1rem;
-}
-
-
 .requestDR_submit-btn {
     margin: 20px !important;
     position: relative;
-    left: 216px;
+    left: 155px;
+    bottom: 5px;
 }
 
+.requestDR_cancel-btn {
+    margin: 20px !important;
+    width: 106px;
+    position: relative;
+    left: 145px;
+    bottom: 5px;
+}
 
 .requestDR__formItems--status {
+
     border: 2px solid black;
     border-radius: 4px;
     margin-bottom: 16px !important;
@@ -67,21 +70,14 @@
 .requestDR__formItemsStatusName {
     border: 1px solid black;
     border-radius: 6px;
+    /* background-color: #198754; */
+    background-color: grey;
     padding: 14px 4px;
     color: white;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    background-color: var(--ash--color);
-    width: 130px;
 }
 
 .requestDR__formItemsStatus {
     display: flex;
     justify-content: center;
     align-self: center;
-}
-
-.requestDR__formItems--margin {
-    margin-bottom: 20px;
 }

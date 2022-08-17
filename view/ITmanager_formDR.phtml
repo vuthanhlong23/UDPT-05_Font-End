@@ -2,14 +2,10 @@
     <p class="ITManager_formDR__functionName">Xét duyệt thiết bị</p>
     <div class="row ITManager_formDR__form">
         <div class="col-6 ITManager_formDR__form--info">
-            <?php
-                print "<span class='row ITManager_formDR__formTitle'>{$dataAllRequest[0]->requestName}</span>";
-            ?>
+            <span class="row ITManager_formDR__formTitle">Máy tính xách tay Casio</span>
             <div class="ITManager_formDR__formStatus">
                 <span class="ITManager_formDR__formStatus--name">Trạng thái:</span>
-                <?php
-                    print "<span class='ITManager_formDR__formStatus--status'>{$dataAllRequest[0]->requestStatus}</span>";
-                ?>
+                <span class="ITManager_formDR__formStatus--status">Đang chờ duyệt</span>
             </div>
             <div class="ITManager_formDR__formRequestSuggest">
                 <span class="ITManager_formDR__formRequestSuggest--name">Thông tin đề xuất</span>
@@ -18,33 +14,22 @@
                 <div class="row ITManager_formDR__formRequestInfo--items">
                     <i class="col-1 ITManager_formDR__formRequestInfo--items__logo fa-solid fa-id-badge"></i>
                     <span class="col-5 ITManager_formDR__formRequestInfo--items--info1">Mã đề xuất</span>
-                    <?php
-                        print "<span class='col-6 ITManager_formDR__formRequestInfo--items--info2'>{$dataAllRequest[0]->id}</span>";
-                    ?>
+                    <span class="col-6 ITManager_formDR__formRequestInfo--items--info2">123ABC</span>
                 </div>
                 <div class="row ITManager_formDR__formRequestInfo--items">
                     <i class="col-1 ITManager_formDR__formRequestInfo--items__logo fa-solid fa-user"></i>
                     <span class="col-5 ITManager_formDR__formRequestInfo--items--info1">Người tạo</span>
-                    <?php
-                        $fullName = $dataAllRequestt[0]['firstname']." ".$dataAllRequestt[0]['lastname'];
-                        print "<span class='col-6 ITManager_formDR__formRequestInfo--items--info2'>{$fullName}</span>";
-                    ?>
+                    <span class="col-6 ITManager_formDR__formRequestInfo--items--info2">Trần Văn B</span>
                 </div>
                 <div class="row ITManager_formDR__formRequestInfo--items">
                     <i class="col-1 ITManager_formDR__formRequestInfo--items__logo fa-solid fa-calendar"></i>
                     <span class="col-5 ITManager_formDR__formRequestInfo--items--info1">Loại thiết bị</span>
-                    <?php
-                        print "<span class='col-6 ITManager_formDR__formRequestInfo--items--info2'>{$dataAllRequest[0]->type}</span>";
-                    ?>
+                    <span class="col-6 ITManager_formDR__formRequestInfo--items--info2">Phần cứng</span>
                 </div>
                 <div class="row ITManager_formDR__formRequestInfo--items">
                     <i class="col-1 ITManager_formDR__formRequestInfo--items__logo fa-solid fa-calendar-days"></i>
                     <span class="col-5 ITManager_formDR__formRequestInfo--items--info1">Ngày gửi</span>
-                    <?php
-                        $time = strtotime($dataAllRequest[0]->requestDate);
-                        $dataAllRequest[0]->requestDate = date('d-m-Y',$time);
-                        print "<span class='col-6 ITManager_formDR__formRequestInfo--items--info2'>{$dataAllRequest[0]->requestDate}</span>";
-                    ?>
+                    <span class="col-6 ITManager_formDR__formRequestInfo--items--info2">20/02/2023</span>
                 </div>
             </div>
             <div class="ITManager_formDR__formRequestSuggest">
@@ -55,17 +40,13 @@
                     <i class="fa-solid fa-note"></i>
                     <i class="col-1 ITManager_formDR__formRequestInfo--items__logo fa-solid fa-clipboard"></i>
                     <span class="col-5 ITManager_formDR__formRequestInfo--items--info1">Ghi chú</span>
-                    <?php
-                        print "<span class='col-6 ITManager_formDR__formRequestInfo--items--info2'>{$dataAllRequest[0]->noteRequest}</span>";
-                    ?>
+                    <span class="col-6 ITManager_formDR__formRequestInfo--items--info2">Casio 123456</span>
 
                 </div>
                 <div class="row ITManager_formDR__formRequestInfo--items">
                     <i class="col-1 ITManager_formDR__formRequestInfo--items__logo fa-solid fa-comment-dots"></i>
                     <span class="col-5 ITManager_formDR__formRequestInfo--items--info1">Lý do</span>
-                    <?php
-                        print "<span class='col-6 ITManager_formDR__formRequestInfo--items--info2'>{$dataAllRequest[0]->reason}</span>";
-                    ?>
+                    <span class="col-6 ITManager_formDR__formRequestInfo--items--info2">Lười tính tay</span>
                 </div>
 
             </div>
@@ -73,18 +54,13 @@
         </div>
         <div class="col-6 ITManager_formDR__form--contact">
             <span class="ITManager_formDR__formReasonName">Lý do từ chối yêu cầu (Nếu có)</span>
-            <?php
-                print "<form action='index.php?action=updateITmanager_formDR&id={$dataAllRequest[0]->id}' method = 'POST'>
-                <textarea name ='requestITRejectReason' class='ITManager_formDR__formInput'></textarea>
-                <div class='ITManager_formDR_btn'>
-                    <button type='submit' name = 'formDR_temp' value = 'Tạm duyệt' class='ITManager_formDR_submit-btn btn btn-success' onclick='TempMessageA()'>Tạm duyệt & chuyển tiếp</button>
-                    <button type='submit' name = 'formDR_defuse' value = 'Từ chối' class='ITManager_formDR_cancel-btn btn btn-danger' onclick='DefuseMessageA()'>Từ chối</button>
-                </div>
-                </form>";
-            ?>
+            <textarea class="ITManager_formDR__formInput"></textarea>
+            <div class="ITManager_formDR_btn">
+                <button type="submit" class="ITManager_formDR_submit-btn btn btn-success">Tạm duyệt & chuyển
+                    tiếp</button>
+                <button type="submit" class="ITManager_formDR_cancel-btn btn btn-danger">Từ chối</button>
+            </div>
 
         </div>
     </div>
 </div>
-
-<?php require("js/ITmanager_formDR.phtml"); ?>

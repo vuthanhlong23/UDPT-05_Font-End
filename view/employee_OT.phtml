@@ -41,8 +41,6 @@
 
             while($start<=$end) {
                 $date = date('d-m-Y',strtotime($dataAllRequest[$start]->dayOT));
-                // $time = strtotime($dataAllRequest[$start]->dayOT);
-                // $dataAllRequest[$start]->dayOT = date('d-m-Y',$time);
                 print"
                 <div class='row requestOT__formItems--status'>
                     <div class='col-8'>
@@ -113,11 +111,10 @@
                 </span>
             </div>
         </div>
-        <div class="requestOT__formItems--margin"></div> -->
-
-
+        <div class="requestOT__formItems--margin"></div> --> 
     </div>
 </div>
+
 
 <?php require("js/employee_OT.phtml"); ?>
 <?php require("js/jquery.phtml"); ?>

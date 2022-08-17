@@ -1,0 +1,19 @@
+<script>
+
+var requestDRStatusName = document.querySelectorAll(".requestDR__formItemsStatusName");
+requestDRStatusName.forEach(index => {
+    var requestDRStatusNameValue = index.innerText;
+    if (requestDRStatusNameValue == "Đang chờ duyệt") {
+        index.style.cssText += 'background-color: var(--ash-color);color: var(--white-color); width: 130px; text-align: center;'
+    }
+    else if (requestDRStatusNameValue == "Tạm duyệt") {
+        index.style.cssText += 'background-color: var(--orange-color);color: var(--white-color); width: 130px; text-align: center;'
+    }
+    else if (requestDRStatusNameValue == "Thành công") {
+        index.style.cssText += 'background-color: var(--green-color);color: var(--white-color); width: 130px; text-align: center;'
+    }
+    else {  
+        index.style.cssText += 'background-color: var(--red-color);color: var(--white-color); width: 130px; text-align: center;'
+}})
+
+</script>

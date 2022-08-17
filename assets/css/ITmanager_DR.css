@@ -14,6 +14,7 @@
     font-size: 1.2rem;
     font-weight: 500;
     margin-top: 0 !important;
+    margin-top: 5px !important;
     margin-bottom: 18px !important;
 }
 
@@ -93,5 +94,5 @@
 }
 
 .ApprovalITManager__formDevices--body--td:last-child {
-    text-align: right;
+    text-align: center;
 }

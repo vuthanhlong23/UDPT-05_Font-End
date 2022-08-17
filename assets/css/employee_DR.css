@@ -35,25 +35,22 @@
 
 .requestDR__formInput {
     width: 340px !important;
-    resize: horizontal;
     position: absolute;
     left: 180px;
     
 }
 
+.requestDR__request-session-input{
+    width: 340px !important; 
+    position: absolute;
+    left: 180px;
+    font-size: 1rem;
+}
+
 .requestDR_submit-btn {
     margin: 20px !important;
     position: relative;
-    left: 155px;
-    bottom: 5px;
-}
-
-.requestDR_cancel-btn {
-    margin: 20px !important;
-    width: 106px;
-    position: relative;
-    left: 145px;
-    bottom: 5px;
+    left: 216px;
 }
 
 .requestDR__formItems--status {
@@ -74,10 +71,19 @@
     background-color: grey;
     padding: 14px 4px;
     color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--ash--color);
+    width: 130px;
 }
 
 .requestDR__formItemsStatus {
     display: flex;
     justify-content: center;
     align-self: center;
+}
+
+.requestDR__formItems--margin {
+    margin-bottom: 20px;
 }

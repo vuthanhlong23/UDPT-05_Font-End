@@ -78,8 +78,10 @@
         document.getElementById("click-btn-reject").style.display="None";
     }
     
-    function filterDetailTypeRequest(input){
-        var url ="index.php?action=censorshipdetail&idCensorship="+input.value;
+    function filterDetailTypeRequest(){
+        var type = document.getElementById("typeRequest").value;
+        var status = document.getElementById("requestStatus").value;
+        var url ="index.php?action=censorshipdetail&idCensorship="+type+status;
         if(url != ''){
             window.location=url;
         }

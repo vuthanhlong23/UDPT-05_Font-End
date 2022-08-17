@@ -17,7 +17,7 @@
                 </div>
                 <div class="censorship-detail__container-title-first__filter">
                     <label>Loại đề xuất:</label>
-                    <select class="censorship-detail__container-title-first__filter-list"  onchange="filterDetailTypeRequest(this);">
+                    <select class="censorship-detail__container-title-first__filter-list" id="typeRequest" onchange="filterDetailTypeRequest();">
                     <?php
                         $idCensorship = $_REQUEST["idCensorship"];
                         $typeRequest = $_REQUEST["typeRequest"];
@@ -55,6 +55,41 @@
                         }
                         else{
                             echo "<option value='{$idCensorship}&page=1&typeRequest=checkout&idRequest=0'>Yêu cầu checkout bù</option>";
+                        }
+                    ?>
+                    </select>
+                </div>
+                <div class="censorship__container-title-first__filter">
+                    <label>Trạng thái:</label>
+                    <select class="censorship__container-title-first__filter-list" id="requestStatus" onchange="filterDetailTypeRequest();">
+                    <?php
+                        $requestStatus = $_REQUEST["requestStatus"];
+                        if(strcmp($requestStatus, "all") == 0){
+                            echo "<option value='&requestStatus=all' selected>Tất cả</option>";
+                        }
+                        else{
+                            echo "<option value='&requestStatus=all'>Tất cả</option>";
+                        }
+
+                        if(strcmp($requestStatus, "unconfimred") == 0){
+                            echo "<option value='&requestStatus=unconfimred' selected>Chưa xét duyệt</option>";
+                        }
+                        else{
+                            echo "<option value='&requestStatus=unconfimred'>Chưa xét duyệt</option>";
+                        }
+
+                        if(strcmp($requestStatus, "confimred") == 0){
+                            echo "<option value='&requestStatus=confimred' selected>Chấp thuận</option>";
+                        }
+                        else{
+                            echo "<option value='&requestStatus=confimred'>Chấp thuận</option>";
+                        }
+
+                        if(strcmp($requestStatus, "reject") == 0){
+                            echo "<option value='&requestStatus=reject' selected>Từ chối</option>";
+                        }
+                        else{
+                            echo "<option value='&requestStatus=reject'>Từ chối</option>";
                         }
                     ?>
                     </select>
@@ -106,19 +141,20 @@
                 <div class="information__container-right__content-list-paging">
                     <div class="information__container-right__content-list-paging-element">
                         <?php
+                            $requestStatus = $_REQUEST["requestStatus"];
                             if ($currentPage > 1)
                             {
                                 $page = $currentPage - 1;
-                                $prev = "<a class='paging-data' href='$self?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest=0'><</a>     ";
+                                $prev = "<a class='paging-data' href='$self?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest=0&requestStatus=$requestStatus'><</a>     ";
                             }
                             else
                             {
-                                $prev = "<a class='paging-data' href='$self?action=censorshipdetail&idCensorship={$idCensorship}&page=1&typeRequest={$typeRequest}&idRequest=0'><</a>     ";
+                                $prev = "<a class='paging-data' href='$self?action=censorshipdetail&idCensorship={$idCensorship}&page=1&typeRequest={$typeRequest}&idRequest=0&requestStatus=$requestStatus'><</a>     ";
                             }
 
 
                             $page = $currentPage + 1;
-                            $next = "     <a class='paging-data' href='$self?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest=0'>></a>";
+                            $next = "     <a class='paging-data' href='$self?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest=0&requestStatus=$requestStatus'>></a>";
 
                             echo $prev.$currentPage.$next;
                         ?>

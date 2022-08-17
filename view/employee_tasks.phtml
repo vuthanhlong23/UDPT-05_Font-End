@@ -164,31 +164,33 @@
                                 </div>
                             </div>
                             <?php
-                                 $self = $_SERVER['PHP_SELF'];
-                                 $currentPage = 1;
-                                 if (isset($_REQUEST["page"]))
-                                     $currentPage = $_REQUEST["page"];
-                                 $n = count($data["listTasks"]);
-                                 $i = 0;
-                                 while($i < $n){
-                                     $deadline = date('d-m-yy',strtotime($data["listTasks"][$i]["deadline"]));
-                                     echo "<div class='information__container-right__content-list-item'>
-                                     <a class='information__container-right__content-list-item-link'>
-                                         <div class='information__container-right__content-list-item-link-job'>
-                                             <span class='information__container-right__content-list-item-link-job-value'>{$data["listTasks"][$i]["taskName"]}</span>
-                                         </div>
-                                         <div class='information__container-right__content-list-item-link-deadline'>
-                                             <span class='information__container-right__content-list-item-link-deadline-value'>{$deadline}</span>
-                                         </div>
-                                         <div class='information__container-right__content-list-item-link-project'>
-                                             <span class='information__container-right__content-list-item-link-project-value'>{$data["listTasks"][$i]["projectName"]}</span>
-                                         </div>
-                                         <div class='information__container-right__content-list-item-link-status'>
-                                             <span class='information__container-right__content-list-item-link-status-value'>{$data["listTasks"][$i]["status"]}</span>
-                                         </div>
-                                     </a>
-                                 </div>";
-                                     $i += 1;
+                                if(isset($data["listTasks"])){
+                                    $self = $_SERVER['PHP_SELF'];
+                                    $currentPage = 1;
+                                    if (isset($_REQUEST["page"]))
+                                        $currentPage = $_REQUEST["page"];
+                                    $n = count($data["listTasks"]);
+                                    $i = 0;
+                                    while($i < $n){
+                                        $deadline = date('d-m-yy',strtotime($data["listTasks"][$i]["deadline"]));
+                                        echo "<div class='information__container-right__content-list-item'>
+                                        <a class='information__container-right__content-list-item-link'>
+                                            <div class='information__container-right__content-list-item-link-job'>
+                                                <span class='information__container-right__content-list-item-link-job-value'>{$data["listTasks"][$i]["taskName"]}</span>
+                                            </div>
+                                            <div class='information__container-right__content-list-item-link-deadline'>
+                                                <span class='information__container-right__content-list-item-link-deadline-value'>{$deadline}</span>
+                                            </div>
+                                            <div class='information__container-right__content-list-item-link-project'>
+                                                <span class='information__container-right__content-list-item-link-project-value'>{$data["listTasks"][$i]["projectName"]}</span>
+                                            </div>
+                                            <div class='information__container-right__content-list-item-link-status'>
+                                                <span class='information__container-right__content-list-item-link-status-value'>{$data["listTasks"][$i]["status"]}</span>
+                                            </div>
+                                        </a>
+                                    </div>";
+                                        $i += 1;
+                                    }
                                 }
                                 
                             ?>
@@ -199,11 +201,11 @@
                                     if ($currentPage > 1)
                                     {
                                         $page = $currentPage - 1;
-                                        $prev = "<a class='paging-data' href='$self?action=task&idEmployee=$idEmployee&page=$page&status=$status'><</a>     ";
+                                        $prev = "<a class='paging-data' href='$self?action=task&idEmployee=$idEmployee&page=$page&status=$status'><</a>";
                                     }
                                     else
                                     {
-                                        $prev = "<a class='paging-data' href='$self?action=task&idEmployee=$idEmployee&page=1&status=$status'><</a>     ";
+                                        $prev = "<a class='paging-data' href='$self?action=task&idEmployee=$idEmployee&page=1&status=$status'><</a>";
                                     }
 
 

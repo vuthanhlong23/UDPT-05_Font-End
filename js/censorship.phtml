@@ -13,8 +13,10 @@
         }
     })
 
-    function filterTypeRequest(input){
-        var url ="index.php?action=censorship&idCensorship="+input.value;
+    function filterTypeRequest(){
+        var type = document.getElementById("typeRequest").value;
+        var status = document.getElementById("requestStatus").value;
+        var url ="index.php?action=censorship&idCensorship="+type+status;
         if(url != ''){
             window.location=url;
         }

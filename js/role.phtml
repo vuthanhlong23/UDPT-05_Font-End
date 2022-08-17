@@ -4,5 +4,15 @@ if (userRole == "Vai trò: Nhân viên") {
     var functionUser = document.querySelectorAll(".HRM__functions-name-items");
     functionUser[0].style.display="None";
     functionUser[6].style.display="None";
+    functionUser[9].style.display="None";
+}
+if (userRole == "Vai trò: Nhân viên" || userRole == "Vai trò: Trưởng phòng") {
+    var functionUser = document.querySelectorAll(".HRM__functions-name-items");
+    functionUser[10].style.display="None";
+}
+if (userRole == "Vai trò: Giám đốc") {
+    var functionUser = document.querySelectorAll(".HRM__functions-name-items");
+    functionUser[0].style.display="None";
+    functionUser[9].style.display="None";
 }
 </script>

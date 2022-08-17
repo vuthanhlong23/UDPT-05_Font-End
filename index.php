@@ -5,10 +5,16 @@ require_once("./controller/loginlogout.php");
 require_once("./controller/employee.php");
 require_once("./controller/request.php");
 require_once("./controller/checkincheckout.php");
+require_once("./controller/deviceRequest.php");
+require_once("./controller/activity.php");
 require_once("./model/request.php");
 require_once("./model/employee.php");
 require_once("./model/department.php");
 require_once("./model/task.php");
+require_once("./model/deviceRequest.php");
+require_once("./model/activity.php");
+require_once("./model/device.php");
+
 
 $action = "";
 if (isset($_REQUEST["action"])){
@@ -20,6 +26,63 @@ switch ($action){
         $controller = new HomeController();
         $controller->home();
         break;
+    case "requestListDR":
+        $controller = new deviceRequestController();
+        $controller->listAllRequestDRByEmpID();
+        break;
+    case "addRequestDR":
+        $controller = new deviceRequestController();
+        $controller->addRequestDR();
+        break;
+    case "requestListA":
+        $controller = new activityController();
+        $controller->listAllActivity();
+        break;
+    case "searchA":
+        $controller = new activityController();
+        $controller->SearchActivity();
+        break;
+    case "registerA":
+        $controller = new activityController();
+        $controller->addRegisterA();
+        break;
+    case "followA":
+        $controller = new activityController();
+        $controller->addFollowA();
+        break;
+    case "listALLDR_ITmanager":
+        $controller = new deviceRequestController();
+        $controller->listAllRequestDR();
+        break;
+    case "listALLDR_president":
+        $controller = new deviceRequestController();
+        $controller->listAllRequestDR_president();
+        break;
+    case "ITmanager_DR":
+        $controller = new deviceRequestController();
+        $controller->listDeviceRequestByStatus();
+        break;
+    case "President_DR":
+        $controller = new deviceRequestController();
+        $controller->listDeviceRequestByStatus_president();
+        break;
+    case "listITmanager_formDR":
+        $controller = new deviceRequestController();
+        $controller->listrequestDRbyITManager();
+        break;
+    case "updateITmanager_formDR":
+        $controller = new deviceRequestController();
+        $controller->updaterequestDRbyITManager();
+        break;
+    case "updatePresident_formDR":
+        $controller = new deviceRequestController();
+        $controller->updaterequestDRbyPresident();
+        break;
+    case "listpresident_formDR":
+        $controller = new deviceRequestController();
+        $controller->listrequestDRbypresident();
+        break;
+    
     case "requestListOT":
         $controller = new requestController();
         $controller->listAllRequestOT();

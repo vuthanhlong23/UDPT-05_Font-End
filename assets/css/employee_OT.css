@@ -78,3 +78,28 @@
 .requestOT__formItems--margin {
     margin-bottom: 20px;
 }
+
+/* 
+.requestOT__pagination--section {
+    margin: auto;
+}
+
+.requestOT__pagination {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0 4px 40px;
+    padding: 0 10px;
+    color: var(--white-color);
+    background-color: #0d6efd;
+    text-decoration: none;
+}
+
+.requestOT__pagination2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0 4px 40px;
+    padding: 0 10px;
+    color: black;
+    background-color: #0d6efd;
+    text-decoration: none;
+} */

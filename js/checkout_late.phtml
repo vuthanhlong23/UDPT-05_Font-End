@@ -1,0 +1,38 @@
+<script>
+
+function CheckDateRequest(id) {
+    var UserDate = document.getElementById(id).value;
+    var ToDate = new Date();
+
+    if (new Date(UserDate).getTime() < ToDate.getTime()) {
+          alert("Ngày bắt đầu phải lớn hơn hoặc bằng ngày hiện tại!!!");
+          document.querySelector(id).value = "";
+          return false;
+    }
+    return true;
+}
+
+var requestCheckoutLateStatusName = document.querySelectorAll(".requestCheckoutLate__formItemsStatusName");
+requestCheckoutLateStatusName.forEach(index => {
+    var requestCheckoutLateStatusNameValue = index.innerText;
+    if (requestCheckoutLateStatusNameValue == "Chưa xét duyệt") {
+        index.style.cssText += 'background-color: grey;'
+    }
+    else if (requestCheckoutLateStatusNameValue == "Chấp thuận") {
+        index.style.cssText += 'background-color: green;'
+    }
+    else {  
+        index.style.cssText += 'background-color: red;'
+    }
+})
+
+
+var requestCheckoutLateRejectReason = document.querySelectorAll(".requestCheckoutLate__formItemsRejectReason");
+for(var i=0;i<requestCheckoutLateRejectReason.length;i++){
+    var requestCheckoutLateStatusNameValue = requestCheckoutLateStatusName[i].innerText;
+    if(requestCheckoutLateStatusNameValue == "Chấp thuận" || requestCheckoutLateStatusNameValue == "Chưa xét duyệt"){
+        requestCheckoutLateRejectReason[i].style.display = "none";
+    }
+}
+
+</script>

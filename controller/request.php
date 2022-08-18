@@ -61,6 +61,15 @@ class requestController {
         require("./template/main_template.phtml");
     }
 
+    public function listAllRequestCheckoutLate() {
+        session_start();
+        $idEmployee = $_SESSION["idEmployee"];
+        $idRequestType = 4; 
+        $dataAllRequest = requestModel::listAllRequest($idEmployee, $idRequestType);
+        $VIEW = "./view/checkout_late.phtml";
+        require("./template/main_template.phtml");
+    }
+
     public function addRequestWFH() {
         session_start();
         $idRequestType = 3; 
@@ -72,6 +81,18 @@ class requestController {
         $dataAddRequestWFH = requestModel::addRequestWFH($idEmployee, $startDayWFH, $endDayWFH,$reason);
         $dataAllRequest = requestModel::listAllRequest($idEmployee, $idRequestType);
         header("Location: index.php?action=requestListWFH");
+    }
+
+    public function addRequestCheckoutLate() {
+        session_start();
+        $idRequestType = 4; 
+        $idEmployee = $_SESSION["idEmployee"];
+        $checkoutDate = $_REQUEST["checkoutDate"];
+        $reason = $_REQUEST["reason"];
+
+        $dataAddRequestCheckoutLate = requestModel::addRequestCheckoutLate($idEmployee, $checkoutDate, $idRequestType, $reason);
+        $dataAllRequest = requestModel::listAllRequest($idEmployee, $idRequestType);
+        header("Location: index.php?action=checkout_late");
     }
 
     public function addRequestOT() {

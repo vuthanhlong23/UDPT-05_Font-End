@@ -1,59 +1,66 @@
 <div class="row CheckinHistory">
-    <div class="col-10 CheckinHistory__group">
+    <div class="col-8 CheckinHistory__group">
         <p class="CheckinHistory__group-title">Lịch sử chấm công</p>
     </div>
     <div class="col-2 CheckinHistory__group">
         <a style="text-decoration: none; color:white" href="index.php?action=checkin"><button type="button" class="btn btn-success CheckinHistory__group-btn-newcheckin">+ Chấm công</p></a>
     </div>
+    <div class="col-2 CheckinHistory__group">
+        <a style="text-decoration: none; color:white" href="index.php?action=checkout_late"><button type="button" class="btn btn-success CheckinHistory__group-btn-newcheckin">Checkout bù</p></a>
+    </div>
 </div>
+
+<?php
+    if (isset($_REQUEST['pageno'])) {
+        $pageno = $_REQUEST['pageno'];
+    } else {
+        $pageno = 1;
+    }
+    $no_of_records_per_page = 10;
+    
+    $total_rows = 20;
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
+?>
 <table class="table">
     <thead>
         <tr>
         <th scope="col">Ngày</th>
         <th scope="col">Giờ bắt đầu</th>
         <th scope="col">Giờ kết thúc</th>
-        <th scope="col">Đánh giá</th>
+        <th scope="col">Tình trạng</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-        <th scope="row">1</th>
-        <td>07:30</td>
-        <td>16:30</td>
-        <td>Làm đủ giờ</td>
-        </tr>
-        <tr>
-        <th scope="row">2</th>
-        <td>07:30</td>
-        <td>16:00</td>
-        <td>Làm thiếu giờ</td>
-        </tr>
-        <tr>
-        <th scope="row">3</th>
-        <td>07:30</td>
-        <td>Không Check-out</td>
-        <td>Không tính ngày làm việc</td>
-        </tr>
-        <tr>
-        <th scope="row">3</th>
-        <td>Không Check-in</td>
-        <td>Không Check-out</td>
-        <td>Không tính ngày làm việc</td>
-        </tr>
+        <?php
+        foreach ($dataCheckinHistory as $item) 
+        {
+        ?>
+            <tr>
+            <th scope="row">
+            <?php
+                echo date('d-m-Y',strtotime($item->date));
+            ?>
+            </th>
+            <td><?php echo "{$item->startTime}";?></td>
+            <td><?php echo "{$item->endTime}";?></td>
+            <td><?php echo "{$item->status}";?></td>
+            </tr>
+        <?php
+        }
+        ?>
     </tbody>
 </table>
 <div class="row">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-            <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Previous</a>
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="index.php?action=checkinHistory&pageno=1">First</a></li>
+            <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
+                <a class="page-link" href="<?php if($pageno <= 1){ echo "index.php?action=checkinHistory&pageno=1"; } else { echo "index.php?action=checkinHistory&pageno=".($pageno - 1); } ?>">Prev</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-            <a class="page-link" href="#">Next</a>
+            <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
+                <a class="page-link" href="<?php if($pageno >= $total_pages){ echo "index.php?action=checkinHistory&pageno=".($total_pages); } else { echo "index.php?action=checkinHistory&pageno=".($pageno + 1); } ?>">Next</a>
             </li>
+            <li class="page-item"><a class="page-link" href="index.php?action=checkinHistory&pageno=<?=$total_pages?>">Last</a></li>
         </ul>
-        </nav>
+    </nav>
 </div>

@@ -1,0 +1,33 @@
+<script>
+    var today = new Date();
+    var time = today.getHours()*60 + today.getMinutes();
+    var timeStart = 16*60;
+    var timeEnd = 20*60;
+
+    if(time >=timeStart && time <= timeEnd)
+    {
+        var checkin__btn = document.querySelector(".Checkin__button");
+        var checkout__btn = document.querySelector(".Checkout__button");
+        checkin__btn.style.display = "none";
+        checkin__btn.style.visibility = "hidden";
+        checkout__btn.style.display = "block";
+    }
+
+    function checkCheckinTimeValid(){
+        var current_date = new Date();
+        var current_time = current_date.getHours();
+        if(current_time > 10 || current_time < 8)
+        {
+            alert("Thời gian checkin đã hết hoặc bạn đã checkin ngày hôm nay!");
+        }
+    }
+
+    function checkCheckoutTimeValid(){
+        var current_date = new Date();
+        var current_time = current_date.getHours();
+        if(current_time < 16 || current_time > 20)
+        {
+            alert("Thời gian checkout đã hết hoặc bạn đã checkout ngày hôm nay!");
+        }
+    }
+</script>

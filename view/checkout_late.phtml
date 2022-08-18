@@ -1,0 +1,51 @@
+<div class="row requestCheckoutLate">
+    <p class="requestCheckoutLate__functionName">Xin checkout bù</p>
+    <div class="col-6 requestCheckoutLate__form">
+        <div class="requestCheckoutLate__formName">Tạo đề xuất</div>
+        <form action="index.php?action=addrequestCheckoutLate" method="POST">
+            <div class="row requestCheckoutLate__formItem">
+                <span class="requestCheckoutLate__formItemName">Ngày xin checkout bù *</sp>
+                <input class="requestCheckoutLate__formInput" type="date" name="checkoutDate" required value="<?php if(isset($_POST['checkoutDate'])){echo $_POST['checkoutDate']; } ?>">
+            </div>
+            <div class="row requestCheckoutLate__formItem">
+                <span class="requestCheckoutLate__formItemName">Lý do xin checkout bù *</span>
+                <input class="requestCheckoutLate__formInput" type="text" name="reason" required value="<?php if(isset($_POST['reason'])){echo $_POST['reason']; } ?>">
+            </div>
+            <button type="submit" class="requestCheckoutLate_submit-btn btn btn-success">Gửi đề xuất</button>
+        </form>
+    </div>
+    <div class="col-6 requestCheckoutLate__form--status">
+        <p class="requestCheckoutLate__formName--status">Trạng thái đơn đề xuất</p>
+        <?php
+        foreach ($dataAllRequest as $item) 
+        {
+        ?>
+            <div class="row requestCheckoutLate__formItems--status">
+                <div class="col-8">
+                    <span class="requestCheckoutLate__formItemsDate">
+                        Xin checkout bù
+                    </span> 
+                    <span class="requestCheckoutLate__formItemsDate">
+                        Ngày xin checkout: <?php echo date('d-m-Y',strtotime($item->checkoutDate));?>
+                    </span>
+                    <span class="requestCheckoutLate__formItemsReason">
+                        Lý do: <?php echo "{$item->reason}";?>
+                    </span>  
+                    <span class="requestCheckoutLate__formItemsRejectReason">
+                        Lý do từ chối: <?php echo "{$item->requestRejectReason}";?>
+                    </span>  
+                </div>
+                <div class="col-4 requestCheckoutLate__formItemsStatus">
+                    <span class="requestCheckoutLate__formItemsStatusName">
+                        <?php echo "{$item->requestStatus}";?>
+                    </span>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+        <div class="requestCheckoutLate__formItems--margin"></div>
+    </div>
+</div>
+
+<?php require("js/checkout_late.phtml"); ?>

@@ -30,10 +30,10 @@
                         Xin làm tại nhà
                     </span> 
                     <span class="requestWFH__formItemsDate">
-                        Ngày bắt đầu: <?php echo "{$item->startDayWFH}";?>
+                        Ngày bắt đầu: <?php echo date('d-m-Y',strtotime($item->startDayWFH));?>
                     </span>
                     <span class="requestWFH__formItemsDate">
-                        Ngày kết thúc: <?php echo "{$item->endDayWFH}";?>
+                        Ngày kết thúc: <?php echo date('d-m-Y',strtotime($item->endDayWFH));?>
                     </span>   
                     <span class="requestWFH__formItemsReason">
                         Lý do: <?php echo "{$item->reason}";?>

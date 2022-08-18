@@ -11,12 +11,12 @@
     <div class="row Checkin__request">
         <div class="col-6">
             <div class="Checkin__request-session">
-                <span class="Checkin__request-session-name">Chọn ca làm việc *</span>
+                <span class="Checkin__request-session-name">Chọn nơi làm việc *</span>
             </div>
-            <select class="form-select Checkin__request-session-input" aria-label="Default select example" name="Session" required value="<?php if(isset($_POST['Session'])){echo $_POST['Session']; } ?>">
-                <option selected></option>
-                <option value="1">07:30 - 11:30</option>
-                <option value="2">13:30 - 16:30</option>
+            <select class="form-select Checkin__request-session-input" aria-label="Default select example" name="place" required value="<?php if(isset($_POST['place'])){echo $_POST['place']; } ?>">
+                <option disabled selected>Tùy chọn</option>
+                <option value="Công ty">Công ty</option>
+                <option value="Nhà">Nhà</option>
             </select>
         </div>
         <div class="col-4">
@@ -26,7 +26,31 @@
             <input class="Checkin__request-image-input" type="file" accept="image/*">
         </div>
         <div class="col-2 Checkin__button">
-            <button type="button" class="btn btn-success Checkin__button-submit">Check in</p>
+            <form action="index.php?action=addCheckin" method="POST">
+                <button onclick="checkCheckinTimeValid();" type="submit" class="btn btn-success Checkin__button-submit">Check in</p>
+            </form>
+        </div>
+        <div class="col-2 Checkout__button">
+            <form action="index.php?action=addCheckout" method="POST">
+                <button onclick="checkCheckoutTimeValid();" type="submit" class="btn btn-success Checkout__button-submit">Check out</p>
+            </form>
         </div>
     </div>
 </div>
+
+
+<style>
+.Checkout__button {
+    width: 130px;
+    height: 40px;
+    display: none;
+    padding-top: 20px;
+}
+
+.Checkout__button-submit {
+    width: 100px;
+    height: 45px;
+}
+</style>
+
+<?php require("js/checkincheckout.phtml"); ?>

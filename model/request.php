@@ -25,6 +25,7 @@ class requestModel {
     public $censorFirstName; 
     public $censorLastName; 
     public $positionCensor; 
+    public $checkoutDate;
 
     function __construct() {
         $this->id = "";
@@ -49,7 +50,7 @@ class requestModel {
         $this->employeeLastName = "";
         $this->censorFirstName = "";
         $this->censorLastName = "";
-        $this->positionCensor = "";
+        $this->checkoutDate = "";
     }
     
     public static function ListRequestByCensorshipId($idCensorship, $pageIndex, $pageSize, $typeRequest, $requestStatus){
@@ -151,6 +152,7 @@ class requestModel {
                 $request->censorFirstName = $row["censorFirstName"];
                 $request->censorLastName = $row["censorLastName"];
                 $request->positionCensor = $row["positionCensor"];
+                $request->checkoutDate = $row["checkoutDate"];
                 $requestList[] = $request; //add an item into array
             }
             curl_close($ch);
@@ -165,14 +167,42 @@ class requestModel {
                 'idRequestType'=> 3,
                 'idEmployee'=> $idEmployee,
                 'idCensor'=> 2,
-                'startDayWFH'=> "'$startDayWFH'", 
-                'endDayWFH'=> "'$endDayWFH'",
-                'reason'=> "'$reason'"
+                'startDayWFH'=> "$startDayWFH", 
+                'endDayWFH'=> "$endDayWFH",
+                'reason'=> "$reason"
         );
 
         $data = json_encode($param);
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."employee/addrequestWFH";
 
-        $url = "http://127.0.0.1:5001/employee/addrequestWFH";
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data); 
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        
+        $result = curl_exec($curl);
+    
+        curl_close($curl);
+        
+        return ($result);
+    }
+
+    public static function addRequestCheckoutLate($idEmployee, $checkoutDate, $idRequestType, $reason)
+    {
+        $param = array(
+                'idRequestType'=> $idRequestType,
+                'idEmployee'=> $idEmployee,
+                'checkoutDate'=> "$checkoutDate", 
+                'reason'=> "$reason"
+        );
+
+        $data = json_encode($param);
+        $hosting = new Hosting();
+        $url = $hosting->urlHost."employee/addrequestCheckoutLate";
+
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($curl, CURLOPT_URL, $url);

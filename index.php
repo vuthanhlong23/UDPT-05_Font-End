@@ -11,11 +11,7 @@ require_once("./model/checkincheckout.php");
 require_once("./model/employee.php");
 require_once("./model/department.php");
 require_once("./model/task.php");
-require_once("./model/deviceRequest.php");
-require_once("./model/activity.php");
 require_once("./model/device.php");
-
-
 $action = "";
 if (isset($_REQUEST["action"])){
     $action = $_REQUEST["action"];
@@ -140,6 +136,22 @@ switch ($action){
     case "checkin":     
         $controller = new CheckinCheckoutController();
         $controller->checkin();
+        break;
+    case "addCheckin":     
+        $controller = new CheckinCheckoutController();
+        $controller->addCheckin();
+        break;
+    case "addCheckout":     
+        $controller = new CheckinCheckoutController();
+        $controller->addCheckout();
+        break;
+    case "checkout_late":     
+        $controller = new requestController();
+        $controller->listAllRequestCheckoutLate();
+        break;
+    case "addrequestCheckoutLate":     
+        $controller = new requestController();
+        $controller->addRequestCheckoutLate();
         break;
     default:
         $controller = new LoginLogoutController();

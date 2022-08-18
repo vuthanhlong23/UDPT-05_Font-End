@@ -21,34 +21,36 @@
     <div class="col-6 requestWFH__form--status">
         <p class="requestWFH__formName--status">Trạng thái đơn đề xuất</p>
         <?php
-        foreach ($dataAllRequest as $item) 
-        {
-        ?>
-            <div class="row requestWFH__formItems--status">
-                <div class="col-8">
-                    <span class="requestWFH__formItemsDate">
-                        Xin làm tại nhà
-                    </span> 
-                    <span class="requestWFH__formItemsDate">
-                        Ngày bắt đầu: <?php echo date('d-m-Y',strtotime($item->startDayWFH));?>
-                    </span>
-                    <span class="requestWFH__formItemsDate">
-                        Ngày kết thúc: <?php echo date('d-m-Y',strtotime($item->endDayWFH));?>
-                    </span>   
-                    <span class="requestWFH__formItemsReason">
-                        Lý do: <?php echo "{$item->reason}";?>
-                    </span>  
-                    <span class="requestWFH__formItemsRejectReason">
-                        Lý do từ chối: <?php echo "{$item->requestRejectReason}";?>
-                    </span>  
+        if(isset($dataAllRequest)){
+            foreach ($dataAllRequest as $item) 
+            {
+            ?>
+                <div class="row requestWFH__formItems--status">
+                    <div class="col-8">
+                        <span class="requestWFH__formItemsDate">
+                            Xin làm tại nhà
+                        </span> 
+                        <span class="requestWFH__formItemsDate">
+                            Ngày bắt đầu: <?php echo date('d-m-Y',strtotime($item['startDayWFH']));?>
+                        </span>
+                        <span class="requestWFH__formItemsDate">
+                            Ngày kết thúc: <?php echo date('d-m-Y',strtotime($item['endDayWFH']));?>
+                        </span>   
+                        <span class="requestWFH__formItemsReason">
+                            Lý do: <?php echo "{$item['reason']}";?>
+                        </span>  
+                        <span class="requestWFH__formItemsRejectReason">
+                            Lý do từ chối: <?php echo "{$item['requestRejectReason']}";?>
+                        </span>  
+                    </div>
+                    <div class="col-4 requestWFH__formItemsStatus">
+                        <span class="requestWFH__formItemsStatusName">
+                            <?php echo "{$item['requestStatus']}";?>
+                        </span>
+                    </div>
                 </div>
-                <div class="col-4 requestWFH__formItemsStatus">
-                    <span class="requestWFH__formItemsStatusName">
-                        <?php echo "{$item->requestStatus}";?>
-                    </span>
-                </div>
-            </div>
-        <?php
+            <?php
+            }
         }
         ?>
         <div class="requestWFH__formItems--margin"></div>

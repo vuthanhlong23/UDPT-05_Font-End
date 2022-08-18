@@ -124,37 +124,40 @@ class requestModel {
             echo $e;
         }
         else {
-            $decoded = json_decode($resp, true);
-            // print_r($decoded);
-            $requestList = array();
-            foreach($decoded as $row) {
-                $request = new requestModel();
-                $request->id = $row["id"];
-                $request->idRequestType = $row["idRequestType"];
-                $request->idCheckinCheckOut = $row["idCheckinCheckOut"];
-                $request->idEmployee = $row["idEmployee"];
-                $request->idCensor = $row["idCensor"];
-                $request->requestName = $row["requestName"];
-                $request->hourOT = $row["hourOT"];
-                $request->dayOT = $row["dayOT"];
-                $request->startDayOFF = $row["startDayOFF"];
-                $request->numberDayOFF = $row["numberDayOFF"];
-                $request->noteDayOFF = $row["noteDayOFF"];
-                $request->startDayWFH = $row["startDayWFH"];
-                $request->endDayWFH = $row["endDayWFH"];
-                $request->reason = $row["reason"];
-                $request->requestDate = $row["requestDate"];
-                $request->requestStatus = $row["requestStatus"];
-                $request->requestRejectReason = $row["requestRejectReason"];
-                $request->active = $row["active"];
-                $request->employeeFirstName = $row["employeeFirstName"];
-                $request->employeeLastName = $row["employeeLastName"];
-                $request->censorFirstName = $row["censorFirstName"];
-                $request->censorLastName = $row["censorLastName"];
-                $request->positionCensor = $row["positionCensor"];
-                $request->checkoutDate = $row["checkoutDate"];
-                $requestList[] = $request; //add an item into array
-            }
+            // $decoded = json_decode($resp, true);
+            // // print_r($decoded);
+            // $requestList = array();
+            // foreach($decoded as $row) {
+            //     $request = new requestModel();
+            //     $request->id = $row["id"];
+            //     $request->idRequestType = $row["idRequestType"];
+            //     $request->idCheckinCheckOut = $row["idCheckinCheckOut"];
+            //     $request->idEmployee = $row["idEmployee"];
+            //     $request->idCensor = $row["idCensor"];
+            //     $request->requestName = $row["requestName"];
+            //     $request->hourOT = $row["hourOT"];
+            //     $request->dayOT = $row["dayOT"];
+            //     $request->startDayOFF = $row["startDayOFF"];
+            //     $request->numberDayOFF = $row["numberDayOFF"];
+            //     $request->noteDayOFF = $row["noteDayOFF"];
+            //     $request->startDayWFH = $row["startDayWFH"];
+            //     $request->endDayWFH = $row["endDayWFH"];
+            //     $request->reason = $row["reason"];
+            //     $request->requestDate = $row["requestDate"];
+            //     $request->requestStatus = $row["requestStatus"];
+            //     $request->requestRejectReason = $row["requestRejectReason"];
+            //     $request->active = $row["active"];
+            //     $request->employeeFirstName = $row["employeeFirstName"];
+            //     $request->employeeLastName = $row["employeeLastName"];
+            //     $request->censorFirstName = $row["censorFirstName"];
+            //     $request->censorLastName = $row["censorLastName"];
+            //     $request->positionCensor = $row["positionCensor"];
+            //     $request->checkoutDate = $row["checkoutDate"];
+            //     $requestList[] = $request; //add an item into array
+            // }
+            // curl_close($ch);
+            // return $requestList;
+            $requestList = json_decode($resp, true);
             curl_close($ch);
             return $requestList;
         }

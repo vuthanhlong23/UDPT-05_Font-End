@@ -30,50 +30,53 @@
         <?php
             $pagesize = 5;
             $currentpage = 1;
-            $numrow = count($dataAllRequest);
             $self = $_SERVER['PHP_SELF'];
             $nav = "";
-            $numpage = ceil($numrow / ($pagesize*1.0));
+            $numpage = 0;
             
             if (isset($_REQUEST["page"]))
                 $currentpage = $_REQUEST["page"];
             
-            $start = ($currentpage - 1) * $pagesize;
-            $end = $start + $pagesize - 1;
-            
-            if ($end > $numrow - 1)
-                $end = $numrow - 1;
-
-            while($start<=$end) {
-                $date = date('d-m-Y',strtotime($dataAllRequest[$start]->startDayOFF));
-                print"
-                    <div class='row requestOFF__formItems--status'>
-                        <div class='col-8'>
-                            <span class='requestOFF__formItemsDate'>
-                                Xin nghỉ ngày {$date}
-                            </span>    
-                            <span class='requestOFF__formItemsHour'>
-                                Số ngày nghỉ: {$dataAllRequest[$start]->numberDayOFF}
-                            </span>   
-                            <span class='requestOFF__formItemsHour'>
-                                Ghi chú nghỉ: {$dataAllRequest[$start]->noteDayOFF}
-                            </span>     
-                            <span class='requestOFF__formItemsReason'>
-                                Lý do: {$dataAllRequest[$start]->reason}
-                            </span>  
-                            <span class='requestOFF__formItemsRejectReason'>
-                                Lý do từ chối: {$dataAllRequest[$start]->requestRejectReason}
-                            </span>  
+            if(isset($dataAllRequest)){
+                $numrow = count($dataAllRequest);
+                $numpage = ceil($numrow / ($pagesize*1.0));
+                $start = ($currentpage - 1) * $pagesize;
+                $end = $start + $pagesize - 1;
+                
+                if ($end > $numrow - 1)
+                    $end = $numrow - 1;
+    
+                while($start<=$end) {
+                    $date = date('d-m-Y',strtotime($dataAllRequest[$start]['startDayOFF']));
+                    print"
+                        <div class='row requestOFF__formItems--status'>
+                            <div class='col-8'>
+                                <span class='requestOFF__formItemsDate'>
+                                    Xin nghỉ ngày {$date}
+                                </span>    
+                                <span class='requestOFF__formItemsHour'>
+                                    Số ngày nghỉ: {$dataAllRequest[$start]['numberDayOFF']}
+                                </span>   
+                                <span class='requestOFF__formItemsHour'>
+                                    Ghi chú nghỉ: {$dataAllRequest[$start]['noteDayOFF']}
+                                </span>     
+                                <span class='requestOFF__formItemsReason'>
+                                    Lý do: {$dataAllRequest[$start]['reason']}
+                                </span>  
+                                <span class='requestOFF__formItemsRejectReason'>
+                                    Lý do từ chối: {$dataAllRequest[$start]['requestRejectReason']}
+                                </span>  
+                            </div>
+                            <div class='col-4 requestOFF__formItemsStatus'>
+                                <span class='requestOFF__formItemsStatusName'>
+                                    {$dataAllRequest[$start]['requestStatus']}
+                                </span>
+                            </div>
                         </div>
-                        <div class='col-4 requestOFF__formItemsStatus'>
-                            <span class='requestOFF__formItemsStatusName'>
-                                {$dataAllRequest[$start]->requestStatus}
-                            </span>
-                        </div>
-                    </div>
-                    <div class='requestOFF__formItems--margin'></div>
-                ";
-            $start+=1;
+                        <div class='requestOFF__formItems--margin'></div>
+                    ";
+                $start+=1;
+                }
             }
         ?>
         <div class="requestOFF__pagination--section">

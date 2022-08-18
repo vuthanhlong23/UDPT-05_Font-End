@@ -17,31 +17,33 @@
     <div class="col-6 requestCheckoutLate__form--status">
         <p class="requestCheckoutLate__formName--status">Trạng thái đơn đề xuất</p>
         <?php
-        foreach ($dataAllRequest as $item) 
-        {
-        ?>
-            <div class="row requestCheckoutLate__formItems--status">
-                <div class="col-8">
-                    <span class="requestCheckoutLate__formItemsDate">
-                        Xin checkout bù
-                    </span> 
-                    <span class="requestCheckoutLate__formItemsDate">
-                        Ngày xin checkout: <?php echo date('d-m-Y',strtotime($item->checkoutDate));?>
-                    </span>
-                    <span class="requestCheckoutLate__formItemsReason">
-                        Lý do: <?php echo "{$item->reason}";?>
-                    </span>  
-                    <span class="requestCheckoutLate__formItemsRejectReason">
-                        Lý do từ chối: <?php echo "{$item->requestRejectReason}";?>
-                    </span>  
+        if(isset($dataAllRequest)){
+            foreach ($dataAllRequest as $item) 
+            {
+            ?>
+                <div class="row requestCheckoutLate__formItems--status">
+                    <div class="col-8">
+                        <span class="requestCheckoutLate__formItemsDate">
+                            Xin checkout bù
+                        </span> 
+                        <span class="requestCheckoutLate__formItemsDate">
+                            Ngày xin checkout: <?php echo date('d-m-Y',strtotime($item['checkoutDate']));?>
+                        </span>
+                        <span class="requestCheckoutLate__formItemsReason">
+                            Lý do: <?php echo "{$item['reason']}";?>
+                        </span>  
+                        <span class="requestCheckoutLate__formItemsRejectReason">
+                            Lý do từ chối: <?php echo "{$item['requestRejectReason']}";?>
+                        </span>  
+                    </div>
+                    <div class="col-4 requestCheckoutLate__formItemsStatus">
+                        <span class="requestCheckoutLate__formItemsStatusName">
+                            <?php echo "{$item['requestStatus']}";?>
+                        </span>
+                    </div>
                 </div>
-                <div class="col-4 requestCheckoutLate__formItemsStatus">
-                    <span class="requestCheckoutLate__formItemsStatusName">
-                        <?php echo "{$item->requestStatus}";?>
-                    </span>
-                </div>
-            </div>
-        <?php
+            <?php
+            }
         }
         ?>
         <div class="requestCheckoutLate__formItems--margin"></div>

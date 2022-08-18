@@ -2,7 +2,8 @@
 class Hosting{
     public $urlHost;
     function __construct() {
-        $this->urlHost = "http://127.0.0.1:5001/";
+        // $this->urlHost = "http://127.0.0.1:5001/";
+        $this->urlHost = "https://gatewayapi-app.herokuapp.com/";
     }
 }
 class Employee {
@@ -45,6 +46,8 @@ class Employee {
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
 
         $resp = curl_exec($ch);
 
@@ -74,6 +77,8 @@ class Employee {
 
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); 
     
         $result = curl_exec($curl); 
     
@@ -89,6 +94,8 @@ class Employee {
 
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); 
     
         $result = curl_exec($curl); 
     
@@ -124,6 +131,8 @@ class Employee {
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
         curl_setopt($curl, CURLOPT_POSTFIELDS,$dataJson);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); 
 
         $result = curl_exec($curl); 
     

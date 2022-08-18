@@ -22,6 +22,8 @@ class Activity {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
 
         $resp = curl_exec($ch);
 
@@ -60,6 +62,8 @@ class Activity {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload); 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
 
         $resp = curl_exec($ch);
 
@@ -101,6 +105,8 @@ class Activity {
         curl_setopt($curl, CURLOPT_POSTFIELDS, $payload); 
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); 
         
         $result = curl_exec($curl);
         
@@ -129,6 +135,8 @@ class Activity {
         curl_setopt($curl, CURLOPT_POSTFIELDS, $payload); 
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); 
         
         $result = curl_exec($curl);
         

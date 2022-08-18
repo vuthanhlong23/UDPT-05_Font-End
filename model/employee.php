@@ -3,7 +3,8 @@ class Hosting{
     public $urlHost;
     function __construct() {
         // $this->urlHost = "http://127.0.0.1:5001/";
-        $this->urlHost = "https://gatewayapi-app.herokuapp.com/";
+        // $this->urlHost = "https://gatewayapi-app.herokuapp.com/";
+        $this->urlHost = "https://gatewayapi-application.herokuapp.com/";
     }
 }
 class Employee {

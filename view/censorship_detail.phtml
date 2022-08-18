@@ -108,12 +108,13 @@
                     $idCensorship = $_REQUEST["idCensorship"];
                     $page = $_REQUEST["page"];
                     $typeRequest = $_REQUEST["typeRequest"];
+                    $requestStatus = $_REQUEST["requestStatus"];
                     
                     while ($i < $n) {
                         $fullName = $data['listRequest'][$i]['employeeFirstName']." ".$data['listRequest'][$i]['employeeLastName'];
                         if((int)$data['detailRequest']['id'] == (int)$data['listRequest'][$i]['id']){
                             echo "<div class='censorship-detail__container-content-request-list-item' style='background-color: var(--secondary-color);'>
-                                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$data['listRequest'][$i]['id']}' class='censorship-detail__container-content-request-list-item-element'>
+                                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$data['listRequest'][$i]['id']}&requestStatus={$requestStatus}' class='censorship-detail__container-content-request-list-item-element'>
                                         <div class='censorship-detail__container-content-request-list-item-element__title'>
                                             <span class='censorship-detail__container-content-request-list-item-element__title-name' style='color: var(--white-color);'>{$data['listRequest'][$i]['requestName']}</span>
                                         </div>
@@ -125,7 +126,7 @@
                         }
                         else{
                             echo "<div class='censorship-detail__container-content-request-list-item'>
-                                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$data['listRequest'][$i]['id']}' class='censorship-detail__container-content-request-list-item-element'>
+                                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$data['listRequest'][$i]['id']}&requestStatus={$requestStatus}' class='censorship-detail__container-content-request-list-item-element'>
                                         <div class='censorship-detail__container-content-request-list-item-element__title'>
                                             <span class='censorship-detail__container-content-request-list-item-element__title-name'>{$data['listRequest'][$i]['requestName']}</span>
                                         </div>

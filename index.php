@@ -12,6 +12,9 @@ require_once("./model/employee.php");
 require_once("./model/department.php");
 require_once("./model/task.php");
 require_once("./model/device.php");
+require_once("./model/activity.php");
+require_once("./model/deviceRequest.php");
+
 $action = "";
 if (isset($_REQUEST["action"])){
     $action = $_REQUEST["action"];

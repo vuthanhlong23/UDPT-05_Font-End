@@ -11,13 +11,9 @@
     <div class="row Checkin__request">
         <div class="col-6">
             <div class="Checkin__request-session">
-                <span class="Checkin__request-session-name">Chọn nơi làm việc *</span>
+                <span class="Checkin__request-session-name">Nơi làm việc *</span>
             </div>
-            <select class="form-select Checkin__request-session-input" aria-label="Default select example" name="place" required value="<?php if(isset($_POST['place'])){echo $_POST['place']; } ?>">
-                <option disabled selected>Tùy chọn</option>
-                <option value="Công ty">Công ty</option>
-                <option value="Nhà">Nhà</option>
-            </select>
+            <span class="Checkin__request-session-name-detail">Công ty FPT</span>
         </div>
         <div class="col-4">
             <div class="Checkin__request-image">

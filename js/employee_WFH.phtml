@@ -4,9 +4,9 @@ function CheckDateStart(id) {
     var UserDate = document.getElementById(id).value;
     var ToDate = new Date();
 
-    if (new Date(UserDate).getTime() < ToDate.getTime()) {
+    if (new Date(UserDate).getDate() < ToDate.getDate()) {
           alert("Ngày bắt đầu phải lớn hơn hoặc bằng ngày hiện tại!!!");
-          document.querySelector(id).value = "";
+          document.getElementById(id).value = "";
           return false;
     }
     return true;
@@ -14,11 +14,11 @@ function CheckDateStart(id) {
 
 function CheckDateEnd(id) {
     var UserDate = document.getElementById(id).value;
-    var ToDate = new Date();
+    var startDayWFH = document.getElementById("idstartDayWFH").value;
 
-    if (new Date(UserDate).getTime() < ToDate.getTime()) {
-          alert("Ngày kết thúc phải lớn hơn hoặc bằng ngày hiện tại!!!");
-          document.querySelector(id).value = "";
+    if (new Date(UserDate).getDate() < (new Date(startDayWFH).getDate())) {
+          alert("Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!!!");
+          document.getElementById(id).value = "";
           return false;
     }
     return true;

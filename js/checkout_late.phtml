@@ -4,9 +4,15 @@ function CheckDateRequest(id) {
     var UserDate = document.getElementById(id).value;
     var ToDate = new Date();
 
-    if (new Date(UserDate).getTime() < ToDate.getTime()) {
-          alert("Ngày bắt đầu phải lớn hơn hoặc bằng ngày hiện tại!!!");
-          document.querySelector(id).value = "";
+    if (new Date(UserDate).getDate() > ToDate.getDate()) {
+          alert("Ngày checkout bù phải bé hơn hoặc bằng ngày hiện tại!!!");
+          document.getElementById(id).value = "";
+          return false;
+    }
+
+    if (ToDate.getDate() - (new Date(UserDate).getDate()) > 7) {
+          alert("Ngày checkout bù phải bé hơn hoặc bằng 7 ngày so với ngày hiện tại!!!");
+          document.getElementById(id).value = "";
           return false;
     }
     return true;

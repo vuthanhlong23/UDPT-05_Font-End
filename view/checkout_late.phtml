@@ -5,7 +5,7 @@
         <form action="index.php?action=addrequestCheckoutLate" method="POST">
             <div class="row requestCheckoutLate__formItem">
                 <span class="requestCheckoutLate__formItemName">Ngày xin checkout bù *</sp>
-                <input class="requestCheckoutLate__formInput" type="date" name="checkoutDate" required value="<?php if(isset($_POST['checkoutDate'])){echo $_POST['checkoutDate']; } ?>">
+                <input class="requestCheckoutLate__formInput" type="date" id="checkoutDateRequest" name="checkoutDate" required value="<?php if(isset($_POST['checkoutDate'])){echo $_POST['checkoutDate']; } ?>" onblur="CheckDateRequest(id);">
             </div>
             <div class="row requestCheckoutLate__formItem">
                 <span class="requestCheckoutLate__formItemName">Lý do xin checkout bù *</span>

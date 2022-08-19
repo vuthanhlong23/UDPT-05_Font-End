@@ -36,8 +36,6 @@ class DeviceRequest {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
 
         $resp = curl_exec($ch);
 
@@ -102,7 +100,6 @@ class DeviceRequest {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
 
@@ -156,7 +153,6 @@ class DeviceRequest {
         curl_setopt($curl, CURLOPT_POSTFIELDS, $payload); 
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); 
         
@@ -176,7 +172,7 @@ class DeviceRequest {
         $hosting = new Hosting();
         $url = $hosting->urlHost."deviceRequest/update_form/ITManager";
         $param = array(
-            'id' => $id, 
+            'id' => $id,
             'idITManager' => $idITManager,
             'requestITRejectReason' => $requestITRejectReason,
             'requestStatus' => $requestStatus
@@ -222,7 +218,6 @@ class DeviceRequest {
         curl_setopt($curl, CURLOPT_POSTFIELDS, $payload); 
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); 
 
@@ -251,7 +246,6 @@ class DeviceRequest {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload); 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
 
@@ -293,7 +287,6 @@ class DeviceRequest {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
 

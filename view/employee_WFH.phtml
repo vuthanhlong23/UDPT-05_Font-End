@@ -5,11 +5,11 @@
         <form action="index.php?action=addRequestWFH" method="POST">
             <div class="row requestWFH__formItem">
                 <span class="requestWFH__formItemName">Ngày bắt đầu *</sp>
-                <input class="requestWFH__formInput" type="date" name="startDayWFH" required value="<?php if(isset($_POST['startDayWFH'])){echo $_POST['startDayWFH']; } ?>" onblur="CheckDateStart(id);">
+                <input class="requestWFH__formInput" type="date" id="idstartDayWFH" name="startDayWFH" required value="<?php if(isset($_POST['startDayWFH'])){echo $_POST['startDayWFH']; } ?>" onblur="CheckDateStart(id);">
             </div>
             <div class="row requestWFH__formItem">
                 <span class="requestWFH__formItemName">Ngày kết thúc *</sp>
-                <input class="requestWFH__formInput" type="date" name="endDayWFH" required value="<?php if(isset($_POST['endDayWFH'])){echo $_POST['endDayWFH']; } ?>" onblur="CheckDateEnd(id);">
+                <input class="requestWFH__formInput" type="date" id="idendDayWFH" name="endDayWFH" required value="<?php if(isset($_POST['endDayWFH'])){echo $_POST['endDayWFH']; } ?>" onblur="CheckDateEnd(id);">
             </div>
             <div class="row requestWFH__formItem">
                 <span class="requestWFH__formItemName">Lý do làm tại nhà *</span>

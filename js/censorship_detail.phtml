@@ -88,18 +88,20 @@
         return false;
     }
 
-    function updateStatusRequest(requestStatus){
-        if(typeof requestStatus == "undefined")
-            requestStatus = "reject";
+    function updateStatusRequest(requestStatusUpdate){
+        if(typeof requestStatusUpdate == "undefined")
+            requestStatusUpdate = "reject";
         var idRequest = document.getElementById("idRequest").value;
         var idCensorship = document.getElementById("idCensorship").value;
         var page = document.getElementById("page").value;
         var typeRequest = document.getElementById("typeRequest").value;
+        typeRequest = typeRequest.substring(0, typeRequest.indexOf('&page'));
+        var requestStatus = document.getElementById("requestStatus").value;
         var requestRejectReason = "";
         if (document.getElementById('requestRejectReason') !=null) {
             requestRejectReason = document.getElementById("requestRejectReason").value;
         }
-        var url ="index.php?action=censorshipdetail&func=update&idCensorship=" + encodeURI(idCensorship) + "&idRequest=" + encodeURI(idRequest) + "&page=" + encodeURI(page) + "&typeRequest=" + encodeURI(typeRequest) + "&requestRejectReason=" + encodeURI(requestRejectReason)  + "&requestStatus=" + encodeURI(requestStatus);
+        var url ="index.php?action=censorshipdetail&func=update&idCensorship=" + encodeURI(idCensorship) + "&idRequest=" + encodeURI(idRequest) + "&page=" + encodeURI(page) + "&typeRequest=" + encodeURI(typeRequest) + "&requestRejectReason=" + encodeURI(requestRejectReason)  + "&requestStatusUpdate=" + encodeURI(requestStatusUpdate)   + "&requestStatus=" + encodeURI(requestStatus);
         if(url != ''){
             window.location=url;
         }

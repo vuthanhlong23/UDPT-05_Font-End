@@ -23,9 +23,9 @@ class requestController {
         $requestStatus = $_REQUEST["requestStatus"];
         
         if(isset($_REQUEST["func"])){
-            $requestStatus = $_REQUEST["requestStatus"];
+            $requestStatusUpdate = $_REQUEST["requestStatusUpdate"];
             $requestRejectReason = $_REQUEST["requestRejectReason"];
-            $result = requestModel::UpdateRequestByCensorship($idRequest, $requestStatus, $requestRejectReason);
+            $result = requestModel::UpdateRequestByCensorship($idRequest, $requestStatusUpdate, $requestRejectReason);
         }
 
         $result = requestModel::RequestDetailByIdRequest($idCensorship, $pageIndex, $pageSize, $typeRequest, $idRequest, $requestStatus);

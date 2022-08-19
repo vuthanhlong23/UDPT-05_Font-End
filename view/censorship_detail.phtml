@@ -23,38 +23,38 @@
                         $typeRequest = $_REQUEST["typeRequest"];
 
                         if(strcmp($typeRequest, "all") == 0){
-                            echo "<option value='{$idCensorship}&page=1&typeRequest=all&idRequest=0' selected>Tất cả</option>";
+                            echo "<option value='{$idCensorship}&typeRequest=all&page=1&idRequest=0' selected>Tất cả</option>";
                         }
                         else{
-                            echo "<option value='{$idCensorship}&page=1&typeRequest=all&idRequest=0'>Tất cả</option>";
+                            echo "<option value='{$idCensorship}&typeRequest=all&page=1&idRequest=0'>Tất cả</option>";
                         }
 
                         if(strcmp($typeRequest, "off") == 0){
-                            echo "<option value='{$idCensorship}&page=1&typeRequest=off&idRequest=0' selected>Yêu cầu nghỉ phép</option>";
+                            echo "<option value='{$idCensorship}&typeRequest=off&page=1&idRequest=0' selected>Yêu cầu nghỉ phép</option>";
                         }
                         else{
-                            echo "<option value='{$idCensorship}&page=1&typeRequest=off&idRequest=0'>Yêu cầu nghỉ phép</option>";
+                            echo "<option value='{$idCensorship}&typeRequest=off&page=1&idRequest=0'>Yêu cầu nghỉ phép</option>";
                         }
 
                         if(strcmp($typeRequest, "ot") == 0){
-                            echo "<option value='{$idCensorship}&page=1&typeRequest=ot&idRequest=0' selected>Yêu cầu OT</option>";
+                            echo "<option value='{$idCensorship}&typeRequest=ot&page=1&idRequest=0' selected>Yêu cầu OT</option>";
                         }
                         else{
-                            echo "<option value='{$idCensorship}&page=1&typeRequest=ot&idRequest=0'>Yêu cầu OT</option>";
+                            echo "<option value='{$idCensorship}&typeRequest=ot&page=1&idRequest=0'>Yêu cầu OT</option>";
                         }
 
                         if(strcmp($typeRequest, "home") == 0){
-                            echo "<option value='{$idCensorship}&page=1&typeRequest=home&idRequest=0' selected>Yêu cầu làm việc tại nhà</option>";
+                            echo "<option value='{$idCensorship}&typeRequest=home&page=1&idRequest=0' selected>Yêu cầu làm việc tại nhà</option>";
                         }
                         else{
-                            echo "<option value='{$idCensorship}&page=1&typeRequest=home&idRequest=0'>Yêu cầu làm việc tại nhà</option>";
+                            echo "<option value='{$idCensorship}&typeRequest=home&page=1&idRequest=0'>Yêu cầu làm việc tại nhà</option>";
                         }
 
                         if(strcmp($typeRequest, "checkout") == 0){
-                            echo "<option value='{$idCensorship}&page=1&typeRequest=checkout&idRequest=0' selected>Yêu cầu checkout bù</option>";
+                            echo "<option value='{$idCensorship}&typeRequest=checkout&page=1&idRequest=0' selected>Yêu cầu checkout bù</option>";
                         }
                         else{
-                            echo "<option value='{$idCensorship}&page=1&typeRequest=checkout&idRequest=0'>Yêu cầu checkout bù</option>";
+                            echo "<option value='{$idCensorship}&typeRequest=checkout&page=1&idRequest=0'>Yêu cầu checkout bù</option>";
                         }
                     ?>
                     </select>
@@ -114,7 +114,7 @@
                         $fullName = $data['listRequest'][$i]['employeeFirstName']." ".$data['listRequest'][$i]['employeeLastName'];
                         if((int)$data['detailRequest']['id'] == (int)$data['listRequest'][$i]['id']){
                             echo "<div class='censorship-detail__container-content-request-list-item' style='background-color: var(--secondary-color);'>
-                                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$data['listRequest'][$i]['id']}&requestStatus={$requestStatus}' class='censorship-detail__container-content-request-list-item-element'>
+                                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&typeRequest={$typeRequest}&page={$page}&idRequest={$data['listRequest'][$i]['id']}&requestStatus={$requestStatus}' class='censorship-detail__container-content-request-list-item-element'>
                                         <div class='censorship-detail__container-content-request-list-item-element__title'>
                                             <span class='censorship-detail__container-content-request-list-item-element__title-name' style='color: var(--white-color);'>{$data['listRequest'][$i]['requestName']}</span>
                                         </div>
@@ -126,7 +126,7 @@
                         }
                         else{
                             echo "<div class='censorship-detail__container-content-request-list-item'>
-                                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&page={$page}&typeRequest={$typeRequest}&idRequest={$data['listRequest'][$i]['id']}&requestStatus={$requestStatus}' class='censorship-detail__container-content-request-list-item-element'>
+                                    <a href='index.php?action=censorshipdetail&idCensorship={$idCensorship}&typeRequest={$typeRequest}&page={$page}&idRequest={$data['listRequest'][$i]['id']}&requestStatus={$requestStatus}' class='censorship-detail__container-content-request-list-item-element'>
                                         <div class='censorship-detail__container-content-request-list-item-element__title'>
                                             <span class='censorship-detail__container-content-request-list-item-element__title-name'>{$data['listRequest'][$i]['requestName']}</span>
                                         </div>

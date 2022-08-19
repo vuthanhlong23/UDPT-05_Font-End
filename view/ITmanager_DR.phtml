@@ -28,6 +28,12 @@
                 </thead>
                 <?php
                     foreach ($dataAllRequest as $item)  {
+                        if ($item->requestStatus == 'Thành công') {
+                            continue;
+                        }
+                        if ($item->requestStatus == 'Từ chối' && is_null($item->requestManagerRejectReason) != 1) {
+                            continue;
+                        }
                         $time = strtotime($item->requestDate);
                         $item->requestDate = date('d-m-Y',$time);
                         print "

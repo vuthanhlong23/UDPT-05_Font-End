@@ -3,94 +3,14 @@
         <div class="information__header_nav">
             <a class="information__header-nav-item">
                 <i class="information__header-nav-item-icon fa-solid fa-angle-right"></i>
-                <p class="information__header-nav-item-name">Thông tin cá nhân</p>
-            </a>
-            <a class="information__header-nav-item">
-                <i class="information__header-nav-item-icon fa-solid fa-angle-right"></i>
-                <p class="information__header-nav-item-name">Thông tin công việc</p>
+                <p class="information__header-nav-item-name">Quản lý công việc</p>
             </a>
         </div>
     </div>
 </div>
 <div class="information__container">
     <div class="row">
-        <div class="col-3 information__container-left">
-            <div class="row">
-                <div class="information--left__element">
-                    <div class="information--left--profile">
-                        <div class="circular--landscape">
-                            <img src="assets/img/profile.png" class="information--left--profile__photo" alt="Avatar" />
-                        </div>
-                        <?php 
-                            $employeeName = $data["employee"]["firstname"]." ".$data["employee"]["lastname"];
-                            echo "<span class='information--left--profile__fullname'>".$employeeName."</span>";
-                        ?>
-                        <?php
-                            $roleName = $_SESSION['roleName'];
-                            echo "<span class='information--left--profile__position'>".$roleName."</span>";
-                        ?>
-                    </div>
-                </div>
-                <div class="information--left__element">
-                    <div class="information--left--quickinfor">
-                        <div class="information--left--quickinfor__element">
-                            <i class="information--left--quickinfor__element-icon fa-solid fa-qrcode"></i>
-                            <?php
-                                echo "<span class='information--left--quickinfor__element-value'>".$data["employee"]["idEmployee"]."</span>";
-                            ?>
-                        </div>
-                        <div class="information--left--quickinfor__element">
-                            <i class="information--left--quickinfor__element-icon fa-solid fa-briefcase"></i>
-                            <?php
-                                echo "<span class='information--left--quickinfor__element-value'>".$data["employee"]["position"]."</span>";
-                            ?>
-                        </div>
-                        <div class="information--left--quickinfor__element">
-                            <i class="information--left--quickinfor__element-icon fa-solid fa-envelope"></i>
-                            <?php
-                                echo "<span class='information--left--quickinfor__element-value'>".$data["employee"]["email"]."</span>";
-                            ?>
-                            
-                        </div>
-                        <div class="information--left--quickinfor__element">
-                            <i class="information--left--quickinfor__element-icon fa-solid fa-square-phone"></i>
-                            <?php
-                                echo "<span class='information--left--quickinfor__element-value'>".$data["employee"]["phoneNumber"]."</span>";
-                            ?> 
-                        </div>
-                    </div>
-                </div>
-                <div class="information--left__element">
-                    <div class="information--left-functions">
-                        <?php
-                            $idEmployee = $_REQUEST['idEmployee'];
-                            echo "<a href='index.php?action=information&idEmployee={$idEmployee}' class='information--left-functions-item'>
-                            <div class='col-2 information--left-functions-left'>
-                                <i class='information--left-functions-left__icon fa-solid fa-user-large' ></i>
-                            </div>
-                            <div class='col-10 information--left-functions-right'>
-                                    <span class='information--left-functions-right__title' >Thông tin chính</span>
-                                    <span class='information--left-functions-right__description' >Thông tin lý lịch và pháp lý</span>
-                            </div>
-                        </a>";
-                        ?>
-                        <?php
-                            $idEmployee = $_REQUEST['idEmployee'];
-                            echo "<a href='index.php?action=task&idEmployee={$idEmployee}&page=1&status=all' class='information--left-functions-item'>
-                            <div class='col-2 information--left-functions-left'>
-                                <i class='information--left-functions-left__icon fa-solid fa-font-awesome' style='color:var(--secondary-color);'></i>
-                            </div>
-                            <div class='col-10 information--left-functions-right'>
-                                    <span class='information--left-functions-right__title' style='color:var(--secondary-color);'>Thông tin công việc</span>
-                                    <span class='information--left-functions-right__description' style='color:var(--secondary-color);'>Thông tin công việc, sự nghiệp</span>
-                            </div>
-                        </a>";
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-9 information__container-right">
+        <div class="information__container-right">
             <div class="row" style="padding-bottom: 10px;">
                 <div class="information__container-right__title col-8">
                     <div class="row information__container-right__title-element">
@@ -164,29 +84,28 @@
                                 </div>
                             </div>
                             <?php
-                                if(isset($data["listTasks"])){
+                                if(isset($data)){
                                     $self = $_SERVER['PHP_SELF'];
                                     $currentPage = 1;
                                     if (isset($_REQUEST["page"]))
                                         $currentPage = $_REQUEST["page"];
-                                    $n = count($data["listTasks"]);
+                                    $n = count($data);
                                     $i = 0;
                                     while($i < $n){
-                                        $deadline = date('d-m-Y',strtotime($data["listTasks"][$i]["deadline"]));
-                                        $idTask = $data['listTasks'][$i]['id'];
+                                        $deadline = date('d-m-Y',strtotime($data[$i]["deadline"]));
                                         echo "<div class='information__container-right__content-list-item'>
-                                        <a href='index.php?action=taskdetail&idEmployee={$idEmployee}&page={$currentPage}&status={$status}&idTask={$idTask}' class='information__container-right__content-list-item-link'>
+                                        <a class='information__container-right__content-list-item-link'>
                                             <div class='information__container-right__content-list-item-link-job'>
-                                                <span class='information__container-right__content-list-item-link-job-value'>{$data["listTasks"][$i]["taskName"]}</span>
+                                                <span class='information__container-right__content-list-item-link-job-value'>{$data[$i]["taskName"]}</span>
                                             </div>
                                             <div class='information__container-right__content-list-item-link-deadline'>
                                                 <span class='information__container-right__content-list-item-link-deadline-value'>{$deadline}</span>
                                             </div>
                                             <div class='information__container-right__content-list-item-link-project'>
-                                                <span class='information__container-right__content-list-item-link-project-value'>{$data["listTasks"][$i]["projectName"]}</span>
+                                                <span class='information__container-right__content-list-item-link-project-value'>{$data[$i]["projectName"]}</span>
                                             </div>
                                             <div class='information__container-right__content-list-item-link-status'>
-                                                <span class='information__container-right__content-list-item-link-status-value'>{$data["listTasks"][$i]["status"]}</span>
+                                                <span class='information__container-right__content-list-item-link-status-value'>{$data[$i]["status"]}</span>
                                             </div>
                                         </a>
                                     </div>";
@@ -202,16 +121,16 @@
                                     if ($currentPage > 1)
                                     {
                                         $page = $currentPage - 1;
-                                        $prev = "<a class='paging-data' href='$self?action=task&idEmployee=$idEmployee&page=$page&status=$status'><</a>";
+                                        $prev = "<a class='paging-data' href='$self?action=managertask&idEmployee=$idEmployee&page=$page&status=$status'><</a>";
                                     }
                                     else
                                     {
-                                        $prev = "<a class='paging-data' href='$self?action=task&idEmployee=$idEmployee&page=1&status=$status'><</a>";
+                                        $prev = "<a class='paging-data' href='$self?action=managertask&idEmployee=$idEmployee&page=1&status=$status'><</a>";
                                     }
 
 
                                     $page = $currentPage + 1;
-                                    $next = "     <a class='paging-data' href='$self?action=task&idEmployee=$idEmployee&page=$page&status=$status'>></a>";
+                                    $next = "     <a class='paging-data' href='$self?action=managertask&idEmployee=$idEmployee&page=$page&status=$status'>></a>";
 
                                     echo $prev.$currentPage.$next;
                                 ?>
@@ -223,4 +142,4 @@
         </div>
     </div>
 </div>
-<?php require("js/employee_tasks.phtml"); ?>
+<?php require("js/manager_tasks.phtml"); ?>

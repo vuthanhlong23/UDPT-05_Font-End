@@ -164,32 +164,52 @@
                                 </div>
                             </div>
                             <?php
-                                if(isset($data["listTasks"])){
+                                if(isset($data["listTask"])){
                                     $self = $_SERVER['PHP_SELF'];
                                     $currentPage = 1;
                                     if (isset($_REQUEST["page"]))
                                         $currentPage = $_REQUEST["page"];
-                                    $n = count($data["listTasks"]);
+                                    $n = count($data["listTask"]);
                                     $i = 0;
+                                    $idTask = $_REQUEST["idTask"];
                                     while($i < $n){
-                                        $deadline = date('d-m-Y',strtotime($data["listTasks"][$i]["deadline"]));
-                                        $idTask = $data['listTasks'][$i]['id'];
-                                        echo "<div class='information__container-right__content-list-item'>
-                                        <a href='index.php?action=taskdetail&idEmployee={$idEmployee}&page={$currentPage}&status={$status}&idTask={$idTask}' class='information__container-right__content-list-item-link'>
-                                            <div class='information__container-right__content-list-item-link-job'>
-                                                <span class='information__container-right__content-list-item-link-job-value'>{$data["listTasks"][$i]["taskName"]}</span>
-                                            </div>
-                                            <div class='information__container-right__content-list-item-link-deadline'>
-                                                <span class='information__container-right__content-list-item-link-deadline-value'>{$deadline}</span>
-                                            </div>
-                                            <div class='information__container-right__content-list-item-link-project'>
-                                                <span class='information__container-right__content-list-item-link-project-value'>{$data["listTasks"][$i]["projectName"]}</span>
-                                            </div>
-                                            <div class='information__container-right__content-list-item-link-status'>
-                                                <span class='information__container-right__content-list-item-link-status-value'>{$data["listTasks"][$i]["status"]}</span>
-                                            </div>
-                                        </a>
-                                    </div>";
+                                        $deadline = date('d-m-Y',strtotime($data["listTask"][$i]["deadline"]));
+                                        $id = $data["listTask"][$i]["id"];
+                                        if($idTask == $id){
+                                            echo "<div class='information__container-right__content-list-item' style='background-color: var(--secondary-color);'>
+                                            <a href='index.php?action=taskdetail&idEmployee={$idEmployee}&page={$currentPage}&status={$status}&idTask={$id}' class='information__container-right__content-list-item-link'>
+                                                <div class='information__container-right__content-list-item-link-job'>
+                                                    <span class='information__container-right__content-list-item-link-job-value'>{$data["listTask"][$i]["taskName"]}</span>
+                                                </div>
+                                                <div class='information__container-right__content-list-item-link-deadline'>
+                                                    <span class='information__container-right__content-list-item-link-deadline-value'>{$deadline}</span>
+                                                </div>
+                                                <div class='information__container-right__content-list-item-link-project'>
+                                                    <span class='information__container-right__content-list-item-link-project-value'>{$data["listTask"][$i]["projectName"]}</span>
+                                                </div>
+                                                <div class='information__container-right__content-list-item-link-status'>
+                                                    <span class='information__container-right__content-list-item-link-status-value'>{$data["listTask"][$i]["status"]}</span>
+                                                </div>
+                                            </a>
+                                        </div>";
+                                        }
+                                        else
+                                            echo "<div class='information__container-right__content-list-item'>
+                                            <a href='index.php?action=taskdetail&idEmployee={$idEmployee}&page={$currentPage}&status={$status}&idTask={$id}' class='information__container-right__content-list-item-link'>
+                                                <div class='information__container-right__content-list-item-link-job'>
+                                                    <span class='information__container-right__content-list-item-link-job-value'>{$data["listTask"][$i]["taskName"]}</span>
+                                                </div>
+                                                <div class='information__container-right__content-list-item-link-deadline'>
+                                                    <span class='information__container-right__content-list-item-link-deadline-value'>{$deadline}</span>
+                                                </div>
+                                                <div class='information__container-right__content-list-item-link-project'>
+                                                    <span class='information__container-right__content-list-item-link-project-value'>{$data["listTask"][$i]["projectName"]}</span>
+                                                </div>
+                                                <div class='information__container-right__content-list-item-link-status'>
+                                                    <span class='information__container-right__content-list-item-link-status-value'>{$data["listTask"][$i]["status"]}</span>
+                                                </div>
+                                            </a>
+                                        </div>";
                                         $i += 1;
                                     }
                                 }
@@ -217,6 +237,120 @@
                                 ?>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <form class="task-detail-form" method="post">
+                            <div class="task-detail">
+                                <div class="task-detail-title">
+                                        <span>CHI TIẾT CÔNG VIỆC</span>
+                                </div>
+                                <div class="task-detail-element">
+                                    <div class="row">
+                                        <div class="task-detail-element-title col-4">
+                                            <div class="task-detail-element-title-icon col-2">
+                                                <i class="fa-solid fa-list-check"></i>
+                                            </div>
+                                            <div class="task-detail-element-title-value col-10">
+                                                <span>Công việc</span> 
+                                            </div>
+                                        </div>
+                                        <div class="task-detail-element-value col-8">
+                                            <?php
+                                                echo "<span>{$data['task_detail']['taskName']}</span>";
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="task-detail-element">
+                                    <div class="row">
+                                        <div class="task-detail-element-title col-4">
+                                            <div class="task-detail-element-title-icon col-2">
+                                                <i class="fa-solid fa-file"></i>
+                                            </div>
+                                            <div class="task-detail-element-title-value col-10">
+                                                <span>Dự án</span> 
+                                            </div>
+                                        </div>
+                                        <div class="task-detail-element-value col-8">
+                                            <?php
+                                                echo "<span>{$data['task_detail']['projectName']}</span>";
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="task-detail-element">
+                                    <div class="row">
+                                        <div class="task-detail-element-title col-4">
+                                            <div class="task-detail-element-title-icon col-2">
+                                                <i class="fa-solid fa-clock"></i>
+                                            </div>
+                                            <div class="task-detail-element-title-value col-10">
+                                                <span>Deadline</span> 
+                                            </div>
+                                        </div>
+                                        <div class="task-detail-element-value col-8">
+                                            <?php
+                                                $deadline = date('d-m-Y',strtotime($data["task_detail"]["deadline"]));
+                                                echo "<span>{$deadline}</span>";
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="task-detail-element">
+                                    <div class="row">
+                                        <div class="task-detail-element-title col-4">
+                                            <div class="task-detail-element-title-icon col-2">
+                                                <i class="fa-solid fa-gear"></i>
+                                            </div>
+                                            <div class="task-detail-element-title-value col-10">
+                                                <span>Trạng thái</span> 
+                                            </div>
+                                        </div>
+                                        <div class="task-detail-element-value col-8">
+                                            <select class="information__container-right__filter-list-item__element" name="statusupdate">
+                                                <?php
+                                                    $status = $data["task_detail"]["status"];
+
+                                                    if(strcmp($status, "Quá hạn") == 0){
+                                                        echo "<option value='out' selected>Quá hạn</option>";
+                                                    }
+                                                    else{
+                                                        echo "<option value='out'>Quá hạn</option>";
+                                                    }
+
+                                                    if(strcmp($status, "Hoàn thành") == 0){
+                                                        echo "<option value='complete' selected>Hoàn thành</option>";
+                                                    }
+                                                    else{
+                                                        echo "<option value='complete'>Hoàn thành</option>";
+                                                    }
+
+                                                    if(strcmp($status, "Đang thực hiện") == 0){
+                                                        echo "<option value='doing' selected>Đang thực hiện</option>";
+                                                    }
+                                                    else{
+                                                        echo "<option value='doing'>Đang thực hiện</option>";
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="task-detail-element">
+                                    <div class="row">
+                                        <div class="task-detail-element-btn" method="get">
+                                            <input type="hidden" name="func" value="update">
+                                            <input type="hidden" name="action" value="taskdetail">
+                                            <?php
+                                                $status = $_REQUEST['status'];
+                                                echo "<input type='hidden' name='idEmployee' value='$idEmployee'><input type='hidden' name='idTask' value='$idTask'><input type='hidden' name='page' value='$currentPage'><input type='hidden' name='status' value='$status'>";
+                                            ?>
+                                            <input class="task-detail-element-btn" type="submit" value="Cập nhật">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

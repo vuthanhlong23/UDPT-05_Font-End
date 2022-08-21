@@ -1,0 +1,35 @@
+
+.task-detail{
+    margin: 0 auto;
+    width: 55%;
+    border: 1px solid var(--black-color);
+}
+
+.task-detail-element{
+    padding-bottom: 10px;
+}
+.task-detail-title{
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.task-detail-element-title{
+    display: flex;
+    list-style: none;
+    padding-left: 5px;
+}
+
+.task-detail-element-value{
+    text-align: right;
+}
+
+.task-detail-element-btn{
+    max-width: 0 auto;
+    text-align: center;
+}
+
+.task-detail-element-btn{
+    border:none;
+    color: var(--secondary-color);
+}

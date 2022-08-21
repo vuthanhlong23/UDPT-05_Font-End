@@ -132,6 +132,14 @@ switch ($action){
         $controller = new EmployeeController();
         $controller->task();
         break;
+    case "taskdetail":     
+        $controller = new EmployeeController();
+        $controller->taskDetail();
+        break;
+    case "managertask":     
+        $controller = new EmployeeController();
+        $controller->managerTask();
+        break;
     case "checkinHistory":     
         $controller = new CheckinCheckoutController();
         $controller->checkinHistory();

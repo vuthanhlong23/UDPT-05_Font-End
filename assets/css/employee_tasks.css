@@ -140,10 +140,6 @@
     float: left;
 }
 
-.information__container-right__title-element{
-    border-bottom: 1px solid var(--angle-color);
-}
-
 .information__container-right__title-left-element{
     padding-top: 5px;
 }

@@ -37,14 +37,46 @@ class EmployeeController {
         $pageIndex = ($_REQUEST['page'] - 1)*$pageSize;
         $status = $_REQUEST['status'];
 
-        // $result = Employee::GetInformation($idEmployee);
-        // $data = json_decode($result, true);
         $result = TaskEmployee::ListTaskEmployees($idEmployee, $pageIndex, $pageSize, $status);
         $data = json_decode($result, true);
         $VIEW = "./view/employee_tasks.phtml";
         require("./template/main_template.phtml");
     }
 
+    public function taskDetail(){
+        $idEmployee = $_REQUEST['idEmployee'];
+        $pageSize = 5;
+        $pageIndex = ($_REQUEST['page'] - 1)*$pageSize;
+        $status = $_REQUEST['status']; 
+        $idTask = $_REQUEST['idTask'];
+
+        if(isset($_REQUEST['func'])){
+            $statusupdate = $_REQUEST['statusupdate'];
+            $result = TaskEmployee::updateTaskByEmployee($idTask, $statusupdate);
+            $result = TaskEmployee::TaskDetailById($idEmployee, $pageIndex, $pageSize, $status, $idTask);
+            $data = json_decode($result, true);
+            header("Location: index.php?action=taskdetail&idEmployee=1&page=1&status=all&idTask=1");
+            return;
+        }
+
+        $result = TaskEmployee::TaskDetailById($idEmployee, $pageIndex, $pageSize, $status, $idTask);
+        $data = json_decode($result, true);
+        $VIEW = "./view/employee_taskdetail.phtml";
+        require("./template/main_template.phtml");
+    }
+
+    public function managerTask(){
+        $idEmployee = $_REQUEST['idEmployee'];
+        $pageSize = 10;
+        $pageIndex = ($_REQUEST['page'] - 1)*$pageSize;
+        $status = $_REQUEST['status']; 
+
+        $result = TaskEmployee::ListTaskManager($idEmployee, $pageIndex, $pageSize, $status);
+        $data = json_decode($result, true);
+        $VIEW = "./view/manager_task.phtml";
+        require("./template/main_template.phtml");
+    }
+    
     public function listEmployee(){
         $idManager = $_REQUEST['idManager'];
         $pageSize = 10;

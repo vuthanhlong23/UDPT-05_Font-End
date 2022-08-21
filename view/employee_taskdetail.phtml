@@ -307,7 +307,7 @@
                                             </div>
                                         </div>
                                         <div class="task-detail-element-value col-8">
-                                            <select class="information__container-right__filter-list-item__element" name="statusupdate">
+                                            <select class="information__container-right__filter-list-item__element" name="status">
                                                 <?php
                                                     $status = $data["task_detail"]["status"];
 
@@ -343,7 +343,7 @@
                                             <input type="hidden" name="action" value="taskdetail">
                                             <?php
                                                 $status = $_REQUEST['status'];
-                                                echo "<input type='hidden' name='idEmployee' value='$idEmployee'><input type='hidden' name='idTask' value='$idTask'><input type='hidden' name='page' value='$currentPage'><input type='hidden' name='status' value='$status'>";
+                                                echo "<input type='hidden' name='idEmployee' value='$idEmployee'><input type='hidden' name='idTask' value='$idTask'><input type='hidden' name='page' value='$currentPage'>";
                                             ?>
                                             <input class="task-detail-element-btn" type="submit" value="Cập nhật">
                                         </div>

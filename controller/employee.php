@@ -51,11 +51,10 @@ class EmployeeController {
         $idTask = $_REQUEST['idTask'];
 
         if(isset($_REQUEST['func'])){
-            $statusupdate = $_REQUEST['statusupdate'];
-            $result = TaskEmployee::updateTaskByEmployee($idTask, $statusupdate);
+            $result = TaskEmployee::updateTaskByEmployee($idTask, $status);
             $result = TaskEmployee::TaskDetailById($idEmployee, $pageIndex, $pageSize, $status, $idTask);
             $data = json_decode($result, true);
-            header("Location: index.php?action=taskdetail&idEmployee=1&page=1&status=all&idTask=1");
+            header("Location: index.php?action=taskdetail&idEmployee={$idEmployee}&page={$_REQUEST['page']}&status={$status}&idTask={$idTask}");
             return;
         }
 
